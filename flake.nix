@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       #   sudo nixos-rebuild switch --flake .#nixos-test
       "nixos-test" = nixpkgs.lib.nixosSystem {
