@@ -18,8 +18,8 @@
   };
 
   # link all files in `./nvim` to `~/.config/nvim`
-  home.file."/.config/nvim" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./nvim;
+  xdg.configFile."/nvim" = {
+      source = ./nvim;
       recursive = true;
   };
 
