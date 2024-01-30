@@ -20,6 +20,7 @@
   # link all files in `./nvim` to `~/.config/nvim`
   home.file."/.config/nvim" = {
       source = config.lib.file.mkOutOfStoreSymlink ./nvim;
+      recursive = true;
   };
 
   # basic configuration of git, please change to your own
