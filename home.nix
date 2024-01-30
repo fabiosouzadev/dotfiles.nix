@@ -4,7 +4,14 @@
   # TODO please change the username & home direcotry to your own
   home.username = "fabiosouzadev";
   home.homeDirectory = "/home/fabiosouzadev";
-
+  
+  # link all files in `./scripts` to `~/.config/i3/scripts`
+   home.file.".config/nvim" = {
+     source = ./nvim;
+     recursive = true;   # link recursively
+     executable = true;  # make all files executable
+   };
+  
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
   ];
