@@ -91,7 +91,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];
     packages = with pkgs; [
-    # slack
+      slack
       brave
       authy
       bitwarden
