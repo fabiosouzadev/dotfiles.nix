@@ -11,8 +11,9 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -59,7 +60,7 @@
   console.keyMap = "dvorak";
 
   # Enable CUPS to print documents.
-  services.printing.enable = false;
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -87,12 +88,11 @@
     description = "Fabio";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
-      slack
+      git
+    # slack
       brave
       authy
       bitwarden
-      git
     #  thunderbird
     ];
   };
@@ -111,8 +111,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -126,7 +126,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
