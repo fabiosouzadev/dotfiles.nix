@@ -18,8 +18,7 @@
   };
 
   # link all files in `./nvim` to `~/.config/nvim`
-  xdg.configFile."/nvim" = { source = ./nvim; recursive = true;};
-
+  xdg.configFile."/nvim".source = config.lib.file.mkOutOfStoreSymlink ./nvim;
 
   # basic configuration of git, please change to your own
   programs.git = {
