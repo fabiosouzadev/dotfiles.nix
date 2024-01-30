@@ -16,6 +16,18 @@
     userEmail = "fabiovanderlei.developer@gmail.com";
   };
 
+  # starship - an customizable prompt for any shell
+  programs.starship = {
+    enable = true;
+    # custom settings
+    settings = {
+      add_newline = false;
+      aws.disabled = true;
+      gcloud.disabled = true;
+      line_break.disabled = true;
+    };
+  };
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
