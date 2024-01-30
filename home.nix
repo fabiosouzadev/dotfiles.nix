@@ -9,7 +9,6 @@
    home.file.".config/nvim" = {
      source = ./nvim;
      recursive = true;   # link recursively
-     executable = true;  # make all files executable
    };
   
   # Packages that should be installed to the user profile.
