@@ -8,14 +8,20 @@
   
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    neovim
   ];
   
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
   # link all files in `./nvim` to `~/.config/nvim`
-   home.file.".config/nvim" = {
+  home.file.".config/nvim" = {
      source = ./nvim;
      recursive = true;   # link recursively
-   };
+  };
 
   # basic configuration of git, please change to your own
   programs.git = {
