@@ -5,15 +5,17 @@
   home.username = "fabiosouzadev";
   home.homeDirectory = "/home/fabiosouzadev";
   
-  # link all files in `./scripts` to `~/.config/i3/scripts`
+  
+  # Packages that should be installed to the user profile.
+  home.packages = with pkgs; [
+    neovim
+  ];
+  
+  # link all files in `./nvim` to `~/.config/nvim`
    home.file.".config/nvim" = {
      source = ./nvim;
      recursive = true;   # link recursively
    };
-  
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-  ];
 
   # basic configuration of git, please change to your own
   programs.git = {
