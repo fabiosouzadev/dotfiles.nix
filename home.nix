@@ -18,10 +18,8 @@
   };
 
   # link all files in `./nvim` to `~/.config/nvim`
-  xdg.configFile.nvim = {
-     recursive = true;
-     source = ./nvim;
-  };
+  home.file."${config.home.homeDirectory}/nvim" = { source = ./nvim; recursive = true;};
+
 
   # basic configuration of git, please change to your own
   programs.git = {
