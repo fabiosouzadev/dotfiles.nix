@@ -6,6 +6,9 @@
 #
 ############################################################################
 
+test:
+  nixos-rebuild test --flake .#nixos-test --use-remote-sudo
+
 deploy:
   nixos-rebuild switch --flake .#nixos-test --use-remote-sudo
 
