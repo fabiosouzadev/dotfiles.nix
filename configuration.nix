@@ -91,7 +91,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];
     packages = with pkgs; [
-      git
     # slack
       brave
       authy
@@ -111,11 +110,16 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable Flakes and the new command-line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+     git
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
+     curl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
