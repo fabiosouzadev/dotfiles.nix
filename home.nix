@@ -22,6 +22,10 @@
       source = ./nvim;
       recursive = true;
   };
+  home.file."/nvim" = {
+      source = ./nvim;
+      recursive = true;
+  };
 
   # basic configuration of git, please change to your own
   programs.git = {
