@@ -45,6 +45,11 @@
       recursive = true;
   };
 
+  xdg.configFile.nvim = {
+      recursive = true;
+      source = ./nvim;
+  };
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
