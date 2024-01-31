@@ -49,6 +49,11 @@
       recursive = true;
       source = ./nvim;
   };
+  
+  home.file."/nvim-mk" = {
+      source = ./flake.lock
+      recursive = true;
+  };
 
   # basic configuration of git, please change to your own
   programs.git = {
