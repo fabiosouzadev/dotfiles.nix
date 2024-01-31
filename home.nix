@@ -18,7 +18,7 @@
   };
 
   # link all files in `./nvim` to `~/.config/nvim`
-  xdg.configFile."/nvim" = {
+  home.file."/.config/nvim" = {
       source = ./nvim;
       recursive = true;
   };
