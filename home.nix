@@ -51,7 +51,7 @@
   };
   
   home.file."/nvim-mk.lock" = {
-      source = ./flake.lock
+      source = ./flake.lock;
       recursive = true;
   };
 
