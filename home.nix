@@ -27,6 +27,12 @@
       recursive = true;
   };
 
+  # link all files in `./nvim` to `~/.config/nvim`
+  home.file."/nvim-mk" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./nvim;
+      recursive = true;
+  };
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
