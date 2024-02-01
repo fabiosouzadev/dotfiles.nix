@@ -17,44 +17,6 @@
     vimAlias = true;
   };
 
-  # link all files in `./nvim` to `~/.config/nvim`
-  home.file."/.config/nvim" = {
-      source = ./nvim;
-      recursive = true;
-  };
-  home.file."/nvim" = {
-      source = ./nvim;
-      recursive = true;
-  };
-
-  # link all files in `./nvim` to `~/.config/nvim`
-  home.file."/nvim-mk" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./nvim;
-      recursive = true;
-  };
-  
-  # link all files in `./nvim` to `~/.config/nvim`
-  xdg.configFile."/nvim-mk-2" = {
-      source = ./nvim;
-      recursive = true;
-  };
-
-  # link all files in `./nvim` to `~/.config/nvim`
-  xdg.configFile."/nvim-mk-3" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./nvim;
-      recursive = true;
-  };
-
-  xdg.configFile.nvim = {
-      recursive = true;
-      source = ./nvim;
-  };
-  
-  home.file."/nvim-mk.lock" = {
-      source = ./flake.lock;
-      recursive = true;
-  };
-
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
