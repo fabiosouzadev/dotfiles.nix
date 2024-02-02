@@ -10,7 +10,7 @@
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-        nixosConfigs = {
+        nixosConfigurations = {
             "notezapay" = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
 
@@ -46,5 +46,5 @@
                 ];
             };
         };
-    }
+    };
 }

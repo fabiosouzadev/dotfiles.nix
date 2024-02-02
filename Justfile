@@ -11,16 +11,16 @@ get-config-notezapay:
    nixos-generate-config --show-hardware-config > lib/notezapay/hardware-configuration.nix 
 
 test:
-  nixos-rebuild test --flake .#nixosConfig.virt-manager --use-remote-sudo
+  nixos-rebuild test --flake .#virt-manager --use-remote-sudo
 
 deploy:
-  nixos-rebuild switch --flake .#nixosConfig.virt-manager  # --use-remote-sudo
+  nixos-rebuild switch --flake .#virt-manager --use-remote-sudo
 
 test-notezapay: get-config-notezapay
-  nixos-rebuild test --flake .#nixosConfig.notezapay --use-remote-sudo
+  nixos-rebuild test --flake .#notezapay --use-remote-sudo
 
-deploy notezapay: get-config-notezapay
-  nixos-rebuild switch --flake .#nixosConfig.notezapay  # --use-remote-sudo
+deploy-notezapay: get-config-notezapay
+  nixos-rebuild switch --flake .#notezapay --use-remote-sudo
 
 debug:
   nixos-rebuild switch --flake .#nixos-test --use-remote-sudo --show-trace --verbose
