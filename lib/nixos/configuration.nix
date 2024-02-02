@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware/notezapay/hardware-configuration.nix
+      ./hardware/virt-manager/hardware-configuration.nix
     ];
 
   # Bootloader.

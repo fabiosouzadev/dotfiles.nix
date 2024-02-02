@@ -10,6 +10,12 @@ default:
 get-config-notezapay:
    nixos-generate-config --show-hardware-config > lib/notezapay/hardware-configuration.nix 
 
+test:
+  nixos-rebuild test --flake .#nixosConfig.virt-manager --use-remote-sudo
+
+deploy:
+  nixos-rebuild switch --flake .#nixosConfig.virt-manager  # --use-remote-sudo
+
 test-notezapay: get-config-notezapay
   nixos-rebuild test --flake .#nixosConfig.notezapay --use-remote-sudo
 
