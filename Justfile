@@ -57,8 +57,11 @@ clean:
 ############################################################################
 
 nvim-clean:
-  rm -rf $"($env.HOME)/.config/nvim"
+  rm -rf "$HOME/.config/nvim"
 
 nvim-test: nvim-clean
   rsync -avz --copy-links --chmod=D2755,F744 configs/editors/nvim $"($env.HOME)/.config/nvim"
+
+nvim-deploy: nvim-clean
+  cp -r configs/editors/nvim "$HOME/.config/nvim"
 
