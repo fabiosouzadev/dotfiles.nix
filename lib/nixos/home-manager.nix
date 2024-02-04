@@ -41,6 +41,11 @@
    recursive = true;
   };
   
+  home.file."/.config/polybar" = {
+   source = ../../configs/polybar;
+   recursive = true;
+  };
+  
   programs.neovim = {
     enable = true;
     defaultEditor = true;

@@ -147,7 +147,8 @@
      nerdfonts
      gnome.gnome-keyring
      dmenu
-     greenclip
+     haskellPackages.greenclip
+     polybar
   ];
   # Set default editor to vim
   environment.variables.EDITOR = "vim";
