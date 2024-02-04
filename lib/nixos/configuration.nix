@@ -46,8 +46,22 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm = {
+  #	enable = true;
+  #	wayland = false;
+  #};
+  #services.xserver.desktopManager.gnome.enable = true;
+  
+  services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.i3.extraPackages = with pkgs; [
+      i3-gaps
+      i3lock
+      i3status
+      i3blocks
+    ];
+  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.desktopManager.xfce.noDesktop = true;
+  services.xserver.desktopManager.xfce.enableXfwm = false;
 
   # Configure keymap in X11
   services.xserver = {
@@ -59,7 +73,7 @@
   console.keyMap = "dvorak";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -97,6 +111,11 @@
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "fabiosouzadev";
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.defaultSession = "xfce+i3";
+  services.gvfs.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.blueman.enable = true;
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -104,6 +123,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.pulseaudio = true;
 
   # Enable Flakes and the new command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -115,6 +135,19 @@
      wget
      curl
      just
+     picom
+     rofi
+     nitrogen
+     feh
+     flameshot
+     arandr
+     polkit_gnome
+     pulseaudioFull
+     networkmanagerapplet
+     nerdfonts
+     gnome.gnome-keyring
+     dmenu
+     greenclip
   ];
   # Set default editor to vim
   environment.variables.EDITOR = "vim";
@@ -126,8 +159,34 @@
      enable = true;
      enableSSHSupport = true;
   };
+  programs = {
+    thunar.enable = true;
+    dconf.enable = true;
+  };
+  security = {
+    polkit.enable = true;
+  };
 
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart =
+          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
   # List services that you want to enable:
+  hardware = {
+    bluetooth.enable = true;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh = {

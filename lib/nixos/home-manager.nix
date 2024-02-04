@@ -1,5 +1,5 @@
-{ config, pkgs, ... }:
-
+{  config, pkgs, ... }:
+ 
 {
   # TODO please change the username & home direcotry to your own
   home.username = "fabiosouzadev";
@@ -13,6 +13,33 @@
     authy
     bitwarden
   ];
+
+  home.file."/.config/wallpapers" = {
+   source = ../../configs/wallpapers;
+   recursive = true;
+  };
+  
+  home.file."/.config/i3" = {
+   source = ../../configs/i3;
+   recursive = true;
+  };
+  
+  home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
+  
+  home.file."/.config/picom" = {
+   source = ../../configs/picom;
+   recursive = true;
+  };
+  
+  home.file."/.config/rofi" = {
+   source = ../../configs/rofi;
+   recursive = true;
+  };
+  
+  home.file."/.config/dunst" = {
+   source = ../../configs/dunst;
+   recursive = true;
+  };
   
   programs.neovim = {
     enable = true;
@@ -27,6 +54,40 @@
     userName = "Fabio Souza";
     userEmail = "fabiovanderlei.developer@gmail.com";
   };
+
+#  programs.autorandr = {
+#    enable = true;
+#    profiles = {
+#      "both" = {
+#      	fingerprint = {
+#	  DP-1   = "";
+#	  HDMI-1 = "";
+#	};
+#	config = {
+#	  DP-1 = {
+#           dpi = 100;
+#           enable = true;
+#           mode = "1920x1080";
+#           position = "0x0";
+#           rate = "60.00";
+#          };
+#	  HDMI-1 = {
+#           enable = true;
+#           primary = true;
+#           #position = "0x0";
+#           mode = "1920x1080";
+#           #rate = "60.00";
+#           #scale = {
+#           #x = 2.0;
+#           #y = 2.0;
+#           #};
+#          };
+#	};
+#      };
+#      "note" = {
+#      };
+#    };
+#  };
 
   # starship - an customizable prompt for any shell
   programs.starship = {
@@ -71,4 +132,3 @@
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
-
