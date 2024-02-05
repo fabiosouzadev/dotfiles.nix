@@ -45,6 +45,7 @@
    source = ../../configs/polybar;
    recursive = true;
   };
+
   
   programs.neovim = {
     enable = true;
