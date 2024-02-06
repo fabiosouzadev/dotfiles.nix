@@ -8,7 +8,7 @@ default:
 ############################################################################
 
 get-config-notezapay:
-   nixos-generate-config --show-hardware-config > lib/nixos/hardware/notezapay/hardware-configuration.nix 
+   cp /etc/nixos/hardware-configuration.nix lib/nixos/hardware/notezapay/hardware-configuration.nix 
 
 test:
   nixos-rebuild test --flake .#virt-manager --use-remote-sudo
