@@ -56,8 +56,10 @@
     };
 
     # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "alt-intl";
+    xkb = {
+    	layout = "us";
+    	variant = "alt-intl";
+    };
   };
 
   # Configure console keymap

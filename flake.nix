@@ -1,11 +1,19 @@
 {
     description = "NixOS configuration of Fabio Souza (fabiosouzadev)";
 
+   # inputs = {
+   #     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+   #     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+   #     home-manager = {
+   #         url = "github:nix-community/home-manager";
+   #         inputs.nixpkgs.follows = "nixpkgs-unstable";
+   #     };
+   # };
+
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-        nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
         home-manager = {
-            url = "github:nix-community/home-manager-23.11";
+            url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };

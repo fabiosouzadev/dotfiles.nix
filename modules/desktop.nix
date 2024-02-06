@@ -1,4 +1,5 @@
 
+{ pkgs, lib, ... }: 
 {
   # List services that you want to enable:
   hardware = {
