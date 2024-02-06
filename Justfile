@@ -7,19 +7,22 @@ default:
 #
 ############################################################################
 
+get-config:
+   cp /etc/nixos/hardware-configuration.nix lib/nixos/hardware/virt-manager/hardware-configuration.nix 
+
 get-config-notezapay:
    cp /etc/nixos/hardware-configuration.nix lib/nixos/hardware/notezapay/hardware-configuration.nix 
 
-test:
+test: get-config
   nixos-rebuild test --flake .#virt-manager --use-remote-sudo
 
-deploy:
+deploy: get-config
   nixos-rebuild switch --flake .#virt-manager --use-remote-sudo
 
-test-notezapay:
+test-notezapay: get-config-notezapay
   nixos-rebuild test --flake .#notezapay --use-remote-sudo --show-trace --verbose
 
-deploy-notezapay:
+deploy-notezapay: get-config-notezapay
   nixos-rebuild switch --flake .#notezapay --use-remote-sudo --show-trace --verbose
 
 debug:
@@ -44,7 +47,7 @@ gc:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
-  home-manager expire-generations "-7 days"
+  # home-manager expire-generations "-7 days"
 
 clean:
   # remove all generations older than 7 days
