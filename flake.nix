@@ -2,9 +2,10 @@
     description = "NixOS configuration of Fabio Souza (fabiosouzadev)";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+        nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager-23.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
@@ -15,7 +16,7 @@
                 system = "x86_64-linux";
 
                 modules = [
-                    ./lib/nixos/configuration.nix
+                    ./hosts/notezapay
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
@@ -32,7 +33,7 @@
                 system = "x86_64-linux";
 
                 modules = [
-                    ./lib/nixos/configuration.nix
+                    ./hosts/virt-manager
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
