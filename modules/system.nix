@@ -33,6 +33,7 @@ in {
     LC_PAPER = "pt_BR.UTF-8";
     LC_TELEPHONE = "pt_BR.UTF-8";
     LC_TIME = "pt_BR.UTF-8";
+    LC_CTYPE="en_US.utf8"; 
   };
 
  # Configure keymap in X11

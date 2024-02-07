@@ -26,25 +26,25 @@
   
   # home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
   
-  home.file."/.config/picom" = {
-   source = ../../configs/picom;
-   recursive = true;
-  };
-  
-  home.file."/.config/rofi" = {
-   source = ../../configs/rofi;
-   recursive = true;
-  };
-  
-  home.file."/.config/dunst" = {
-   source = ../../configs/dunst;
-   recursive = true;
-  };
-  
-  home.file."/.config/polybar" = {
-   source = ../../configs/polybar;
-   recursive = true;
-  };
+  # home.file."/.config/picom" = {
+  #  source = ../../configs/picom;
+  #  recursive = true;
+  # };
+  # 
+  # home.file."/.config/rofi" = {
+  #  source = ../../configs/rofi;
+  #  recursive = true;
+  # };
+  # 
+  # home.file."/.config/dunst" = {
+  #  source = ../../configs/dunst;
+  #  recursive = true;
+  # };
+  # 
+  # home.file."/.config/polybar" = {
+  #  source = ../../configs/polybar;
+  #  recursive = true;
+  # };
 
   
   programs.neovim = {
