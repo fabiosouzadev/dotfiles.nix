@@ -174,7 +174,7 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -307,7 +307,7 @@ set $ws10 "10"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-workspace $ws1 output eDP-1
+#workspace $ws1 output eDP-1
 #workspace $ws2 output VGA-0
 #workspace $ws3 output HDMI-0
 #workspace $ws4 output HDMI-0
@@ -382,7 +382,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
-exec --no-startup-id sleep 1 && setxkbmap -layout 'us,br' -variant altgr-intl,abnt2 -option 'grp:alt_caps_toggle'
+#exec --no-startup-id sleep 1 && setxkbmap -layout 'us,br' -variant altgr-intl,abnt2 -option 'grp:alt_caps_toggle'
 
 # start conky:
 #exec_always --no-startup-id conky
