@@ -56,6 +56,7 @@
         # networkmanagerapplet
         # gnome.gnome-keyring
         dmenu
+        allacrity
      ];
      configFile = pkgs.writeText "i3.cfg" ''
         
