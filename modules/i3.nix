@@ -74,9 +74,9 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango: JetBrainsMono Nerd Font Mono 12
+font pango: JetBrainsMono Nerd Font Mono 12
 #font pango: monospace 12
-font pango:monospace 8
+#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -115,16 +115,16 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym Shift+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-#bindcode $mod+d exec "rofi -modi drun,run -show drun"
+bindcode $mod+d exec "rofi -modi drun,run -show drun"
 
 # change focus
 bindsym $mod+j focus left
