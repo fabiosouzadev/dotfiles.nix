@@ -110,7 +110,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec ${pkgs.i3}/bin/i3-sensible-terminal
+#bindsym $mod+Return exec ${pkgs.i3}/bin/i3-sensible-terminal
+bindsym $mod+Return exec allacrity
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -122,7 +123,8 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec ${pkgs.dmenu}/bin/dmenu_run
+#bindsym $mod+d exec ${pkgs.dmenu}/bin/dmenu_run
+bindcode $mod+d exec "rofi -modi drun,run -show drun"
 
 # change focus
 bindsym $mod+j focus left
