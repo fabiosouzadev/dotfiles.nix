@@ -57,7 +57,7 @@
         # gnome.gnome-keyring
         dmenu
      ];
-     configFile = (builtins.readFile "../configs/i3/config");
+     configFile = (builtins.readFile ../configs/i3/config);
     };
 
   };
