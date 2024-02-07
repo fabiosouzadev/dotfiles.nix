@@ -32,7 +32,7 @@
       enable = true;
       extraSessionCommands = ''
         ${pkgs.feh} --bg-fill --randomize $HOME/.config/wallpapers
-        ${pkgs.dunst}/bin/dunst --config $HOME/.config/dunst/dunstrc &
+        ${pkgs.dunst}/bin/dunst --config $HOME/.config/dunst/dunstrc
       '';
       extraPackages = with pkgs; [
         i3blocks      # status bar
