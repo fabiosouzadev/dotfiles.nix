@@ -56,7 +56,6 @@
         # networkmanagerapplet
         # gnome.gnome-keyring
         dmenu
-        allacrity
      ];
      configFile = pkgs.writeText "i3.cfg" ''
         
@@ -111,8 +110,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-#bindsym $mod+Return exec ${pkgs.i3}/bin/i3-sensible-terminal
-bindsym $mod+Return exec allacrity
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -125,7 +123,9 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+d exec ${pkgs.dmenu}/bin/dmenu_run
-bindcode $mod+d exec "rofi -modi drun,run -show drun"
+#bindcode $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec dmenu_run
+
 
 # change focus
 bindsym $mod+j focus left
