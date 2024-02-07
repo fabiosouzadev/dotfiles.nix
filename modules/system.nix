@@ -41,7 +41,7 @@ in {
     xkbVariant = "alt-intl";
   }; 
   # Configure console keymap
-  console.keyMap = "";
+  console.keyMap = "dvorak";
 
   # Enable the OpenSSH daemon.
   services.openssh = {
