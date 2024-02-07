@@ -19,10 +19,10 @@
    recursive = true;
   };
   
-  home.file."/.config/i3" = {
-   source = ../../configs/i3;
-   recursive = true;
-  };
+  # home.file."/.config/i3" = {
+  #  source = ../../configs/i3;
+  #  recursive = true;
+  # };
   
   # home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
   
