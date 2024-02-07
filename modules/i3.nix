@@ -74,7 +74,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: JetBrainsMono Nerd Font Mono 12
+#font pango: JetBrainsMono Nerd Font Mono 12
+font pango: monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -122,10 +123,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-#bindsym $mod+d exec ${pkgs.dmenu}/bin/dmenu_run
 #bindcode $mod+d exec "rofi -modi drun,run -show drun"
-bindsym $mod+d exec dmenu_run
-
 
 # change focus
 bindsym $mod+j focus left
