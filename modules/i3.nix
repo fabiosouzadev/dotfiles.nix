@@ -249,11 +249,6 @@ bar {
      '';
     };
 
-    # Configure keymap in X11
-    xkb = {
-    	layout = "us";
-    	variant = "alt-intl";
-    };
   };
 
   # Configure console keymap

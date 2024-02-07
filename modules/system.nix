@@ -35,6 +35,11 @@ in {
     LC_TIME = "pt_BR.UTF-8";
   };
 
+    # Configure keymap in X11
+    services.xserver = {
+    	layout = "br";
+    	xkbVariant = "alt-intl";
+    };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
