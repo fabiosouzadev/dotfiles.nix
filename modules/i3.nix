@@ -32,7 +32,7 @@
       enable = true;
       extraSessionCommands = ''
         ${pkgs.feh}/bin/feh --bg-fill ~/.config/wallpapers
-      ''
+      '';
       extraPackages = with pkgs; [
         i3blocks      # status bar
         i3lock        # default i3 screen locker
