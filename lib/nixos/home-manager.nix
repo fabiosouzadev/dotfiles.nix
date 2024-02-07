@@ -36,10 +36,10 @@
   #  recursive = true;
   # };
 
-  # home.file."/.config/dunst" = {
-  #  source = ../../configs/dunst;
-  #  recursive = true;
-  # };
+  home.file."/.config/dunst" = {
+   source = ../../configs/dunst;
+   recursive = true;
+  };
 
   # home.file."/.config/polybar" = {
   #  source = ../../configs/polybar;
