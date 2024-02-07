@@ -22,6 +22,10 @@
         defaultSession = "none+i3";
         lightdm.enable = false;
         gdm.enable = true;
+        autoLogin = {
+            enable = true;
+            user = "fabiosouzadev";
+        };
     };
 
     windowManager.i3 = {
