@@ -36,10 +36,13 @@ in {
   };
 
     # Configure keymap in X11
-    services.xserver = {
-    	layout = "br";
-    	xkbVariant = "alt-intl";
-    };
+  services.xserver = {
+    layout = "br";
+    xkbVariant = "";
+  };
+  
+  # Configure console keymap
+  console.keyMap = "br-abnt2";
 
   # Enable the OpenSSH daemon.
   services.openssh = {
