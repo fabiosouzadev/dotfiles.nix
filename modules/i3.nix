@@ -31,8 +31,8 @@
     windowManager.i3 = {
       enable = true;
       extraSessionCommands = ''
-        ${pkgs.feh} --bg-fill --randomize $HOME/.config/wallpapers
-        ${pkgs.dunst} --config $HOME/.config/dunst/dunstrc &
+        ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
+        ${pkgs.dunst}/bin/dunst --config $HOME/.config/dunst/dunstrc &
       '';
       extraPackages = with pkgs; [
         i3blocks      # status bar
