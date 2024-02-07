@@ -59,7 +59,7 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
     git
@@ -74,8 +74,7 @@ in {
   ];
   
   # Set default editor to vim
-  environment.variables.EDITOR = "vim";
-
+  environment.variables.EDITOR = "neovim";
 
   fonts.packages = with pkgs; [ nerdfonts ];
 

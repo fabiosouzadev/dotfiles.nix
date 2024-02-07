@@ -51,7 +51,7 @@
         # pulseaudioFull
         # networkmanagerapplet
         # gnome.gnome-keyring
-        # dmenu
+        dmenu
      ];
      configFile = pkgs.writeText "i3.cfg" ''
         
@@ -66,11 +66,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango: JetBrainsMono Nerd Font Mono 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -106,7 +106,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec ${i3}/bin/i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -118,6 +118,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec ${dmenu}/bin/dmenu_run
 
 # change focus
 bindsym $mod+j focus left
