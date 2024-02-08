@@ -2,7 +2,11 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
+      ../../modules/system.nix
+      ../../modules/desktop.nix
+      ../../modules/i3.nix
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
