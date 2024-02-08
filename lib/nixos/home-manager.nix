@@ -31,10 +31,10 @@
   #  recursive = true;
   # };
 
-  # home.file."/.config/rofi" = {
-  #  source = ../../configs/rofi;
-  #  recursive = true;
-  # };
+  home.file."/.config/rofi" = {
+   source = ../../configs/rofi;
+   recursive = true;
+  };
 
   home.file."/.config/dunst" = {
    source = ../../configs/dunst;

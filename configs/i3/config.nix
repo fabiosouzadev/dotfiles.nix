@@ -284,7 +284,7 @@ bindsym $mod+n exec thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
-#bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -562,8 +562,8 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-#bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh
-bindsym $mod+d exec "rofi -modi drun,run -show drun" 
+bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh
+#bindsym $mod+d exec "rofi -modi drun,run -show drun" 
 
 # #bindsym F9 exec rofi -modi drun -show drun \
 # 	-config ~/.config/rofi/rofidmenu.rasi
