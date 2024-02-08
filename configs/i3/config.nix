@@ -279,7 +279,7 @@ bindsym XF86AudioPrev  exec playerctl previous
 #bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec brave-browser
+bindsym $mod+w exec brave
 bindsym $mod+n exec thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
