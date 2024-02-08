@@ -43,7 +43,7 @@
         rofi          # application launcher, the same as dmenu
         dunst         # notification daemon
         libnotify     # to dunst works
-        picom         # transparency and shadows
+        #picom         # transparency and shadows
         feh           # set wallpaper
         flameshot     # screenshots
         acpi          # battery information
@@ -69,5 +69,16 @@
   environment.etc."xdg/i3/config".text = import ../configs/i3/i3-config.nix;
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
+
+  services.picom = {
+    enable = true;
+    fade = true;
+    activeOpacity = 1.0;
+    inactiveOpacity = 0.9;
+    fadeDelta = 3; # default 10
+
+    # this was the thing that made the tearing go away!
+    backend = "glx";
+  };
   
 }

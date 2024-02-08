@@ -45,6 +45,7 @@
   home.file."/.config/polybar" = {
    source = ../../configs/polybar;
    recursive = true;
+   executable = true;  # make all scripts executable
   };
 
   
