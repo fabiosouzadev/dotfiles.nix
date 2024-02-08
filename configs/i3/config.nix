@@ -182,7 +182,7 @@ bindsym $mod+q kill
 # exit-menu
 bindsym $mod+Shift+e exit
 
-#bindsym $mod+Shift+x exec ~/.config/i3/scripts/powermenu
+bindsym $mod+Shift+x exec ~/.config/i3/scripts/powermenu
 
 # Lock the system
 # lock with a picture:
@@ -197,10 +197,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding in fancy rofi (automated):
-#bindsym F1 exec ~/.config/i3/scripts/keyhint-2
+bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
-#bindsym $mod+F1 exec xed ~/.config/i3/keybindings
+bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Backlight control
 bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
@@ -254,7 +254,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # open new empty workspace
-#bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
+bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
 # Multimedia Keys
 
@@ -284,7 +284,7 @@ bindsym $mod+n exec thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
-#bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -356,8 +356,8 @@ for_window [class=Thunar] focus
 #
 # for custom config:
 ##exec_always --no-startup-id picom --config  ~/.config/picom.conf
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh --two
-#exec_always --no-startup-id picom -b & --experimental-backends
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --two
+exec_always --no-startup-id picom -b & --experimental-backends
 
 #############################################
 # autostart applications/services on login: #
@@ -382,7 +382,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
-#exec --no-startup-id sleep 1 && /usr/bin/setxkbmap -layout 'us,br' -variant altgr-intl,abnt2 -option 'grp:alt_caps_toggle'
+exec --no-startup-id sleep 1 && /usr/bin/setxkbmap -layout 'us,br' -variant altgr-intl,abnt2 -option 'grp:alt_caps_toggle'
 
 # start conky:
 #exec_always --no-startup-id conky
