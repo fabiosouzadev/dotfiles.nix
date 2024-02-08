@@ -571,7 +571,7 @@ bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 bindsym $mod+t exec ~/.config/rofi/scripts/window.sh 
 
-bindsym F10 exec rofi -show window \
+# bindsym F10 exec rofi -show window \
  	-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
