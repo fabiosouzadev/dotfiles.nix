@@ -72,10 +72,38 @@
 
   services.picom = {
     enable = true;
-    activeOpacity = 1.0;
-    inactiveOpacity = 0.9;
-    # this was the thing that made the tearing go away!
-    backend = "glx";
+    package = pkgs.picom.overrideAttrs (_: {
+      src = pkgs.fetchFromGitHub {
+        repo = "picom";
+        owner = "ibhagwan";
+        rev = "44b4970f70d6b23759a61a2b94d9bfb4351b41b1";
+        sha256 = "0iff4bwpc00xbjad0m000midslgx12aihs33mdvfckr75r114ylh";
+      };
+    });
+
+    activeOpacity = "1.0";
+    inactiveOpacity = "0.9";
+    fade = true;
+
+    opacityRule = [
+      "80:class_g     = 'Bar'",             # lemonbar
+      "100:class_g    = 'slop'",            # maim
+      "100:class_g    = 'XTerm'",
+      "100:class_g    = 'URxvt'",
+      "100:class_g    = 'kitty'",
+      # "100:class_g    = 'Alacritty'",
+      "80:class_g     = 'Polybar'",
+      "100:class_g    = 'code-oss'",
+      "100:class_g    = 'Meld'",
+      "70:class_g     = 'TelegramDesktop'",
+      "90:class_g     = 'Joplin'",
+      "100:class_g    = 'firefox'",
+      "100:class_g    = 'Thunderbird'",
+      "90:class_g     = 'VSCodium'",
+      "90:class_g     = 'jetbrains-*'",
+      "90:class_g     = 'Xfce4-terminal'",
+      "90:class_g     = 'Alacritty'"
+    ];
   };
   
 }
