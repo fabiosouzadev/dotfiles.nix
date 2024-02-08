@@ -19,9 +19,9 @@ set $left h
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango: JetBrainsMono Nerd Font Mono 12
+font pango: JetBrainsMono Nerd Font Mono 12
 #font pango:Iosevka Nerd Font 10
-font pango:monospace 8
+
 
 #####################
 # workspace layout: #
@@ -199,7 +199,7 @@ bindsym $mod+Shift+r restart
 bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
-#bindsym $mod+F1 exec xed ~/.config/i3/keybindings
+bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Backlight control
 bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
@@ -275,12 +275,12 @@ bindsym XF86AudioNext  exec playerctl next
 bindsym XF86AudioPrev  exec playerctl previous
 
 # Redirect sound to headphones
-#bindsym $mod+p exec /usr/local/bin/switch-audio-port
+bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec brave
-bindsym $mod+n exec thunar
-#bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+w exec /usr/bin/brave-browser-nightly
+bindsym $mod+n exec /usr/bin/thunar
+bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -363,7 +363,7 @@ exec_always --no-startup-id picom -b & --experimental-backends
 #############################################
 
 #get auth work with polkit-gnome
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
@@ -381,14 +381,14 @@ exec --no-startup-id dex --autostart --environment i3
 
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
-exec --no-startup-id sleep 1 && setxkbmap -layout 'us,br' -variant altgr-intl,abnt2 -option 'grp:alt_caps_toggle'
+exec --no-startup-id sleep 1 && /usr/bin/setxkbmap -layout 'us,br' -variant altgr-intl,abnt2 -option 'grp:alt_caps_toggle'
 
 # start conky:
 #exec_always --no-startup-id conky
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-#exec --no-startup-id sleep 1 && sh $HOME/.screenlayout/dual_intel_iris_xe.sh
+exec --no-startup-id sleep 1 && sh $HOME/.screenlayout/dual_intel_iris_xe.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
