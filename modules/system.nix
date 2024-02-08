@@ -38,8 +38,10 @@ in {
 
  # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "alt-intl";
+    xkb = {
+      layout = "us";
+      variant = "alt-intl";
+    };
   }; 
   # Configure console keymap
   console.keyMap = "dvorak";

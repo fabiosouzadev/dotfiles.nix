@@ -577,10 +577,4 @@ bindsym F10 exec rofi -show window \
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 exec --no-startup-id greenclip daemon>/dev/null
 bindsym $mod+c exec --no-startup-id ~/.config/rofi/scripts/greenclip.sh
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
 ''
