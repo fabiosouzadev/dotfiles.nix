@@ -565,13 +565,13 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh
 #bindsym $mod+d exec "rofi -modi drun,run -show drun" 
 
-# #bindsym F9 exec rofi -modi drun -show drun \
-# 	-config ~/.config/rofi/rofidmenu.rasi
+bindsym F9 exec rofi -modi drun -show drun \
+ 	-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 bindsym $mod+t exec ~/.config/rofi/scripts/window.sh 
 
-# bindsym F10 exec rofi -show window \
+bindsym F10 exec rofi -show window \
  	-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
