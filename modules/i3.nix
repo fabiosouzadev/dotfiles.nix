@@ -86,13 +86,6 @@
     fade = true;
 
     opacityRule = [ "100:class_g *?= 'Rofi'" ];
-
-    extraOptions = ''
-      corner-radius = 8;
-      rounded-corners-exclude = [
-        "class_i = 'polybar'"
-      ];
-    '';
   };
   
 }
