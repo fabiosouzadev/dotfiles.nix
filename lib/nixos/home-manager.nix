@@ -41,10 +41,10 @@
    recursive = true;
   };
 
-  home.file."/.config/polybar" = {
-   source = ../../configs/polybar;
-   recursive = true;
-  };
+  # home.file."/.config/polybar" = {
+  #  source = ../../configs/polybar;
+  #  recursive = true;
+  # };
 
   
   programs.neovim = {
