@@ -26,10 +26,10 @@
   
   # home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
   
-  home.file."/.config/picom" = {
-   source = ../../configs/picom;
-   recursive = true;
-  };
+  # home.file."/.config/picom" = {
+  #  source = ../../configs/picom;
+  #  recursive = true;
+  # };
 
   home.file."/.config/rofi" = {
    source = ../../configs/rofi;
