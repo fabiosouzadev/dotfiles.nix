@@ -357,7 +357,6 @@ for_window [class=Thunar] focus
 # for custom config:
 ##exec_always --no-startup-id picom --config  ~/.config/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --two
-exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
