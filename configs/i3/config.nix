@@ -174,7 +174,7 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -562,7 +562,8 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-#bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh 
+#bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh
+bindsym $mod+d exec "rofi -modi drun,run -show drun" 
 
 # #bindsym F9 exec rofi -modi drun -show drun \
 # 	-config ~/.config/rofi/rofidmenu.rasi
