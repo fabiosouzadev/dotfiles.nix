@@ -22,6 +22,7 @@
   home.file."/.config/i3/scripts" = {
    source = ../../configs/i3/scripts;
    recursive = true;
+   executable = true;  # make all scripts executable
   };
   
   # home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
