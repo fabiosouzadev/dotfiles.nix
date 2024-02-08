@@ -27,10 +27,7 @@
   
   # home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
   
-  home.file.picom_config = {
-    source = ../../configs/picom/picom.conf;
-    target = ".config/picom/picom.conf";
-  };
+  home.file."/.config/picom/picom.conf".source = ../../configs/picom/picom.conf;
 
   home.file."/.config/rofi" = {
    source = ../../configs/rofi;
@@ -45,7 +42,6 @@
   home.file."/.config/polybar" = {
    source = ../../configs/polybar;
    recursive = true;
-   executable = true;  # make all scripts executable
   };
 
   
