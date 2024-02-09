@@ -27,6 +27,5 @@
   #     emoji = ["Noto Color Emoji"];
   #   };
   # };
-  packages = with pkgs; [ nerdfonts ];
-  
+  fonts.packages = with pkgs; [ nerdfonts ];
 }

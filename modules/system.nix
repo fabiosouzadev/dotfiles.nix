@@ -4,7 +4,7 @@
 let
   username = "fabiosouzadev";
   nix = import ../lib/shared/nix.nix { inherit username; };
-  cfg_fonts = import ./fonts { inherit pkgs; };
+  cfg_fonts = import ./fonts.nix { inherit pkgs; };
 in {
   # ============================= User related =============================
 
