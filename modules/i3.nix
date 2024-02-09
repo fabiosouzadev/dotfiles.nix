@@ -73,11 +73,10 @@
       enable = true;
 
       package = pkgs.polybar.override {
+        i3Support = true;
         alsaSupport = true;
+        iwSupport = true;
         githubSupport = true;
-        mpdSupport = true;
-        pulseSupport = true;
-        i3GapsSupport = true;
       };
   };
   
