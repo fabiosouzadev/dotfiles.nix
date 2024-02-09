@@ -14,6 +14,19 @@
     bitwarden
   ];
 
+  services.polybar = {
+    enable = true;
+    package = pkgs.polybar.override {
+      i3Support = true;
+      alsaSupport = true;
+      iwSupport = true;
+      githubSupport = true;
+    };
+    script = ''
+    polybar top &
+    '';
+  };
+
   home.file."/.config/wallpapers" = {
    source = ../../configs/wallpapers;
    recursive = true;
