@@ -4,7 +4,6 @@
   imports =
     [ 
       ../../modules/system.nix
-      ../../modules/fonts.nix
       ../../modules/desktop.nix
       ../../modules/i3.nix
       # Include the results of the hardware scan.

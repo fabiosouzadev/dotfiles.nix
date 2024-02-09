@@ -85,4 +85,5 @@ in {
   
   # Set default editor to vim
   environment.variables.EDITOR = "neovim";
+  fonts.packages = with pkgs; [ nerdfonts ];
 }
