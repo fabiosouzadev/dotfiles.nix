@@ -72,10 +72,8 @@
   services.polybar = {
       package = pkgs.polybar.override {
             alsaSupport = true;
-            githubSupport = true;
             mpdSupport = true;
             pulseSupport = true;
-            i3GapsSupport = true;
           };
   };
 }
