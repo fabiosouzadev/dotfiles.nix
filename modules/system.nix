@@ -84,6 +84,6 @@ in {
   
   # Set default editor to vim
   environment.variables.EDITOR = "neovim";
-  nix = import ../lib/shared/nix.nix { inherit username lib; };
+  nix = import ../lib/shared/nix.nix {inherit username lib;};
   fonts = import ./fonts.nix { inherit pkgs; };
 }
