@@ -25,5 +25,4 @@
     monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
     emoji = ["Noto Color Emoji"];
   };
-  packages = with pkgs; [ nerdfonts ];
 }
