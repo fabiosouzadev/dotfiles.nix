@@ -69,11 +69,4 @@
   environment.etc."xdg/i3/config".text = import ../configs/i3/i3-config.nix;
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
-  services.polybar = {
-      package = pkgs.polybar.override {
-            alsaSupport = true;
-            mpdSupport = true;
-            pulseSupport = true;
-          };
-  };
 }

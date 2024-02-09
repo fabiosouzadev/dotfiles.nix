@@ -13,6 +13,15 @@
     authy
     bitwarden
   ];
+  services.polybar = {
+      enable = true;
+      script = "exec polybar main &";
+      package = pkgs.polybar.override {
+            alsaSupport = true;
+            mpdSupport = true;
+            pulseSupport = true;
+      };
+  };
 
   home.file."/.config/wallpapers" = {
    source = ../../configs/wallpapers;
