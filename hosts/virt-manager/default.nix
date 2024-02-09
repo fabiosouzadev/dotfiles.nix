@@ -8,6 +8,8 @@
       ../../modules/desktop.nix
       ../../modules/i3.nix
       ../../modules/polkit.nix
+      ../../modules/gnome-keyring.nix
+      ../../modules/zsh.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];

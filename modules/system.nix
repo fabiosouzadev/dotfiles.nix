@@ -46,15 +46,15 @@ in {
   console.keyMap = "dvorak";
 
   # Enable the OpenSSH daemon.
-  services.openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-        PermitRootLogin = "no"; # disable root login
-        PasswordAuthentication = false; # disable password login
-      };
-      openFirewall = true;
-  };
+  # services.openssh = {
+  #     enable = true;
+  #     settings = {
+  #       X11Forwarding = true;
+  #       PermitRootLogin = "no"; # disable root login
+  #       PasswordAuthentication = false; # disable password login
+  #     };
+  #     openFirewall = true;
+  # };
   
   programs.gnupg.agent = {
      enable = true;
@@ -84,6 +84,6 @@ in {
   
   # Set default editor to vim
   environment.variables.EDITOR = "neovim";
-  nix = import ../lib/shared/nix.nix {inherit username lib;};
+  nix = import ./nix.nix {inherit username lib;};
   fonts = import ./fonts.nix { inherit pkgs; };
 }
