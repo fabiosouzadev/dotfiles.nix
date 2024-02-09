@@ -54,7 +54,7 @@
         xorg.xdpyinfo    # get screen information
         sysstat          # get system information
         nitrogen
-        #polybar
+        polybarFull      # all for polybar
         haskellPackages.greenclip
         # polkit_gnome
         # pulseaudioFull
