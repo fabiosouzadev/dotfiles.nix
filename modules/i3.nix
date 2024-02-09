@@ -54,7 +54,7 @@
         xorg.xdpyinfo    # get screen information
         sysstat          # get system information
         nitrogen
-        polybar
+        #polybar
         haskellPackages.greenclip
         # polkit_gnome
         # pulseaudioFull
@@ -70,12 +70,12 @@
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
   services.polybar = {
-      enable = true;
-
       package = pkgs.polybar.override {
-        i3Support = true;
-        alsaSupport = true;
-      };
+            alsaSupport = true;
+            githubSupport = true;
+            mpdSupport = true;
+            pulseSupport = true;
+            i3GapsSupport = true;
+          };
   };
-  
 }
