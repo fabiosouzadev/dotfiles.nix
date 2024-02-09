@@ -1,4 +1,4 @@
-{ pkgs, lib }: {
+{ username, lib }: {
   settings = {
     auto-optimise-store = true;
     builders-use-substitutes = true;
