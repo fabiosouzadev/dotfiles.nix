@@ -1,1 +1,4 @@
-{ ... }: { programs.zsh.enable = true; }
+{ pkgs, ... }: { 
+  environment.shells = [ pkgs.zsh ];
+  programs.zsh.enable = true; 
+}
