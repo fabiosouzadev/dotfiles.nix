@@ -4,6 +4,7 @@
 let
   username = "fabiosouzadev";
   nix = import ../lib/shared/nix.nix { inherit username; };
+  cfg_fonts = import ./fonts { inherit pkgs; };
 in {
   # ============================= User related =============================
 
@@ -85,4 +86,5 @@ in {
   
   # Set default editor to vim
   environment.variables.EDITOR = "neovim";
+  fonts = cfg_fonts;
 }
