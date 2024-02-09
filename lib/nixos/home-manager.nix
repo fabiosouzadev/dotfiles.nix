@@ -17,11 +17,10 @@
       enable = true;
       script = "exec polybar main &";
       package = pkgs.polybar.override {
-        alsaSupport = true;
-        githubSupport = true;
-        mpdSupport = true;
-        pulseSupport = true;
         i3GapsSupport = true;
+        alsaSupport = true;
+        iwSupport = true;
+        githubSupport = true;
       };
   };
 
