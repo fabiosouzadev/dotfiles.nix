@@ -25,6 +25,7 @@
           "RobotoMono"
           "Terminus"
           "DejaVuSansMono"
-      ]; })
+      ]; 
+    })
   ];
 }
