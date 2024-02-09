@@ -72,7 +72,7 @@
   services.polybar = {
       enable = true;
 
-      package = polybar.override {
+      package = pkgs.polybar.override {
         alsaSupport = true;
         githubSupport = true;
         mpdSupport = true;
