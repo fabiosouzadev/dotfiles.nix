@@ -3,13 +3,11 @@
 
 let
   username = "fabiosouzadev";
-  nix = import ../lib/shared/nix.nix { inherit username; };
-  cfg_fonts = import ./fonts.nix { inherit pkgs; };
 in {
   # ============================= User related =============================
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.fabiosouzadev = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Fabio Souza";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -86,5 +84,6 @@ in {
   
   # Set default editor to vim
   environment.variables.EDITOR = "neovim";
-  fonts = cfg_fonts;
+  nix = import ../lib/shared/nix.nix { inherit username; };
+  fonts = import ./fonts.nix { inherit pkgs; };
 }
