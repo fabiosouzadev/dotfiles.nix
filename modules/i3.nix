@@ -20,8 +20,8 @@
 
     displayManager = {
         defaultSession = "none+i3";
-        lightdm.enable = false;
-        gdm.enable = true;
+        lightdm.enable = true;
+        #gdm.enable = true;
         autoLogin = {
             enable = true;
             user = "fabiosouzadev";
@@ -46,12 +46,12 @@
         picom         # transparency and shadows
         feh           # set wallpaper
         flameshot     # screenshots
-        acpi          # battery information
+        #acpi          # battery information
         arandr        # screen layout manager
         dex           # autostart applications
         xbindkeys        # bind keys to commands
-        xorg.xbacklight  # control screen brightness
-        xorg.xdpyinfo    # get screen information
+        #xorg.xbacklight  # control screen brightness
+        #xorg.xdpyinfo    # get screen information
         sysstat          # get system information
         nitrogen
         polybarFull      # all for polybar

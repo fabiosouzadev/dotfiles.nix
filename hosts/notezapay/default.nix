@@ -31,6 +31,8 @@
        };
   };
 
+  boot.loader.grub.device = "nodev";
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "notezapay"; # Define your hostname.
