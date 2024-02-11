@@ -9,7 +9,7 @@
       ../../modules/i3.nix
       ../../modules/polkit.nix
       ../../modules/gnome-keyring.nix
-      ../../modules/zsh.nix {inherit pkgs; }
+      ../../modules/zsh.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -23,7 +23,7 @@
 
     # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "notezapay"; # Define your hostname.
+  networking.hostName = "virt-manager"; # Define your hostname.
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
