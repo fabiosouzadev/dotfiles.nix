@@ -10,8 +10,6 @@ default:
 get-config:
    cp /etc/nixos/hardware-configuration.nix hosts/virt-manager/hardware-configuration.nix 
 
-get-config-notezapay:
-   cp /etc/nixos/hardware-configuration.nix hosts/notezapay/hardware-configuration.nix 
 
 test: get-config
   nixos-rebuild test --flake .#virt-manager --use-remote-sudo --show-trace --verbose
@@ -20,6 +18,8 @@ test: get-config
 deploy: get-config
   nixos-rebuild switch --flake .#virt-manager --use-remote-sudo --show-trace --verbose
 
+get-config-notezapay:
+   cp /etc/nixos/hardware-configuration.nix hosts/notezapay/hardware-configuration.nix 
 
 test-notezapay: get-config-notezapay
   nixos-rebuild test --flake .#notezapay --use-remote-sudo --show-trace --verbose
