@@ -37,9 +37,7 @@
    recursive = true;
    executable = true;  # make all scripts executable
   };
-  
-  # home.file."/.screenlayout/dual_intel_iris_xe.sh".source = ../../configs/monitors/xrand/dual_intel_iris_xe.sh;
-  
+   
   home.file."/.config/picom/picom.conf".source = ../../configs/picom/picom.conf;
 
   home.file."/.config/rofi" = {
