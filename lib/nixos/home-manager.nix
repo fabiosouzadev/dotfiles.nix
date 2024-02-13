@@ -38,6 +38,12 @@
    executable = true;  # make all scripts executable
   };
    
+  home.file."/.config/i3/scripts/displays" = {
+   source = ../../configs/i3/scripts/displays;
+   recursive = true;
+   executable = true;  # make all scripts executable
+  };
+
   home.file."/.config/picom/picom.conf".source = ../../configs/picom/picom.conf;
 
   home.file."/.config/rofi" = {
