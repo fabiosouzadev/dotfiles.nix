@@ -259,21 +259,26 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 # Multimedia Keys
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 
 # gradular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer sset Master 1%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec amixer sset Master 1%- && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioRaiseVolume exec amixer sset Master 1%+
+bindsym $mod+XF86AudioLowerVolume exec amixer sset Master 1%-
 
 # mute
-bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioMute exec amixer sset Master toggle
+
+##### Pulse Audio controls ######
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # m
 
 # audio control
-#bindsym XF86AudioPlay  exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext  exec playerctl next
-#bindsym XF86AudioPrev  exec playerctl previous
+bindsym XF86AudioPlay  exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
 
 # Redirect sound to headphones
 bindsym $mod+p exec /usr/local/bin/switch-audio-port

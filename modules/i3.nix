@@ -57,11 +57,10 @@
         polybarFull      # all for polybar
         haskellPackages.greenclip
         papirus-icon-theme
-        # polkit_gnome
-        # pulseaudioFull
-        # networkmanagerapplet
-        # gnome.gnome-keyring
+        pulseaudioFull
+	pavucontrol
         dmenu
+	playerctl
      ];
     };
 
