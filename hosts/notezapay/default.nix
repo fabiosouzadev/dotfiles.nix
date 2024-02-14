@@ -32,7 +32,7 @@
   };
 
   boot.loader.grub.device = "nodev";
-  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
 
   # Enable networking
   networking.networkmanager.enable = true;

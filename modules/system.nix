@@ -80,6 +80,7 @@ in {
     neofetch
     nnn # terminal file manager
     just
+    linuxKernel.packages.linux_5_4.rtl8821ce
   ];
   
   # Set default editor to vim
