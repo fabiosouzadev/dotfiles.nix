@@ -12,6 +12,7 @@
     brave
     authy
     bitwarden
+    spotify
   ];
 
   # services.polybar = {
