@@ -12,7 +12,6 @@
     brave
     authy
     bitwarden
-    pavucontrol
     spotify
   ];
 

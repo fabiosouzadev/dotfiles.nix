@@ -6,14 +6,14 @@
     enable = true;
     package = pkgs.bluez;
     hsphfpd.enable = true;
-    input.General.ClassicBondedOnly = false;
+    # input.General.ClassicBondedOnly = false;
     powerOnBoot = true;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
         Name = "Hello";
         ControllerMode = "dual";
-        FastConnectable = "true";
+        # FastConnectable = "true";
         Experimental = "true";
       };
       Policy = {
@@ -22,7 +22,7 @@
     };
   };
   
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
 
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
