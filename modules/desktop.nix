@@ -1,24 +1,6 @@
 
 { pkgs, lib, ... }: 
 {
-  # List services that you want to enable:
-  hardware.bluetooth = {
-    enable = true;
-    settings = {
-      General = {
-        Name = "Hello";
-        ControllerMode = "dual";
-        FastConnectable = "true";
-        Experimental = "true";
-      };
-      Policy = {
-        AutoEnable = "true";
-      };
-    };
-  };
-
-  services.blueman.enable = true;
-  
   # Enable CUPS to print documents.
   services.printing.enable = false;
 
