@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.bluez;
     hsphfpd.enable = true;
-    # input.General.ClassicBondedOnly = false;
+    input.General.ClassicBondedOnly = false;
     powerOnBoot = true;
     settings = {
       General = {
@@ -22,7 +22,7 @@
     };
   };
   
-  # services.blueman.enable = true;
+  services.blueman.enable = true;
 
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
