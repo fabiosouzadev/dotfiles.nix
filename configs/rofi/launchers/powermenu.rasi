@@ -42,11 +42,11 @@ prompt {
 
 textbox-prompt-colon {
 	padding: 						-2px 5px 5px -10px;
-	font:							"Material\-Design\-Iconic\-Font 12";
+	font:							"Material Design Icons 12";
 	background-color: 				@al;
 	text-color: 					@bar;
 	expand: false;
-	str: "";
+	str: " ";
 }
 
 entry {

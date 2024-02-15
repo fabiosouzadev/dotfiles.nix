@@ -1,10 +1,6 @@
 { pkgs, lib, ... }:
 {
   # bluetooth
-
-  # hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-  
   # List services that you want to enable:
   hardware.bluetooth = {
     enable = true;
@@ -25,6 +21,8 @@
       };
     };
   };
+  
+  services.blueman.enable = true;
 
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";

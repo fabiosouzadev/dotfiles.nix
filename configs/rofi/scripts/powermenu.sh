@@ -6,7 +6,7 @@
 ## Twitter : @adi1090x
 
 dir="~/.config/rofi/launchers"
-uptime=$(uptime -p | sed -e 's/up //g')
+uptime=$(uptime | sed 's/.*up \(.*\),.*user.*/\1/')
 
 rofi_command="rofi -no-config -theme $dir/powermenu.rasi"
 
