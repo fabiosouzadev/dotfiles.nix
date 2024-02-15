@@ -57,10 +57,10 @@
         polybarFull      # all for polybar
         haskellPackages.greenclip
         papirus-icon-theme
-        #pulseaudioFull
-	      pavucontrol
+        pulseaudioFull
+	pavucontrol
         dmenu
-	      playerctl
+	playerctl
      ];
     };
 
