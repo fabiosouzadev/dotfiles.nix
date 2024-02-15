@@ -10,7 +10,7 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = "Fabio Souza";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "bluetooth" "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];
@@ -32,7 +32,7 @@ in {
     LC_PAPER = "pt_BR.UTF-8";
     LC_TELEPHONE = "pt_BR.UTF-8";
     LC_TIME = "pt_BR.UTF-8";
-    LC_CTYPE="en_US.utf8"; 
+    LC_CTYPE="en_US.utf8";
   };
 
  # Configure keymap in X11
@@ -63,7 +63,6 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.pulseaudio = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

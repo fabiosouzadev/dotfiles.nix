@@ -6,6 +6,7 @@
     [ 
       ../../modules/system.nix
       ../../modules/bluetooth.nix
+      ../../modules/pulseaudio.nix
       ../../modules/desktop.nix
       ../../modules/i3.nix
       ../../modules/polkit.nix
@@ -34,7 +35,6 @@
 
   boot.loader.grub.device = "nodev";
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  #boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
 
   # Enable networking
   networking.networkmanager.enable = true;
