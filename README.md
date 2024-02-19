@@ -20,3 +20,13 @@ Components relevant to all hosts:
 |--------------|------------|
 | **Terminal** | Alacritty  |
 | **Editors**  | Neovim     |
+
+## NixOS Installation Guide
+
+```sh
+#sudo nixos-rebuild switch --flake <path>#<host>
+
+sudo nixos-rebuild switch --flake .#notezapay
+# or
+sudo nixos-rebuild switch --flake .#vm
+```
