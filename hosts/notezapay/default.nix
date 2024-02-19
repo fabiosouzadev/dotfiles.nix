@@ -12,6 +12,7 @@
       ../../modules/polkit.nix
       ../../modules/gnome-keyring.nix
       ../../modules/zsh.nix
+      ../../modules/hardware-acceleration.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
