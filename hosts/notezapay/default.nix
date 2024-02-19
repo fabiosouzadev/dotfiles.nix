@@ -4,25 +4,9 @@
 {
   imports =
     [ 
-      ../../modules/system.nix
-      ../../modules/bluetooth.nix
-      ../../modules/pulseaudio.nix
-      ../../modules/desktop.nix
-      ../../modules/i3.nix
-      ../../modules/polkit.nix
-      ../../modules/gnome-keyring.nix
-      ../../modules/zsh.nix
-      ../../modules/hardware-acceleration.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
-
-  # Bootloader.
-  #boot.loader.grub= { 
-  #    enable = true;
-  #    device = "/dev/vda";
-  #    useOSProber = true;
-  #};
+    ] ++ import (../../modules/hardware/notezapay);
 
   # Bootloader.
   boot.loader = { 

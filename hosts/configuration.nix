@@ -1,9 +1,36 @@
-
-{ pkgs, lib, ... }: 
-
+#
+#  Main system configuration. More information available in configuration.nix(5) man page.
+#
+#  flake.nix
+#   ├─ ./hosts
+#   │   ├─ default.nix
+#   │   └─ configuration.nix *
+#   └─ ./modules
+#       ├─ ./desktops
+#       │   └─ default.nix
+#       ├─ ./editors
+#       │   └─ default.nix
+#       ├─ ./hardware
+#       │   └─ default.nix
+#       ├─ ./programs
+#       │   └─ default.nix
+#       ├─ ./services
+#       │   └─ default.nix
+#       ├─ ./shell
+#       │   └─ default.nix
+#       └─ ./theming
+#           └─ default.nix
+#
+{ pkgs, ...}:
 let
   username = "fabiosouzadev";
-in {
+in
+{
+  imports = ( import ./nix.nix ++
+              import ../modules/desktops/fonts.nix ++
+              import ../modules/desktops ++
+              import ../modules/shells);
+ 
   # ============================= User related =============================
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -83,6 +110,4 @@ in {
   
   # Set default editor to vim
   environment.variables.EDITOR = "neovim";
-  nix = import ./nix.nix {inherit username lib;};
-  fonts = import ./fonts.nix { inherit pkgs; };
 }
