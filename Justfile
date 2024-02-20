@@ -9,8 +9,7 @@ default:
 get-config host:
    cp /etc/nixos/hardware-configuration.nix hosts/{{ host }}/hardware-configuration.nix 
 
-test host:
-     get-config {{ host }}
+test host: get-config {{ host }}
      sudo nixos-rebuild test --flake .#{{ host }} --show-trace --verbose
 
 build host:
