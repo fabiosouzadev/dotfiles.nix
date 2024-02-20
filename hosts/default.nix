@@ -1,11 +1,11 @@
 { nixpkgs, home-manager, ... }:
 let 
-  defaultUser =  "fabiosouzadev";
   defaultGit = {
     extraConfig.github.user = defaultUser;
     userEmail = "fabiovanderlei.developer@gmail.com";
     userName = "Fabio Souza";
   };
+  defaultUser =  "fabiosouzadev";
 in
 {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
