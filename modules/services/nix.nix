@@ -1,4 +1,4 @@
-{ nixpkgs, defaultUser }: 
+{ pkgs, defaultUser }: 
 {
   nix = {
     settings = {
@@ -16,9 +16,9 @@
     };
     # do garbage collection weekly to keep disk usage low
     gc = {
-      automatic = nixpkgs.lib.mkDefault true;
-      dates = nixpkgs.lib.mkDefault "weekly";
-      options = nixpkgs.lib.mkDefault "--delete-older-than 3d";
+      automatic = pkgs.lib.mkDefault true;
+      dates = pkgs.lib.mkDefault "weekly";
+      options = pkgs.lib.mkDefault "--delete-older-than 3d";
     };
   };
   nixpkgs.config.allowUnfree = true;
