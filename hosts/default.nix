@@ -28,6 +28,7 @@ notezapay = nixpkgs.lib.nixosSystem {                               # Desktop Pr
       home-manager.nixosModules.home-manager {              # Home-Manager Module
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.users.fabiosouzadev = import ./home;
       }
     ];
   };

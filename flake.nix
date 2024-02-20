@@ -13,7 +13,13 @@
     };
   };
   
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: {
+  outputs = inputs @ { 
+    self, 
+    nixpkgs, 
+    nixpkgs-unstable,
+    home-manager, 
+    ... 
+  }: {
     nixosConfigurations = (
       import ./hosts {
         inherit inputs nixpkgs nixpkgs-unstable home-manager;
