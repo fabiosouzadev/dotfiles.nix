@@ -17,10 +17,9 @@ let
 in
 {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
-      hostname = "nix-zapay";
       specialArgs = { 
           inherit system; inherit inputs; 
-          inherit defaultUser; inherit hostname;
+          inherit defaultUser;
         };
       modules = [
           ./nix-zapay
@@ -36,7 +35,7 @@ in
       hostname = "vm";
       specialArgs = { 
           inherit system; inherit inputs; 
-          inherit defaultUser; inherit hostname;
+          inherit defaultUser;
         };
       modules = [
           ./vm
