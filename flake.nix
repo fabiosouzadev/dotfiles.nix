@@ -21,7 +21,7 @@
     ... 
   }: {
     nixosConfigurations = (
-      import ./hosts {}
+      import ./hosts { nixpkgs; };
     );
     #darwinConfigurations = ();
     #homeConfigurations = ();
