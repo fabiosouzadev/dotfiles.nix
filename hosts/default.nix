@@ -1,4 +1,4 @@
-{pkgs, home-manager}:
+{nixpkgs, home-manager}:
 {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
