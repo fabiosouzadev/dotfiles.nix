@@ -21,6 +21,5 @@
       options = nixpkgs.lib.mkDefault "--delete-older-than 3d";
     };
   };
-  nixpkgs.config.allowUnfree = true;
 }
 
