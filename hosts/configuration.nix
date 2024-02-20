@@ -1,5 +1,5 @@
 
-{ pkgs, lib, defaultUser,home-manager }: 
+{ pkgs, defaultUser,home-manager }: 
 {
 
   imports =

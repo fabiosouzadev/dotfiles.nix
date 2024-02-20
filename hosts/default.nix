@@ -1,5 +1,15 @@
 {pkgs, nixpkgs, home-manager}:
-{
+let {
+ defaultUser = {
+  user = "fabiosouzadev";
+  defaultGit = {
+    extraConfig.github.user = defaultUsername;
+    userEmail = "fabiovanderlei.developer@gmail.com";
+    userName = "Fabio Souza";
+  }
+ };
+};
+in {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
       modules = [
@@ -15,7 +25,7 @@
     system = "x86_64-linux";
       modules = [
           ./vm
-          ./configuration.nix { inherit pkgs lib defaultUser home-manager; }
+          ./configuration.nix { inherit pkgs defaultUser home-manager; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
