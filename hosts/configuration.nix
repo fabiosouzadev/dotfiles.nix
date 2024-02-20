@@ -1,4 +1,4 @@
-{ config, pkgs, defaultUser, ... }: 
+{ config, pkgs, defaultUser, defaultGit, ... }: 
 
 {
   imports = ( import ../modules/desktops ++

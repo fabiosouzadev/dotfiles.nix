@@ -1,12 +1,11 @@
 { nixpkgs, home-manager, ... }:
-let 
+let
+  defaultUser =  "fabiosouzadev";
   defaultGit = {
     extraConfig.github.user = defaultUser;
     userEmail = "fabiovanderlei.developer@gmail.com";
     userName = "Fabio Souza";
   };
-  defaultUser =  "fabiosouzadev";
-  
   system = "x86_64-linux";
   pkgs = import nixpkgs {
     inherit system;
@@ -20,6 +19,7 @@ in
       specialArgs = { 
           inherit system;
           inherit defaultUser;
+          inherit defaultGit;
         };
       modules = [
           ./nix-zapay
@@ -35,6 +35,7 @@ in
       specialArgs = { 
           inherit system;
           inherit defaultUser;
+          inherit defaultGit;
         };
       modules = [
           ./vm

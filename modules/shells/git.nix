@@ -1,10 +1,12 @@
-{  config, pkgs, ... }:
+{  config, pkgs, defaultUser, defaultGit, ... }:
  
 {
   # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    userName = "Fabio Souza";
-    userEmail = "fabiovanderlei.developer@gmail.com";
+  home-manager.users.${defaultUser} = {
+    programs.git = {
+      enable = true;
+      userName = defaultGit.userName;
+      userEmail = defaultGit.userEmail;
+    };
   };
 }
