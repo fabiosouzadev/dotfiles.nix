@@ -1,8 +1,8 @@
-{  config, pkgs, username, ... }:
+{  config, pkgs, defaultUser, ... }:
  
 {
   # TODO please change the username & home direcotry to your own
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
+  home.username = defaultUser;
+  home.homeDirectory = "/home/${defaultUser}";
 
 }
