@@ -61,8 +61,8 @@
 
   };
 
-  #environment.etc."xdg/i3/config".text = import ../../configs/i3/i3-config.nix;
-  environment.etc."xdg/i3/config".text = pkgs.callPackage ../configs/i3/i3-config.nix {};
+  environment.etc."xdg/i3/config".text = import ../../configs/i3/i3-config.nix;
+  #environment.etc."xdg/i3/config".text = pkgs.callPackage ../../configs/i3/i3-config.nix {};
   home-manager.users.${defaultUser} = {
     home.file."/.config/wallpapers" = {
     source = ../../configs/wallpapers;
