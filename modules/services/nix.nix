@@ -1,4 +1,4 @@
-{ defaultUser, ... }: 
+{ nixpkgs, defaultUser, ... }: 
 {
   nix = {
     settings = {
