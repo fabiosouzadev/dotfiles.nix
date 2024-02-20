@@ -3,7 +3,7 @@
   imports =
     [
       # TODO: Desktop
-      ../../modules/desktop
+      ../modules/desktop
     ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${defaultUser.user} = {
