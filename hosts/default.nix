@@ -15,7 +15,7 @@
     system = "x86_64-linux";
       modules = [
           ./vm
-          ./configuration.nix { inherit pkgs lib defaultUser home-manager; };
+          ./configuration.nix { inherit pkgs lib defaultUser home-manager; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
