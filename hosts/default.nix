@@ -3,11 +3,10 @@ let {
  defaultUser = {
   user = "fabiosouzadev";
   defaultGit = {
-    extraConfig.github.user = defaultUsername;
     userEmail = "fabiovanderlei.developer@gmail.com";
     userName = "Fabio Souza";
-  }
- }
+  };
+ };
 };
 in {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
