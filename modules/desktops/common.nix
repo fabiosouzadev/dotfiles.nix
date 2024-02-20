@@ -1,13 +1,15 @@
-{  config, pkgs, ... }:
+{  config, pkgs, defaultUser, ... }:
  
 {
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    slack
-    brave
-    authy
-    bitwarden
-    spotify
-  ];
+  home-manager.users.${defaultUser} = {
+    home.packages = with pkgs; [
+      slack
+      brave
+      authy
+      bitwarden
+      spotify
+    ];
+  };
 
 }
