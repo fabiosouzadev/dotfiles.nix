@@ -1,6 +1,6 @@
 { user, home-manager }: 
 
-{ pkgs, ... }: 
+{ config, pkgs, ... }: 
 
 {
   imports = ( import ../modules/desktops);
