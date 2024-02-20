@@ -1,7 +1,8 @@
 { config, pkgs, defaultUser, defaultGit, ... }: 
 
 {
-  imports = ( import ../modules/desktops ++
+  imports = ( import ../modules/services/nix.nix ++
+              import ../modules/desktops ++
               import ../modules/editors ++
               import ../modules/shells);
   # imports = ( import ../modules/desktops ++
