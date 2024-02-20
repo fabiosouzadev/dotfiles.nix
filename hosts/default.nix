@@ -12,7 +12,7 @@ in
     system = "x86_64-linux";
       modules = [
           ./nix-zapay
-          ./configuration.nix { inherit defaultUser defaultGit home-manager; }
+          ./configuration.nix { inherit defaultUser home-manager; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -24,7 +24,7 @@ in
     system = "x86_64-linux";
       modules = [
           ./vm
-          ./configuration.nix { inherit defaultUser defaultGit home-manager; }
+          ./configuration.nix { inherit defaultUser home-manager; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
