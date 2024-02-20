@@ -1,11 +1,11 @@
-{pkgs, nixpkgs, home-manager}:
+{ pkgs, nixpkgs, home-manager }:
 let 
   defaultUser = {
     user = "fabiosouzadev";
     defaultGit = {
       userEmail = "fabiovanderlei.developer@gmail.com";
       userName = "Fabio Souza";
-    }
+    };
   };
 in
 {
