@@ -1,0 +1,3 @@
+[
+  ../shared/hardware-acceleration.nix
+]
