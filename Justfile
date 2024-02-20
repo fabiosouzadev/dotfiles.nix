@@ -6,10 +6,10 @@ default:
 #  NixOs Commands
 #
 ###########################################################################
-get-config host:
-   cp /etc/nixos/hardware-configuration.nix hosts/{{ host }}/hardware-configuration.nix 
+get-config:
+   cp /etc/nixos/hardware-configuration.nix hosts/notezapay/hardware-configuration.nix 
 
-test host: get-config {{ host }}
+test host: get-config
      sudo nixos-rebuild test --flake .#{{ host }} --show-trace --verbose
 
 build host:
