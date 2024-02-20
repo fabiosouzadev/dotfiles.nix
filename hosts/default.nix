@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, home-manager, ... }:
+{ nixpkgs, home-manager, ... }:
 let 
   defaultUser = {
     user = "fabiosouzadev";

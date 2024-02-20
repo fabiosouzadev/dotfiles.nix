@@ -1,4 +1,4 @@
-{ config, pkgs, defaultUser, home-manager, ... }: 
+{ defaultUser, home-manager, ... }: 
 {
   imports =
     [
