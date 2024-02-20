@@ -27,7 +27,6 @@ let
 in
 {
   imports = ( import ./nix.nix ++
-              import ../modules/desktops/fonts.nix ++
               import ../modules/desktops ++
               import ../modules/shells);
  

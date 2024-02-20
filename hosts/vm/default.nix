@@ -4,27 +4,26 @@
 {
   imports =
     [ 
+      ../../modules/system.nix
+      ../../modules/desktop.nix
+      ../../modules/i3.nix
+      ../../modules/polkit.nix
+      ../../modules/gnome-keyring.nix
+      ../../modules/zsh.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ] ++ import (../../modules/hardware/notezapay);
+    ];
 
   # Bootloader.
-  boot.loader = { 
-	  systemd-boot = {
-		  enable = true;
-    }; 
-    efi = {
-		  canTouchEfiVariables = true;
-    };
+  boot.loader.grub= { 
+      enable = true;
+      device = "/dev/vda";
+      useOSProber = true;
   };
 
-  boot.loader.grub.device = "nodev";
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821ce ];
-  
-  # Enable networking
+    # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "notezapay"; # Define your hostname.
+  networking.hostName = "virt-manager"; # Define your hostname.
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
