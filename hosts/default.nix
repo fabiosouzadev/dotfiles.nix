@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, ... }:
+{ inputs, nixpkgs, home-manager, ... }:
 let 
   defaultGit = {
     extraConfig.github.user = defaultUser;
