@@ -3,6 +3,6 @@
   ./common.nix
   ./fonts.nix
   ./i3.nix
-  ./polkit
+  ./polkit.nix
   ./alacritty.nix
 ]
