@@ -6,13 +6,25 @@ let
     userName = "Fabio Souza";
   };
   defaultUser =  "fabiosouzadev";
+  
+  system = "x86_64-linux";
+  pkgs = import nixpkgs {
+    inherit system;
+    config = {
+    allowUnfree = true;
+    };
+  };
 in
 {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
+      hostname = "nix-zapay";
+      specialArgs = { 
+          inherit system; inherit inputs; 
+          inherit defaultUser; inherit hostname;
+        };
       modules = [
           ./nix-zapay
-          ./configuration.nix { inherit defaultUser home-manager; }
+          ./configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -21,10 +33,14 @@ in
       ];
   };
   "vm" = nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
+      hostname = "vm";
+      specialArgs = { 
+          inherit system; inherit inputs; 
+          inherit defaultUser; inherit hostname;
+        };
       modules = [
           ./vm
-          ./configuration.nix { inherit defaultUser home-manager; }
+          ./configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
