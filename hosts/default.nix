@@ -6,7 +6,7 @@ let
       userEmail = "fabiovanderlei.developer@gmail.com";
       userName = "Fabio Souza";
     }
-  }
+  };
 in
 {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
