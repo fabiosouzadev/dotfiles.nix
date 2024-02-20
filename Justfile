@@ -12,7 +12,7 @@ get-config:
 test host="vm": get-config
      sudo nixos-rebuild test --flake .#{{ host }} --show-trace --verbose
 
-build host:
+build host: get-config
      sudo nixos-rebuild switch --flake .#{{ host }} --show-trace --verbose
 
 ############################################################################
