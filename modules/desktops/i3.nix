@@ -63,8 +63,40 @@
 
   };
 
-  environment.etc."xdg/i3/config".text = import ../../configs/i3/i3-config.nix;
-  # environment.etc."xdg/i3/config".text = pkgs.callPackage ../configs/i3/i3-config.nix {};
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
+  #environment.etc."xdg/i3/config".text = import ../../configs/i3/i3-config.nix;
+  environment.etc."xdg/i3/config".text = pkgs.callPackage ../configs/i3/i3-config.nix {};
+
+    home.file."/.config/wallpapers" = {
+   source = ../../configs/wallpapers;
+   recursive = true;
+  };
+  
+  home.file."/.config/i3/scripts" = {
+   source = ../../configs/i3/scripts;
+   recursive = true;
+   executable = true;  # make all scripts executable
+  };
+   
+  home.file."/.config/i3/scripts/displays" = {
+   source = ../../configs/i3/scripts/displays;
+   recursive = true;
+   executable = true;  # make all scripts executable
+  };
+
+  home.file."/.config/picom/picom.conf".source = ../../configs/picom/picom.conf;
+
+  home.file."/.config/rofi" = {
+   source = ../../configs/rofi;
+   recursive = true;
+  };
+
+  home.file."/.config/dunst" = {
+   source = ../../configs/dunst;
+   recursive = true;
+  };
+
+  home.file."/.config/polybar" = {
+   source = ../../configs/polybar;
+   recursive = true;
+  };
 }
