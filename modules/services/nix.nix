@@ -22,6 +22,5 @@
     };
   };
   nixpkgs.config.allowUnfree = true;
-  services.nix-daemon.enable = true;
 }
 
