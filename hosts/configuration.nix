@@ -1,45 +1,28 @@
-#
-#  Main system configuration. More information available in configuration.nix(5) man page.
-#
-#  flake.nix
-#   ├─ ./hosts
-#   │   ├─ default.nix
-#   │   └─ configuration.nix *
-#   └─ ./modules
-#       ├─ ./desktops
-#       │   └─ default.nix
-#       ├─ ./editors
-#       │   └─ default.nix
-#       ├─ ./hardware
-#       │   └─ default.nix
-#       ├─ ./programs
-#       │   └─ default.nix
-#       ├─ ./services
-#       │   └─ default.nix
-#       ├─ ./shell
-#       │   └─ default.nix
-#       └─ ./theming
-#           └─ default.nix
-#
-{ pkgs, ...}:
-let
-  username = "fabiosouzadev";
-in
-{
-  imports = ( import ./nix.nix ++
-              import ../modules/desktops ++
-              import ../modules/shells);
- 
-  # ============================= User related =============================
 
+{ pkgs, lib, defaultUser,home-manager }: 
+{
+
+  imports =
+    [
+      # TODO: Desktop
+      ../../modules/desktop
+    ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
+  users.users.${defaultUser.user} = {
     isNormalUser = true;
     description = "Fabio Souza";
     extraGroups = [ "audio" "bluetooth" "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];
+  };
+  home-manager.users.${defaultUser.user} = {       # Home-Manager Settings
+    home = {
+      stateVersion = "23.11";
+    };
+    programs = {
+      home-manager.enable = true;
+    };
   };
 
   # Set your time zone.
@@ -60,36 +43,6 @@ in
     LC_TIME = "pt_BR.UTF-8";
     LC_CTYPE="en_US.utf8";
   };
-
- # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "alt-intl";
-    };
-  }; 
-  # Configure console keymap
-  console.keyMap = "dvorak";
-
-  # Enable the OpenSSH daemon.
-  # services.openssh = {
-  #     enable = true;
-  #     settings = {
-  #       X11Forwarding = true;
-  #       PermitRootLogin = "no"; # disable root login
-  #       PasswordAuthentication = false; # disable password login
-  #     };
-  #     openFirewall = true;
-  # };
-  
-  programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -106,7 +59,14 @@ in
     nnn # terminal file manager
     just
   ];
-  
-  # Set default editor to vim
-  environment.variables.EDITOR = "neovim";
+
+  # Configure keymap in X11
+  services.xserver = {
+    xkb = {
+      layout = "us";
+      variant = "alt-intl";
+    };
+  }; 
+  # Configure console keymap
+  console.keyMap = "dvorak";
 }

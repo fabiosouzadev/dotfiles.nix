@@ -21,9 +21,7 @@
     ... 
   }: {
     nixosConfigurations = (
-      import ./hosts {
-        inherit inputs nixpkgs nixpkgs-unstable home-manager;
-      }
+      import ./hosts {}
     );
     #darwinConfigurations = ();
     #homeConfigurations = ();

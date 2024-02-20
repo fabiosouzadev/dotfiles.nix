@@ -4,12 +4,8 @@
 {
   imports =
     [ 
-      ../../modules/system.nix
-      ../../modules/desktop.nix
-      ../../modules/i3.nix
-      ../../modules/polkit.nix
-      ../../modules/gnome-keyring.nix
-      ../../modules/zsh.nix
+      # TODO: Hardware
+      # TODO: Desktop
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -23,7 +19,7 @@
 
     # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "virt-manager"; # Define your hostname.
+  networking.hostName = "vm"; # Define your hostname.
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
