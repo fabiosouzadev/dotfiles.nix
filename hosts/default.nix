@@ -1,14 +1,14 @@
 {pkgs, nixpkgs, home-manager}:
-let {
- defaultUser = {
-  user = "fabiosouzadev";
-  defaultGit = {
-    userEmail = "fabiovanderlei.developer@gmail.com";
-    userName = "Fabio Souza";
+let 
+  defaultUser = {
+    user = "fabiosouzadev";
+    defaultGit = {
+      userEmail = "fabiovanderlei.developer@gmail.com";
+      userName = "Fabio Souza";
+    }
   };
- };
-};
-in {
+in
+{
   "nix-zapay" = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
       modules = [
