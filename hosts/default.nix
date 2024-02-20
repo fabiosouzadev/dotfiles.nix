@@ -12,7 +12,8 @@ in
   "nix-zapay" = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
       modules = [
-          ./hosts/notezapay
+          ./nix-zapay
+          ./configuration.nix { inherit defaultUser home-manager; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

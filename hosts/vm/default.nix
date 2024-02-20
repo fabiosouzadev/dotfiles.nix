@@ -5,7 +5,6 @@
   imports =
     [ 
       # TODO: Hardware
-      # TODO: Desktop
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
