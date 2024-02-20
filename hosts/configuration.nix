@@ -1,10 +1,13 @@
 { config, pkgs, defaultUser, home-manager, ... }: 
 {
-  imports =
-    [
-      # TODO: Desktop
-      (import ../modules/desktop)
-    ];
+  imports = ( import ../modules/desktops);
+  # imports = ( import ../modules/desktops ++
+  #             import ../modules/editors ++
+  #             import ../modules/hardware ++
+  #             import ../modules/programs ++
+  #             import ../modules/services ++
+  #             import ../modules/shell ++
+  #             import ../modules/theming );
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${defaultUser.user} = {
     isNormalUser = true;
