@@ -1,10 +1,10 @@
 { config, pkgs, defaultUser, defaultGit, ... }: 
 
 {
-  imports =  ( import ../modules/services ++
-              import ../modules/desktops ++
-              import ../modules/editors ++
-              import ../modules/shells);
+  imports =  ( import ../modules/desktops ++
+               import ../modules/editors ++
+               import ../modules/shells ++
+               import ../modules/services);
   # imports = ( import ../modules/desktops ++
   #             import ../modules/editors ++
   #             import ../modules/hardware ++
