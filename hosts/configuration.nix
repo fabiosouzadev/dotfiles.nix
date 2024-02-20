@@ -1,4 +1,4 @@
-{ config, pkgs, defaultUser, ... }: 
+{ config, pkgs, defaultUser, hostname, ... }: 
 
 {
   imports = ( import ../modules/desktops);
