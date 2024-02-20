@@ -1,5 +1,7 @@
-{ defaultUser, home-manager }: 
-{ config, pkgs, ... }: 
+{ user, home-manager }: 
+
+{ config, ... }: 
+
 {
   imports = ( import ../modules/desktops);
   # imports = ( import ../modules/desktops ++
@@ -12,7 +14,7 @@
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${defaultUser} = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "Fabio Souza";
     extraGroups = [ "audio" "bluetooth" "networkmanager" "wheel" ];
@@ -20,7 +22,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];
   };
-  home-manager.users.${defaultUser} = {       # Home-Manager Settings
+  home-manager.users.${user} = {       # Home-Manager Settings
     home = {
       stateVersion = "23.11";
     };
