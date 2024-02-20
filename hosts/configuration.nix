@@ -1,4 +1,4 @@
-{ config, pkgs, defaultUser, defaultGit, ... }: 
+{ config, nixpkgs, pkgs, defaultUser, defaultGit, ... }: 
 
 {
   imports =  ( import ../modules/desktops ++
