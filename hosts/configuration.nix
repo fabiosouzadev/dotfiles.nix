@@ -3,7 +3,7 @@
 {
   imports = ( import ../modules/desktops ++
               import ../modules/editors ++
-              import ../modules/shell);
+              import ../modules/shells);
   # imports = ( import ../modules/desktops ++
   #             import ../modules/editors ++
   #             import ../modules/hardware ++
