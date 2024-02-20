@@ -5,13 +5,6 @@
                import ../modules/editors ++
                import ../modules/shells ++
                import ../modules/services);
-  # imports = ( import ../modules/desktops ++
-  #             import ../modules/editors ++
-  #             import ../modules/hardware ++
-  #             import ../modules/programs ++
-  #             import ../modules/services ++
-  #             import ../modules/shell ++
-  #             import ../modules/theming );
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
