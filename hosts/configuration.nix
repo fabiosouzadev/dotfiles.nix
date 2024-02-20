@@ -1,6 +1,5 @@
-{ pkgs, defaultUser,home-manager }: 
+{ config, pkgs, defaultUser, home-manager, ... }: 
 {
-
   imports =
     [
       # TODO: Desktop

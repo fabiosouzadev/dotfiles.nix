@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, home-manager }:
+{ config, pkgs, nixpkgs, home-manager, ... }:
 let 
   defaultUser = {
     user = "fabiosouzadev";
@@ -24,7 +24,7 @@ in
     system = "x86_64-linux";
       modules = [
           ./vm
-          ./configuration.nix { inherit pkgs defaultUser home-manager; }
+          ./configuration.nix { inherit defaultUser home-manager; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
