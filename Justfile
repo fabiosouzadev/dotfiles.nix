@@ -7,9 +7,9 @@ default:
 #
 ###########################################################################
 get-config:
-   cp /etc/nixos/hardware-configuration.nix hosts/notezapay/hardware-configuration.nix 
+   cp /etc/nixos/hardware-configuration.nix hosts/vm/hardware-configuration.nix 
 
-test host: get-config
+test host="vm": get-config
      sudo nixos-rebuild test --flake .#{{ host }} --show-trace --verbose
 
 build host:
