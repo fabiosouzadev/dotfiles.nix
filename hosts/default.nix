@@ -12,6 +12,7 @@ in
   "nix-zapay" = nixpkgs.lib.nixosSystem {
       specialArgs = { 
           inherit system;
+          inherit nixpkgs;
           inherit defaultUser;
           inherit defaultGit;
         };
@@ -28,6 +29,7 @@ in
   "vm" = nixpkgs.lib.nixosSystem {
       specialArgs = { 
           inherit system;
+          inherit nixpkgs;
           inherit defaultUser;
           inherit defaultGit;
         };
