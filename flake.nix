@@ -8,15 +8,14 @@
     };
   };
   
-  outputs = inputs @ { 
+  outputs = { 
     self,
-    pkgs,
     nixpkgs,
     home-manager, 
     ... 
-  }: {
+  }@inputs: {
     nixosConfigurations = (
-      import ./hosts { inherit pkgs nixpkgs home-manager; }
+      import ./hosts { inherit nixpkgs home-manager; }
     );
     #darwinConfigurations = ();
     #homeConfigurations = ();
