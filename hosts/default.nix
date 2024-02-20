@@ -15,7 +15,7 @@ let
   };
 in
 {
-  "nix-zapay" = pkgs.lib.nixosSystem {
+  "nix-zapay" = nixpkgs.lib.nixosSystem {
       specialArgs = { 
           inherit system;
           inherit defaultUser;
@@ -31,7 +31,7 @@ in
           }
       ];
   };
-  "vm" = pkgs.lib.nixosSystem {
+  "vm" = nixpkgs.lib.nixosSystem {
       specialArgs = { 
           inherit system;
           inherit defaultUser;
