@@ -85,4 +85,10 @@
   }; 
   # Configure console keymap
   console.keyMap = "dvorak";
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 }
