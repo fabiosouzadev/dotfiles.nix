@@ -32,7 +32,6 @@ in
       ];
   };
   "vm" = nixpkgs.lib.nixosSystem {
-      hostname = "vm";
       specialArgs = { 
           inherit system;
           inherit defaultUser;
