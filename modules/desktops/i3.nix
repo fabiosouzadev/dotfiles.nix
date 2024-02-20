@@ -1,6 +1,4 @@
-{ pkgs, ...}:
-
-
+{ pkgs, defaultUser, ...}:
 {
 
   # i3 related options
@@ -24,7 +22,7 @@
         #gdm.enable = true;
         autoLogin = {
             enable = true;
-            user = "fabiosouzadev";
+            user = defaultUser;
         };
     };
 
