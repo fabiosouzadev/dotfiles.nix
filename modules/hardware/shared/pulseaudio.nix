@@ -32,7 +32,7 @@
   nixpkgs.config.pulseaudio = true;
 
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
- 	pavucontrol
- 	playerctl
+ 	  pavucontrol
+ 	  playerctl
  ];
 } 

@@ -4,10 +4,10 @@
 {
   imports =
     [
-      ../../modules/hardware/nix-zapay
+      
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+    ] ++ (import ../../modules/hardware/nix-zapay);
 
   # Bootloader.
   boot.loader = { 
