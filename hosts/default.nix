@@ -18,7 +18,7 @@ in
 {
   "nix-zapay" = nixpkgs.lib.nixosSystem {
       specialArgs = { 
-          inherit system; inherit inputs; 
+          inherit system;
           inherit defaultUser;
         };
       modules = [
@@ -34,7 +34,7 @@ in
   "vm" = nixpkgs.lib.nixosSystem {
       hostname = "vm";
       specialArgs = { 
-          inherit system; inherit inputs; 
+          inherit system;
           inherit defaultUser;
         };
       modules = [
