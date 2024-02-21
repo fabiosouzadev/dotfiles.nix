@@ -1,5 +1,5 @@
 {  config, pkgs, defaultUser, defaultGit, ... }:
- 
+
 {
   # basic configuration of git, please change to your own
   home-manager.users.${defaultUser} = {
@@ -8,5 +8,5 @@
       userName = defaultGit.userName;
       userEmail = defaultGit.userEmail;
     };
-  };
+   };
 }
