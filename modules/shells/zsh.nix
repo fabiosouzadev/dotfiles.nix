@@ -7,8 +7,8 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     histSize = 100000;
-    sessionVariables = {
-     GPG_TTY= "$(tty)";
-    };
+    #initExtra = ''
+    # export GPG_TTY= "$(tty)"
+    #'';
   };
 }
