@@ -56,10 +56,16 @@
         init = { defaultBranch = "main"; };
 	pull = { rebase = true; };
         diff = { colorMoved = "default"; };
-	merge = { tool = "nvim"; };
+	merge = { 
+	 tool = "nvim";
+	 conflictstyle = "diff3";
+	};
 	mergetool = { keepBackup = false; };
 	"mergetool \"nvim\"" = { cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'"; };
       };
+
+      ignores = [ ".direnv" ".DS_Store" ];
+
     };
   };
 }
