@@ -1,19 +1,20 @@
 { pkgs, lib, ... }:
 {
+  security.rtkit.enable = true;
   # bluetooth
   # List services that you want to enable:
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluez;
     hsphfpd.enable = true;
-    input.General.ClassicBondedOnly = false;
+    input.General.ClassicBondedOnly = true;
     powerOnBoot = true;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
         Name = "Hello";
         ControllerMode = "dual";
-        # FastConnectable = "true";
+        FastConnectable = "true";
         Experimental = "true";
       };
       Policy = {
@@ -21,7 +22,7 @@
       };
     };
   };
-  
+ 
   services.blueman.enable = true;
 
   systemd.user.services.mpris-proxy = {
@@ -34,4 +35,5 @@
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     bluetuith	
  ];
+
 }
