@@ -67,5 +67,11 @@
       ignores = [ ".direnv" ".DS_Store" ];
 
     };
+
+    programs.zsh = {
+     shellAliases = {
+	gitgrep = "git ls-files | rg";
+      };
+    };
   };
 }
