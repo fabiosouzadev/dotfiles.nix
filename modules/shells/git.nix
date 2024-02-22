@@ -5,8 +5,10 @@
   home-manager.users.${defaultUser} = {
     programs.git = {
       enable = true;
+
       userName = defaultGit.userName;
       userEmail = defaultGit.userEmail;
+      
       signing = {
       	key = "64781516";
       	signByDefault = true;
@@ -33,11 +35,16 @@
       };
 
       aliases = {
-       c = "!git add --all && git commit -m";
-       s = "!git status -s";
-       l = "!git log --pretty=format:'%C(blue)%hC(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'";
-       amend = "!git add --all && git commit --amend --no-edit";
-       count = "!git shortlog -s --grep";
+       aa = 	"!git add --all";
+       amend = 	"!git add --all && git commit --amend --no-edit";
+       c = 	"!git add --all && git commit -m";
+       ci = 	"!git commit";
+       co = 	"!git checkout";
+       dc = 	"!git diff --cached";
+       di = 	"!git diff";
+       l = 	"!git log --pretty=format:'%C(blue)%hC(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'";
+       s = 	"!git status -s";
+       st = 	"!git status";
       };
 
       extraConfig = {

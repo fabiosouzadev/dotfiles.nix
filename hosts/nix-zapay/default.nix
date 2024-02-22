@@ -28,9 +28,9 @@
   networking.hostName = "nix-zapay"; # Define your hostname.
 
 
-  #environment.systemPackages = with pkgs; [
-  #  linuxKernel.packages.linux_xanmod_stable.rtl8821ce
-  #];
+  environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_xanmod_stable.rtl8821ce
+  ];
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
