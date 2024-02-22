@@ -6,7 +6,7 @@
     package = pkgs.pulseaudioFull;
     extraConfig = "
           load-module module-switch-on-connect
-          #load-module module-combine-sink # if you want a combined channel where all output devices are part of
+          load-module module-combine-sink # if you want a combined channel where all output devices are part of
           load-module module-bluetooth-policy
           load-module module-bluetooth-discover
           load-module module-bluez5-device
