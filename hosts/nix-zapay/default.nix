@@ -26,7 +26,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "nix-zapay"; # Define your hostname.
-
+  
+  services = {
+    # for SSD/NVME
+    fstrim.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_xanmod_stable.rtl8821ce

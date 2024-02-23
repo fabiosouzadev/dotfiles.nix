@@ -20,6 +20,8 @@
       #initExtra = ''
       # export GPG_TTY= "$(tty)"
       #'';
+      #shellAliases = {
+      #};
    };
  };  
 }
