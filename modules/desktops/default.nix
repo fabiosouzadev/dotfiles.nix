@@ -4,5 +4,5 @@
   ./fonts.nix
   ./i3.nix
   ./polkit.nix
-  ./alacritty.nix
 ]
+  ++ import (./terminals)

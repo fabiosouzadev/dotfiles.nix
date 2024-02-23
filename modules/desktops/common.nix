@@ -9,6 +9,9 @@
       authy
       bitwarden
       spotify
+
+      #db
+      dbeaver
     ];
   };
 

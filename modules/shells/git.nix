@@ -40,7 +40,7 @@
       aliases = {
        aa = 	"!git add --all";
        amend = 	"!git add --all && git commit --amend --no-edit";
-       c = 	"!git add --all && git commit -m";
+       c = 	"!git add --all && git commit -sm";
        ci = 	"!git commit";
        co = 	"!git checkout";
        dc = 	"!git diff --cached";
@@ -51,20 +51,24 @@
       };
 
       extraConfig = {
-        credential =  { helper = "cache --timeout=28800";};
+        color.ui = true;
+	fetch.prune = true;
+	pull.rebase = true;
+	push.autoSetupRemote = true;
+        rebase.autoStash = true;
+        credential.helper = "cache --timeout=28800";
 	core = {
 	 editor = "nvim";
 	 default = "current";
 	};
-        init = { defaultBranch = "main"; };
-	pull = { rebase = true; };
-        diff = { colorMoved = "default"; };
+        init.defaultBranch = "main";
+        diff.colorMoved = "default";
 	merge = { 
 	 tool = "nvim";
 	 conflictstyle = "diff3";
 	};
-	mergetool = { keepBackup = false; };
-	"mergetool \"nvim\"" = { cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'"; };
+	mergetool.keepBackup = false;
+	"mergetool \"nvim\"".cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
       };
 
       ignores = [ ".direnv" ".DS_Store" ];
