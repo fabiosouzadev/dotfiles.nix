@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, ... }:
+{ nixpkgs, home-manager, myNvim, ... }:
 let
   defaultUser =  "fabiosouzadev";
   defaultGit = {
@@ -15,6 +15,7 @@ in
           inherit nixpkgs;
           inherit defaultUser;
           inherit defaultGit;
+          inherit myNvim;
         };
       modules = [
           ./nix-zapay
@@ -32,6 +33,7 @@ in
           inherit nixpkgs;
           inherit defaultUser;
           inherit defaultGit;
+          inherit myNvim;
         };
       modules = [
           ./vm

@@ -17,9 +17,9 @@
         size = 100000;
         share = true;
       };
-      #initExtra = ''
-      # export GPG_TTY= "$(tty)"
-      #'';
+      initExtra = ''
+       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      '';
       #shellAliases = {
       #};
    };

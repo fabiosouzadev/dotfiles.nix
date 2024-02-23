@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "myNvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1701182622,
+        "narHash": "sha256-btzx9HAl5mkMWxt10GNTlTLfRhxLzjavw3mota/qB3Q=",
+        "owner": "fabiosouzadev",
+        "repo": "nvim",
+        "rev": "245a66e1c29201468ec79119f4f7df9c3724b04a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fabiosouzadev",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1708296515,
@@ -39,6 +55,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "myNvim": "myNvim",
         "nixpkgs": "nixpkgs"
       }
     }

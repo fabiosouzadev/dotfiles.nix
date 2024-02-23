@@ -1,10 +1,11 @@
-{ config, nixpkgs, pkgs, defaultUser, defaultGit, ... }: 
+{ config, nixpkgs, pkgs, defaultUser, defaultGit, myNvim, ... }: 
 
 {
   imports =  ( import ../modules/desktops ++
                import ../modules/editors ++
                import ../modules/shells ++
-               import ../modules/services);
+               import ../modules/services ++
+	       import ../modules/dev);
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
