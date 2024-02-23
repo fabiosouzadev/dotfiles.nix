@@ -1,8 +1,11 @@
 {  config, pkgs, defaultUser, defaultGit, ... }:
 
 {
-  # basic configuration of git, please change to your own
+  
   home-manager.users.${defaultUser} = {
+  home.packages = with pkgs; [
+      fd
+   ];
     programs= {
      bat = {
       enable = true;
@@ -39,6 +42,12 @@
   	enableZshIntegration = true;
      };
      ripgrep.enable = true;
+     direnv = {
+      enable = true;
+      nix-direnv = {
+        enable = true;
+      };
+     };
      zsh = {
       initExtra = ''
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
