@@ -1,13 +1,15 @@
 {  config, lib, pkgs, defaultUser, defaultGit, ... }:
 {
   home-manager.users.${defaultUser} = {
-  home.packages = with pkgs; [
+   home.packages = with pkgs; [
       tmux-sessionizer
-    ];
+   ];
    programs.tmux = {
     enable = true;
+    shell = "${pkgs.zsh}/bin/zsh";
     clock24 = true;
     keyMode = "vi";
+    historyLimit = 10000;
     extraConfig = ''
 ### : << eof
 ### https://github.com/fabiosouzadev/dotfiles
@@ -62,7 +64,6 @@
 #set-option -ga terminal-overrides ",*256col*:Tc:RGB"
 #set-option -a terminal-overrides ",alacritty:Tc:RGB"
 # set-option -g default-shell /bin/zsh
-set -g history-limit 5000
 set -g buffer-limit 20
 set -sg escape-time 10
 set -g repeat-time 600
@@ -71,7 +72,6 @@ set -g display-time 1000
 set -g display-panes-time 800
 set -g remain-on-exit off
 setw -g aggressive-resize on
-# setw -g mode-keys vi
 set -g mouse off
 
 
@@ -336,7 +336,6 @@ bind -r g display-popup -d '#{pane_current_path}' -w80% -h80% -E lazygit
 bind -r o display-popup -d '#{pane_current_path}' -w80% -h80% -E lazydocke
 
     '';
-    shell = "${pkgs.zsh}/bin/zsh";
     #terminal =
     #  if isDarwin
     #  then "screen-256color"

@@ -3,6 +3,9 @@
 {
   # basic configuration of git, please change to your own
   home-manager.users.${defaultUser} = {
+    home.packages = with pkgs; [
+      lazygit
+    ];
     programs.git = {
       enable = true;
 

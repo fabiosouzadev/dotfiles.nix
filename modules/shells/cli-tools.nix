@@ -4,6 +4,7 @@
   
   home-manager.users.${defaultUser} = {
   home.packages = with pkgs; [
+      htop
       fd
    ];
     programs= {
