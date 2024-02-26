@@ -21,7 +21,6 @@
      plugins = with pkgs; [
         # search all the plugins using https://search.nixos.org/packages
         vimPlugins.telescope-fzf-native-nvim
-        nodePackages.pnpm
       ];
    };
  };

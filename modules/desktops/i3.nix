@@ -57,8 +57,8 @@
        
       configFile = pkgs.writeText "config" ''
         #########################################################
-        #█▀▀ ▄▀█ █▄▄ █ █▀█ █▀ █▀█ █░█ ▀█ ▄▀█ █▀▄ █▀▀ █░█#
-        #█▀░ █▀█ █▄█ █ █▄█ ▄█ █▄█ █▄█ █▄ █▀█ █▄▀ ██▄ ▀▄▀#
+        #█▀▀ ▄▀█ █▄▄ █ █▀█ █▀ █▀█ █░█ ▀█ ▄▀█ █▀▄ █▀▀ █░█        #
+        #█▀░ █▀█ █▄█ █ █▄█ ▄█ █▄█ █▄█ █▄ █▀█ █▄▀ ██▄ ▀▄▀        #
         #########################################################
 
 
@@ -378,7 +378,7 @@
 
         # bind program to workspace and focus to them on startup:
         assign [class="Spotify"] $ws1
-        assign [class="Ferdium"] $ws2
+        assign [class="Slack"] $ws2
         assign [class="Brave-browser-*"] $ws3
         assign [class="Xfce4-terminal"] $ws4
         assign [class="Alacritty"] $ws4
@@ -387,7 +387,7 @@
 
         # automatic set focus new window if it opens on another workspace than the current:
         for_window [class=Spotify] focus
-        for_window [class=Ferdium] focus
+        for_window [class=Slack] focus
         for_window [class=Brave-browser-*] focus
         for_window [class=Xfce4-terminal] focus
         for_window [class=Thunar] focus
@@ -456,9 +456,9 @@
         # Monitors
         exec_always --no-startup-id ${
           pkgs.writeShellScriptBin "dual_monitor_intel_iris_xe.sh" ''
-	          xrandr --newmode "2560x1080x49.94"  150.25  2560 2608 2640 2720  1080 1083 1087 1106  +HSync -VSync
-	          xrandr --addmode HDMI-1 2560x1080x49.94
-            xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
+           xrandr --newmode "2560x1080x49.94"  150.25  2560 2608 2640 2720  1080 1083 1087 1106  +HSync -VSync
+           xrandr --addmode HDMI-1 2560x1080x49.94
+	   xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
           ''
         }/bin/dual_monitor_intel_iris_xe.sh
 
@@ -493,7 +493,7 @@
         #exec_always --no-startup-id autotiling
 
         # Autostart apps as you like
-        #exec --no-startup-id sleep 2 && slack
+        exec --no-startup-id sleep 2 && slack
         #exec --no-startup-id sleep 3 && xfce4-terminal
         #exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
         #exec --no-startup-id sleep 3 && thunar
@@ -550,11 +550,11 @@
         set $darkblue		#08052b
         set $lightblue		#5294e2
         set $urgentred		#e53935
-        set $white		    #ffffff
-        set $black		    #000000
-        set $purple		    #e345ff
+        set $white		#ffffff
+        set $black		#000000
+        set $purple		#e345ff
         set $darkgrey		#383c4a
-        set $grey		    #b0b5bd
+        set $grey		#b0b5bd
         set $mediumgrey		#8b8b8b
         set $yellowbrown	#e1b700
 

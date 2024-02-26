@@ -68,6 +68,7 @@
     neofetch
     nnn # terminal file manager
     just
+    unzip
   ];
 
   # Configure keymap in X11

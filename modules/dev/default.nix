@@ -1,4 +1,5 @@
 [
  ./pnpm.nix
+ ./php.nix
 
 ]
