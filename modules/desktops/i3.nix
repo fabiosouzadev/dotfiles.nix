@@ -649,9 +649,7 @@
         ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
         exec --no-startup-id greenclip daemon>/dev/null
         bindsym $mod+c exec --no-startup-id ~/.config/rofi/scripts/greenclip.sh
-        ''
-
-
+        '';
     };
 
   };
