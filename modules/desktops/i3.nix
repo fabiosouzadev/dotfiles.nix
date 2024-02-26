@@ -455,14 +455,16 @@
         
         # Monitors
         exec_always --no-startup-id ${
-          pkgs.writeShellScriptBin "dual_monitor_iris_xe.sh" ''
+          pkgs.writeShellScriptBin "dual_monitor_intel_iris_xe.sh" ''
+	  xrandr --newmode "2560x1080x49.94"  150.25  2560 2608 2640 2720  1080 1083 1087 1106  +HSync -VSync
+	    
             xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
           ''
-        }/bin/dual_monitor_iris_xe.sh
+        }/bin/dual_monitor_intel_iris_xe.sh
 
 
         # set wallpaper
-        ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
+        exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
         
 
         # set powersavings for display:
@@ -483,7 +485,7 @@
         # Desktop notifications
         # alternative if you installed aside with XFCE4:
         # exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
-        ${pkgs.dunst}/bin/dunst --config $HOME/.config/dunst/dunstrc &
+        exec --no-startup-id ${pkgs.dunst}/bin/dunst --config $HOME/.config/dunst/dunstrc &
 
         # autotiling script
         # https://github.com/nwg-piotr/autotiling
