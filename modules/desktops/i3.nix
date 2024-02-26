@@ -456,8 +456,8 @@
         # Monitors
         exec_always --no-startup-id ${
           pkgs.writeShellScriptBin "dual_monitor_intel_iris_xe.sh" ''
-	  xrandr --newmode "2560x1080x49.94"  150.25  2560 2608 2640 2720  1080 1083 1087 1106  +HSync -VSync
-	    
+	          xrandr --newmode "2560x1080x49.94"  150.25  2560 2608 2640 2720  1080 1083 1087 1106  +HSync -VSync
+	          xrandr --addmode HDMI-1 2560x1080x49.94
             xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
           ''
         }/bin/dual_monitor_intel_iris_xe.sh
