@@ -456,7 +456,7 @@
         # Monitors
         exec_always --no-startup-id ${
           pkgs.writeShellScriptBin "dual_monitor_iris_xe.sh" ''
-            ${pkgs.xrandr} --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
+            xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
           ''
         }/bin/dual_monitor_iris_xe.sh
 
@@ -656,8 +656,6 @@
 
   #environment.etc."xdg/i3/config".text = import ../../configs/i3/i3-config.nix;
   #environment.etc."xdg/i3/config".text = pkgs.callPackage ../../configs/i3/i3-config.nix {};
-  '
-
 
   home-manager.users.${defaultUser} = {
     home.file."/.config/wallpapers" = {
