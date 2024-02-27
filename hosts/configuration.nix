@@ -12,7 +12,7 @@
   users.users.${defaultUser} = {
     isNormalUser = true;
     description = "Fabio Souza";
-    extraGroups = [ "audio" "bluetooth" "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "bluetooth" "networkmanager" "wheel" "docker" ];
     openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];

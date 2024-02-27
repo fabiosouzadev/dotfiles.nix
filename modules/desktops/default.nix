@@ -6,3 +6,4 @@
   ./polkit.nix
 ]
   ++ import (./terminals)
+  ++ import (../virtualization)
