@@ -1,15 +1,36 @@
-{  config, lib, pkgs, defaultUser, defaultGit, ... }:
+{ config, lib, pkgs, defaultUser, defaultGit, ... }:
+let
+   tmux-prefix-highlight = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "prefix-highlight";
+    version = "latest";
+    src = pkgs.fetchFromGitHub {
+      owner = "tmux-plugins";
+      repo = "tmux-prefix-highlight";
+      rev = "489a96189778a21d2f5f4dbbbc0ad2cec8f6c854";
+      sha256 = "sha256-GXqlwl1TPgXX1Je/ORjGFwfCyz17ZgdsoyOK1P3XF18=";
+    };
+  };
+   tmux-fzf-session-switch = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-fzf-session-switch";
+    version = "latest";
+    src = pkgs.fetchFromGitHub {
+      owner = "thuanOwa";
+      repo = "tmux-fzf-session-switch";
+      rev = "5d18ec0558a147392a0d66991eb9411dbdbc3ce";
+      sha256 = "sha256-fQbrw42dAHVEDAyuZd26w6hvjEhqQMSpAcxSMvs1aHw=";
+    };
+  };
+in
 {
   home-manager.users.${defaultUser} = {
-   home.packages = with pkgs; [
-      tmux-sessionizer
-   ];
    programs.tmux = {
     enable = true;
+    terminal = "tmux-256color";
     shell = "${pkgs.zsh}/bin/zsh";
-    clock24 = true;
     keyMode = "vi";
     historyLimit = 10000;
+    #Base index for windows and panes.
+    baseIndex = 1;
     extraConfig = ''
 ### : << eof
 ### https://github.com/fabiosouzadev/dotfiles
@@ -61,8 +82,8 @@
 # ==========================
 
 #set -g default-terminal 'tmux-256color'
-#set-option -ga terminal-overrides ",*256col*:Tc:RGB"
-#set-option -a terminal-overrides ",alacritty:Tc:RGB"
+set-option -ga terminal-overrides ",*256col*:Tc:RGB"
+set-option -a terminal-overrides ",alacritty:Tc:RGB"
 # set-option -g default-shell /bin/zsh
 set -g buffer-limit 20
 set -sg escape-time 10
@@ -151,32 +172,32 @@ bind -r C-h select-window -t :-   # Jump to window on the left
 bind -r C-l select-window -t :+   # Jump to window on the right
 
 # Edit configuration and reload
-bind C-e new-window -n 'tmux.conf' "sh -c '\${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display \"Config reloaded\"'"
-bind i source-file ~/.tmux.conf \; display "Config reloaded"  # Reload tmux configuration
+#bind C-e new-window -n 'tmux.conf' "sh -c '\${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display \"Config reloaded\"'"
+bind i source-file ~/.config/tmux/tmux.conf \; display "Config reloaded"  # Reload tmux configuration
 
 
 # # >> https://github.com/alexghergh/nvim-tmux-navigation
 # # Smart pane switching with awareness of Vim splits.
 # # See: https://github.com/alexghergh/nvim-tmux-navigation
-# is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-#     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-# bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h' 'select-pane -L'
-# bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j' 'select-pane -D'
-# bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k' 'select-pane -U'
-# bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l' 'select-pane -R'
-# tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
-# if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
-#     "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
-# if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
-#     "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
-# bind-key -n 'C-Space' if-shell "$is_vim" 'send-keys C-Space' 'select-pane -t:.+'
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h' 'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j' 'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k' 'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l' 'select-pane -R'
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+bind-key -n 'C-Space' if-shell "$is_vim" 'send-keys C-Space' 'select-pane -t:.+'
 
-# bind-key -T copy-mode-vi 'C-h' select-pane -L
-# bind-key -T copy-mode-vi 'C-j' select-pane -D
-# bind-key -T copy-mode-vi 'C-k' select-pane -U
-# bind-key -T copy-mode-vi 'C-l' select-pane -R
-# bind-key -T copy-mode-vi 'C-\' select-pane -l
-# bind-key -T copy-mode-vi 'C-Space' select-pane -t:.+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
+bind-key -T copy-mode-vi 'C-Space' select-pane -t:.+
 
 #https://github.com/aserowy/tmux.nvim
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
@@ -235,15 +256,6 @@ if -b 'command -v reattach-to-user-namespace > /dev/null 2>&1' 'bind y run -b "t
 if -b 'command -v clip.exe > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | clip.exe"'
 if -b '[ -c /dev/clipboard ]' 'bind y run -b "tmux save-buffer - > /dev/clipboard"'
 
-# ============================
-# ===       Plugins        ===
-# ============================
-set -g @plugin 'tmux-plugins/tpm'  #prefix + I (Install), prefix + U (update), prefix + alt + U (remove)
-set -g @plugin 'olimorris/tmux-pomodoro-plus'
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
-set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'thuanOwa/tmux-fzf-session-switch' # Prefix + Ctrl-f
-set -g @plugin 'aserowy/tmux.nvim'
 
 #Session
 
@@ -333,13 +345,31 @@ set -g @pomodoro_sound 'on'                # Sound for desktop notifications (Ru
 
 # Display lazygit
 bind -r g display-popup -d '#{pane_current_path}' -w80% -h80% -E lazygit
-bind -r o display-popup -d '#{pane_current_path}' -w80% -h80% -E lazydocke
+bind -r o display-popup -d '#{pane_current_path}' -w80% -h80% -E lazydocker
+
+# ============================
+# ===       Plugins        ===
+# ============================
+#set -g @plugin 'tmux-plugins/tpm'  #prefix + I (Install), prefix + U (update), prefix + alt + U (remove)
+#set -g @plugin 'olimorris/tmux-pomodoro-plus'
+#set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+#set -g @plugin 'tmux-plugins/tmux-yank'
+#set -g @plugin 'thuanOwa/tmux-fzf-session-switch' # Prefix + Ctrl-f
+#set -g @plugin 'aserowy/tmux.nvim'
+run-shell ${tmux-fzf-session-switch}/share/tmux-plugins/tmux-fzf-session-switch/main.tmux
+run-shell ${tmux-prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
+run-shell ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/resurrect.tmux
+run-shell ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
+run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
 
     '';
-    #terminal =
-    #  if isDarwin
-    #  then "screen-256color"
-    #  else "xterm-256color";
+    plugins = with pkgs; [
+      tmuxPlugins.resurrect
+      tmuxPlugins.continuum
+      tmuxPlugins.yank
+      tmux-fzf-session-switch
+      tmux-prefix-highlight
+    ];
    }; 
   };
 }

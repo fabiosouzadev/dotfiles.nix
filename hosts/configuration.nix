@@ -69,6 +69,7 @@
     nnn # terminal file manager
     just
     unzip
+    xsel
   ];
 
   # Configure keymap in X11
