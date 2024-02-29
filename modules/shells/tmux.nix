@@ -94,6 +94,7 @@ set -g display-panes-time 800
 set -g remain-on-exit off
 setw -g aggressive-resize on
 set -g mouse off
+set-option -g status-position top
 
 
 setw -g automatic-rename on   # rename window to reflect current program
@@ -256,13 +257,6 @@ if -b 'command -v reattach-to-user-namespace > /dev/null 2>&1' 'bind y run -b "t
 if -b 'command -v clip.exe > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | clip.exe"'
 if -b '[ -c /dev/clipboard ]' 'bind y run -b "tmux save-buffer - > /dev/clipboard"'
 
-
-#Session
-
-set -g @plugin 'tmux-plugins/tmux-resurrect' # persist tmux sessions after computer restart (prefix + Ctrl-s - save  |  prefix + Ctrl-r - restore)
-set -g @plugin 'tmux-plugins/tmux-continuum' # automatically saves sessions for you every 15 minutes
-set -g @resurrect-capture-pane-contents 'on'
-
 # =====================================
 # ===        Renew environment      ===
 # =====================================
@@ -292,9 +286,6 @@ set -g @resurrect-capture-pane-contents 'on'
 set -g @resurrect-processes '~nvim ~vim'
 
 set -g @continuum-restore 'on'
-
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-#run '~/.tmux/plugins/tpm/tpm'
 
 # TokyoNight colors for Tmux
 

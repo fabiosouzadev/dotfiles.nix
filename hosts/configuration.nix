@@ -5,7 +5,8 @@
                import ../modules/editors ++
                import ../modules/shells ++
                import ../modules/services ++
-	       import ../modules/dev);
+	           import ../modules/dev ++
+               import ../modules/cloud );
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
