@@ -20,8 +20,8 @@
   };
 
   boot.loader.grub.device = "nodev";
-  #boot.kernelPackages = pkgs.linuxPackages_hardened;
-  boot.kernelModules = [ "rtl8821ce" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelModules = [ "rtl8821ce" ];
   
   # Enable networking
   networking.networkmanager.enable = true;
@@ -32,9 +32,10 @@
     fstrim.enable = true;
   };
 
-  #environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
   #  linuxKernel.packages.linux_xanmod_stable.rtl8821ce
-  #   linuxKernel.packages.linux_6_1.rtl8821ce
+  #  linuxKernel.packages.linux_6_1.rtl8821ce
+  #   linuxKernel.packages.linux_6_7.rtl8821ce
   #];
   
   # Configure network proxy if necessary

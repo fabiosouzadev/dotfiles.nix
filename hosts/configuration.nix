@@ -1,4 +1,4 @@
-{ config, nixpkgs, pkgs, defaultUser, defaultGit, myNvim, ... }: 
+{ config, nixpkgs, pkgs, defaultUser, defaultGit, myNvim, devShells, ... }: 
 
 {
   imports =  ( import ../modules/desktops ++

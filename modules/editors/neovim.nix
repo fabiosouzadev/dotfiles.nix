@@ -18,9 +18,10 @@
      defaultEditor = true;
      viAlias = true;
      vimAlias = true;
-     plugins = with pkgs; [
+     plugins = with pkgs.vimPlugins; [
         # search all the plugins using https://search.nixos.org/packages
-        vimPlugins.telescope-fzf-native-nvim
+	vim-tmux-navigator
+        telescope-fzf-native-nvim
       ];
    };
  };

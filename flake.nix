@@ -10,12 +10,13 @@
       url = "github:fabiosouzadev/nvim";
       flake = false;
     };
+
   };
   outputs = { 
     self,
     nixpkgs,
     home-manager, 
-    myNvim, 
+    myNvim,
     ... 
   }@inputs: {
     nixosConfigurations = (

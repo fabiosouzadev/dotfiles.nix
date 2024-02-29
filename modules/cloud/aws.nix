@@ -1,6 +1,10 @@
+{  config, pkgs, defaultUser, defaultGit, ... }:
 {
-#awscli2
-#aws-sso-cli
-#aws-sso-creds
-
+  home-manager.users.${defaultUser} = {
+    home.packages = with pkgs; [
+      awscli2
+      aws-sso-cli
+      aws-sso-creds
+    ];
+  };
 }
