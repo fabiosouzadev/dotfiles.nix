@@ -10,9 +10,6 @@
       General = {
         Enable = "Source,Sink,Media,Socket";
       };
-      Policy = {
-        AutoEnable = "true";
-      };
     };
   };
  
