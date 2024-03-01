@@ -299,8 +299,8 @@
 
         # change container layout (stacked, tabbed, toggle split)
         bindsym $mod+s layout stacking
-        bindsym $mod+g layout tabbed
-        bindsym $mod+e layout toggle split
+        bindsym $mod+t layout tabbed
+        bindsym $mod+| layout toggle split
 
         # toggle tiling / floating
         bindsym $mod+Shift+space floating toggle
@@ -342,7 +342,7 @@
         bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
         ## App shortcuts
-        bindsym $mod+w exec brave
+        bindsym $mod+b exec brave
         bindsym $mod+n exec thunar
         bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
@@ -450,18 +450,8 @@
         #exec_always --no-startup-id conky
 
         # start a script to setup displays
-        # uncomment the next line, use arandr to setup displays and save the file as monitor:
-        #exec_always --no-startup-id sh $HOME/.config/i3/scripts/displays/dual_intel_iris_xe.sh
-        
-        # Monitors
-        exec_always --no-startup-id ${
-          pkgs.writeShellScriptBin "dual_monitor_intel_iris_xe.sh" ''
-           xrandr --newmode "2560x1080x49.94"  150.25  2560 2608 2640 2720  1080 1083 1087 1106  +HSync -VSync
-           xrandr --addmode HDMI-1 2560x1080x49.94
-	   xrandr --output eDP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-1 --primary --mode 2560x1080x49.94 --pos 0x0 --rotate normal
-          ''
-        }/bin/dual_monitor_intel_iris_xe.sh
-
+        # uncomment the next line, use arandr to setup displays and save the file as monitor: 
+        exec_always --no-startup-id $HOME/.screenlayout/dual_monitor_intel_iris_xe.sh
 
         # set wallpaper
         exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
@@ -642,8 +632,8 @@
         bindsym F9 exec rofi -modi drun -show drun \
           -config ~/.config/rofi/rofidmenu.rasi
 
-        ## rofi bindings for window menu ($mod+t /F10 optional disabled)
-        bindsym $mod+t exec ~/.config/rofi/scripts/window.sh 
+        ## rofi bindings for window menu ($mod+w /F10 optional disabled)
+        bindsym $mod+w exec ~/.config/rofi/scripts/window.sh 
 
         bindsym F10 exec rofi -show window \
           -config ~/.config/rofi/rofidmenu.rasi
@@ -661,37 +651,43 @@
 
   home-manager.users.${defaultUser} = {
     home.file."/.config/wallpapers" = {
-    source = ../../configs/wallpapers;
-    recursive = true;
+     source = ../../configs/wallpapers;
+     recursive = true;
+    };
+    
+    home.file."/.screenlayout" = {
+     source = ../../configs/monitors;
+     recursive = true;
+     executable = true;  # make all scripts executable
     };
     
     home.file."/.config/i3/scripts" = {
-    source = ../../configs/i3/scripts;
-    recursive = true;
-    executable = true;  # make all scripts executable
+     source = ../../configs/i3/scripts;
+     recursive = true;
+     executable = true;  # make all scripts executable
     };
     
     home.file."/.config/i3/scripts/displays" = {
-    source = ../../configs/i3/scripts/displays;
-    recursive = true;
-    executable = true;  # make all scripts executable
+     source = ../../configs/i3/scripts/displays;
+     recursive = true;
+     executable = true;  # make all scripts executable
     };
 
     home.file."/.config/picom/picom.conf".source = ../../configs/picom/picom.conf;
 
     home.file."/.config/rofi" = {
-    source = ../../configs/rofi;
-    recursive = true;
+     source = ../../configs/rofi;
+     recursive = true;
     };
 
     home.file."/.config/dunst" = {
-    source = ../../configs/dunst;
-    recursive = true;
+     source = ../../configs/dunst;
+     recursive = true;
     };
 
     home.file."/.config/polybar" = {
-    source = ../../configs/polybar;
-    recursive = true;
+     source = ../../configs/polybar;
+     recursive = true;
     };
   };
 }
