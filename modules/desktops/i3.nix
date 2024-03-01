@@ -656,7 +656,7 @@
     };
     
     home.file."/.screenlayout" = {
-     source = ../../configs/monitors;
+     source = ../../configs/displays;
      recursive = true;
      executable = true;  # make all scripts executable
     };
