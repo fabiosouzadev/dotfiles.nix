@@ -33,7 +33,6 @@
         i3blocks      # status bar
         i3lock        # default i3 screen locker
         i3status      # provide information to i3bar
-        #i3-gaps       # i3 with gaps
         xautolock     # lock screen after some time
         rofi          # application launcher, the same as dmenu
         dunst         # notification daemon
@@ -300,7 +299,7 @@
         # change container layout (stacked, tabbed, toggle split)
         bindsym $mod+s layout stacking
         bindsym $mod+t layout tabbed
-        bindsym $mod+| layout toggle split
+        bindsym $mod+e layout toggle split
 
         # toggle tiling / floating
         bindsym $mod+Shift+space floating toggle
