@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
       htop
       fd
+      devbox
    ];
     programs= {
      bat = {
@@ -51,9 +52,9 @@
       };
      };
      zsh = {
-      # initExtra = ''
-      #   source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-      # '';
+      initExtra = ''
+         source <(devbox completion zsh); compdef _devbox devbox
+       '';
       shellAliases = {
 	    "cat" = "${pkgs.bat}/bin/bat";
 	    "grep" = "${pkgs.ripgrep}/bin/rg";
