@@ -7,6 +7,7 @@
       htop
       fd
       devbox
+      distrobox
    ];
     programs= {
      bat = {

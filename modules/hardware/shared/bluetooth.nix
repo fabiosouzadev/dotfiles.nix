@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 {
   hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
   # bluetooth
   # List services that you want to enable:
   hardware.bluetooth = {
