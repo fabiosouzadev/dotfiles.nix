@@ -5,7 +5,6 @@
                import ../modules/editors ++
                import ../modules/shells ++
                import ../modules/services ++
-	       import ../modules/dev ++
                import ../modules/cloud);
 
 
