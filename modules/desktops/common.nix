@@ -20,6 +20,7 @@
       spotify
       vlc
       mpv
+      streamlink
       streamlink-twitch-gui-bin
 
       #db
