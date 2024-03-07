@@ -16,10 +16,11 @@
       authy
       bitwarden
 
-      #music-client
+      #players
       spotify
       vlc
       mpv
+      streamlink-twitch-gui-bin
 
       #db
       dbeaver
