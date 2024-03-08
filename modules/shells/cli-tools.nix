@@ -10,6 +10,8 @@
       distrobox
       ngrok
       pgrok #ngrok alternative
+      #vagrant
+      wakatime
    ];
     programs= {
      bat = {
