@@ -1,3 +1,4 @@
 [
   ./neovim.nix
+  ./jetbrains.nix
 ]
