@@ -70,6 +70,7 @@
     just
     unzip
     xsel
+    xclip
   ];
 
   # Configure keymap in X11
