@@ -29,6 +29,8 @@
       #db
       dbeaver
       mongosh
+      #pgadmin
+      #redisinsight
 
       # api-tool
       #postman
