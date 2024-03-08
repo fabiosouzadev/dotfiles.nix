@@ -3,6 +3,7 @@
 
   # i3 related options
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+  programs.dconf.enable = true;
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
@@ -649,6 +650,7 @@
   #environment.etc."xdg/i3/config".text = pkgs.callPackage ../../configs/i3/i3-config.nix {};
 
   home-manager.users.${defaultUser} = {
+
     home.file."/.config/wallpapers" = {
      source = ../../configs/wallpapers;
      recursive = true;
