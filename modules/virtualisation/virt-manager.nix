@@ -2,11 +2,8 @@
 
 {
   virtualisation.libvirtd.enable = true;
-  
   users.users.${defaultUser}.extraGroups = [ "libvirtd" ];
-
-  users.groups.docker.members = [ "${defaultUser}" ];
-  
+ 
   environment = {
     systemPackages = with pkgs; [
       virt-manager    # VM Interface
