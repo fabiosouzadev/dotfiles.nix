@@ -6,6 +6,9 @@
     home.packages = with pkgs; [
       #chat
       slack
+      discord
+      telegram-desktop
+      whatsapp-for-linux
 
       #browsers
       brave

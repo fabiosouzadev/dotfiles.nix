@@ -5,6 +5,7 @@
     packages = with pkgs; [
       # icon fonts
       material-design-icons
+      whatsapp-emoji-font
 
       # normal fonts
       noto-fonts
