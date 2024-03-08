@@ -2,19 +2,27 @@
 
 {
   virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  
   users.users.${defaultUser}.extraGroups = [ "libvirtd" ];
 
   users.groups.docker.members = [ "${defaultUser}" ];
-
-  home-manager.users.${defaultUser} = {
-  	dconf.settings = {
-    		"org/virt-manager/virt-manager/connections" = {
-      		autoconnect = ["qemu:///system"];
-      		uris = ["qemu:///system"];
-    };
+  
+  environment = {
+    systemPackages = with pkgs; [
+      virt-manager    # VM Interface
+      virt-viewer     # Remote VM
+      qemu            # Virtualizer
+      qemu_kvm
+    ];
   };
 
+  home-manager.users.${defaultUser} = {
+    dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+         autoconnect = ["qemu:///system"];
+         uris = ["qemu:///system"];
+      };
+    };
   };
 
   services.qemuGuest.enable = true;
