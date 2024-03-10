@@ -29,11 +29,9 @@
       #db
       dbeaver
       mongosh
-      #pgadmin
-      #redisinsight
 
       # api-tool
-      #postman
+      postman
       insomnia
 
       #downloaders
