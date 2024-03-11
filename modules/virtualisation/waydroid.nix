@@ -1,4 +1,7 @@
+### Andriod virtualisation with LXC ###
 
+# https://nixos.wiki/wiki/WayDroid
+# https://waydro.id/
 {  config, pkgs, defaultUser, defaultGit, ... }:
 
 {
@@ -6,11 +9,4 @@
     waydroid.enable = true;
   };
 
-  users.groups.docker.members = [ "${defaultUser}" ];
-
-  environment.systemPackages = with pkgs; [
-    docker                  # Containers
-    docker-compose          # Multi-Container
-    lazydocker
-  ];
 }
