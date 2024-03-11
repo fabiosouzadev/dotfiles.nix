@@ -1,4 +1,4 @@
-### Andriod virtualisation with LXC ###
+### Andriod virtualisation with LXC  on Wayland ###
 
 # https://nixos.wiki/wiki/WayDroid
 # https://waydro.id/
