@@ -14,6 +14,10 @@
       brave
       firefox
       chromium
+      qutebrowser
+
+      #pdf-reader
+      zathura
 
       #auth and passwords
       authy

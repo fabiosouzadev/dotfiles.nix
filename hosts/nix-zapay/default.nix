@@ -20,7 +20,12 @@
   };
 
   boot.loader.grub.device = "nodev";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_5_19;
+  #boot.kernelPackages = pkgs.linuxPackages_6_7_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_hardened;
+  #boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.kernelModules = [ "rtl8821ce" "btintel" ];
   
   # Enable networking

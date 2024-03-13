@@ -328,9 +328,14 @@
         bindsym XF86AudioMute exec amixer sset Master toggle
 
         ##### Pulse Audio controls ######
-        # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-        # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-        # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # m
+        #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+        #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+        #bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle # mute
+        
+	# gradular volume control
+        #bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% #increase sound volume
+        #bindsym $mod+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #decrease sound volume
+
 
         # audio control
         bindsym XF86AudioPlay  exec playerctl play
