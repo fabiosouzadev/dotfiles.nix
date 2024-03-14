@@ -23,6 +23,10 @@
 	vim-tmux-navigator
         telescope-fzf-native-nvim
       ];
+      extraConfig = ''
+    	set number relativenumber
+	set clipboard+=unnamedplus
+      '';
    };
  };
 }
