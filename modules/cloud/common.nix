@@ -5,13 +5,13 @@
   
   home-manager.users.${defaultUser} = {
     home.packages = with pkgs; [
-	k3s
 	kind
 	minikube
 	k9s
 	kubie
+	#k3s
 	#lens
-	k6 # load testing tool
+	#k6 # load testing tool
     ];
 
     home.file.".kube/kubie.yaml".text = ''
