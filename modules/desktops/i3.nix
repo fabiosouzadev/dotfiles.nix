@@ -456,7 +456,7 @@
 
         # start a script to setup displays
         # uncomment the next line, use arandr to setup displays and save the file as monitor: 
-        exec_always --no-startup-id $HOME/.screenlayout/dual_monitor_intel_iris_xe.sh
+        exec_always --no-startup-id $HOME/.screenlayout/i3_detect_displays.sh
 
         # set wallpaper
         exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
@@ -661,9 +661,8 @@
      recursive = true;
     };
     
-    home.file."/.screenlayout" = {
-     source = ../../configs/displays;
-     recursive = true;
+    home.file."/.screenlayout/i3_detect_displays.sh" = {
+     source = ../../scripts/i3_detect_displays.sh;
      executable = true;  # make all scripts executable
     };
     
