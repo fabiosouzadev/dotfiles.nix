@@ -424,7 +424,6 @@
         #
         # for custom config:
         exec_always --no-startup-id picom --config  ~/.config/picom.conf
-        exec --no-startup-id $HOME/.config/polybar/launch.sh --two
 
         #############################################
         # autostart applications/services on login: #
@@ -460,6 +459,8 @@
 
         # set wallpaper
         exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
+        
+	exec $HOME/.config/polybar/launch.sh --two
         
 
         # set powersavings for display:
