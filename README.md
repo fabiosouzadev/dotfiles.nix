@@ -23,10 +23,17 @@ Components relevant to all hosts:
 
 ## NixOS Installation Guide
 
+
+
 ```sh
 #sudo nixos-rebuild switch --flake <path>#<host>
 
 sudo nixos-rebuild switch --flake .#notezapay
 # or
 sudo nixos-rebuild switch --flake .#vm
+```
+
+### Get secrets
+```sh
+git clone git@github.com:fabiosouzadev/secrets.git ~/.password-store
 ```
