@@ -24,7 +24,6 @@
       bitwarden
 
       #players
-      spotify
       vlc
       mpv
       streamlink
