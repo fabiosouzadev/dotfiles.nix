@@ -463,7 +463,7 @@
         # set wallpaper
         exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
         
-	exec $HOME/.config/polybar/launch.sh --two
+	exec sleep 2 && $HOME/.config/polybar/launch.sh --two
         
 
         # set powersavings for display:
