@@ -455,7 +455,10 @@
 
         # start a script to setup displays
         # uncomment the next line, use arandr to setup displays and save the file as monitor: 
-        exec_always --no-startup-id $HOME/.screenlayout/i3_detect_displays.sh
+        
+	exec_always --no-startup-id $HOME/.screenlayout/i3_detect_displays.sh
+        
+	bindsym $mod+m exec $HOME/.screenlayout/i3_detect_displays.sh
 
         # set wallpaper
         exec_always --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
