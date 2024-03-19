@@ -5,14 +5,14 @@
   
   home-manager.users.${defaultUser} = {
     home.packages = with pkgs; [
-#	kind
-#	minikube
-	kubie
-	kubeswitch
+	k3s
+        kind
+        minikube
 	k9s
-	#k3s
-#	lens
-	#k6 # load testing tool
+	#kubeswitch
+	kubie
+        #lens
+	k6 # load testing tool
     ];
 
     home.file.".kube/kubie.yaml".text = ''
@@ -34,6 +34,7 @@ configs:
         - ~/.kube/configs/*.yaml
         - ~/.kube/kubie/*.yml
         - ~/.kube/kubie/*.yaml
+        - ~/.dotfiles.nix/zapay/kube/*.yaml
 
     # Exclude these globs.
     # Default: values listed below.
@@ -47,7 +48,7 @@ prompt:
     # Disable kubie's custom prompt inside of a kubie shell. This is useful
     # when you already have a prompt displaying kubernetes information.
     # Default: false
-    disable: true
+    disable: false
 
     # When using recursive contexts, show depth when larger than 1.
     # Default: true
@@ -99,20 +100,34 @@ hooks:
     '';
     
     home.file.".kube/switch-config.yaml".text = ''
-    kind: SwitchConfig
-    version: v1alpha1
-    kubeconfigStores:
-    - kind: filesystem
-      id: config
-      paths:
-        - "~/.kube"
-    - kind: filesystem
-      id: zapay
-      kubeconfigName: "zapay-*"
-      paths:
-        - "~/.dotfiles.nix/zapay/kube"
+kind: SwitchConfig
+version: v1alpha1
+kubeconfigStores:
+- kind: filesystem
+  id: config
+  paths:
+    - "~/.kube/"
+- kind: filesystem
+  id: zapay
+  kubeconfigName: "zapay*"
+  paths:
+    - "~/.dotfiles.nix/zapay/kube/"
+# - kind: gke
+#   refreshIndexAfter: 3h
+#   config:
+#     # optionally set the account. Otherwise, the currently active gcloud account will be used.
+#     gcpAccount: fabio.souza@ciahering.com.br
+#     authentication:
+#       authenticationType: gcloud
+#   cache:
+#     kind: filesystem
+#     config:
+#       path: ~/.cache/kube/
+#     # optionally limit to certain projects in account
+#     # projectIDs:
+#     #   - hering-integracoes-b2c-dev
     '';
-
+    
     home.file.".config/k9s/skin.yml".text = ''
       # Styles...
       foreground: &foreground "#f8f8f2"
