@@ -9,9 +9,9 @@
         kind
         minikube
 	k9s
-	#kubeswitch
+	kubeswitch
 	kubie
-        #lens
+        lens
 	k6 # load testing tool
     ];
 
@@ -241,6 +241,13 @@ kubeconfigStores:
               fgColor: *foreground
               bgColor: *purple
     '';
+    programs.zsh = {
+      shellAliases = {
+        kubectx = "kubie ctx";
+	kubens  = "kubie ns";
+        kctx    = "kubie ctx";
+      };
+    };
 
   };
 
