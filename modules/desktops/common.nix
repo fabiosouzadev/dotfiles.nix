@@ -41,6 +41,5 @@
       yt-dlp
       twitch-dl
     ];
-  };
-
+  };  
 }

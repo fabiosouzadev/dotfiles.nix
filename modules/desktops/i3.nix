@@ -461,7 +461,7 @@
 	bindsym $mod+m exec $HOME/.screenlayout/i3_detect_displays.sh
 
         # set wallpaper
-        exec_always sleep 1 --no-startup-id ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
+        exec_always --no-startup-id sleep 1 && ${pkgs.feh}/bin/feh --bg-fill --randomize $HOME/.config/wallpapers
         
 	exec sleep 1 && $HOME/.config/polybar/launch.sh --two
         

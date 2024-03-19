@@ -5,6 +5,7 @@
   home-manager.users.${defaultUser} = {
   home.packages = with pkgs; [
       htop
+      btop
       fd
       devbox
       distrobox
