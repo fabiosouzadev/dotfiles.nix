@@ -1,5 +1,39 @@
 {
   "nodes": {
+    "copilotchat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711127604,
+        "narHash": "sha256-M64IHhyxFehEPpizFVseKq001EDwnudAThkECATuQGg=",
+        "owner": "CopilotC-Nvim",
+        "repo": "CopilotChat.nvim",
+        "rev": "8acd46e7a6bde8d0e1aa695a80fec4fd381b3d1f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CopilotC-Nvim",
+        "ref": "canary",
+        "repo": "CopilotChat.nvim",
+        "type": "github"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1709336216,
+        "narHash": "sha256-Dt/wOWeW6Sqm11Yh+2+t0dfEWxoMxGBvv3JpIocFl9E=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f7b3c975cf067e56e7cda6cb098ebe3fb4d74ca2",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-parts",
+        "type": "indirect"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -21,22 +55,60 @@
       }
     },
     "myNvim": {
-      "flake": false,
+      "inputs": {
+        "copilotchat": "copilotchat",
+        "flake-parts": "flake-parts",
+        "nixpkgs": "nixpkgs"
+      },
       "locked": {
-        "lastModified": 1701182622,
-        "narHash": "sha256-btzx9HAl5mkMWxt10GNTlTLfRhxLzjavw3mota/qB3Q=",
-        "owner": "fabiosouzadev",
-        "repo": "nvim",
-        "rev": "245a66e1c29201468ec79119f4f7df9c3724b04a",
+        "lastModified": 1711052616,
+        "narHash": "sha256-022/Q0I2AocC80HVEHkvJAkir4v93FZOo0IOuC/pgh0=",
+        "owner": "ALT-F4-LLC",
+        "repo": "thealtf4stream.nvim",
+        "rev": "b14db00469b41b5682d172244f700d086d26aed3",
         "type": "github"
       },
       "original": {
-        "owner": "fabiosouzadev",
-        "repo": "nvim",
+        "owner": "ALT-F4-LLC",
+        "repo": "thealtf4stream.nvim",
         "type": "github"
       }
     },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1711001935,
+        "narHash": "sha256-URtGpHue7HHZK0mrHnSf8wJ6OmMKYSsoLmJybrOLFSQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "20f77aa09916374aa3141cbc605c955626762c9a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1709237383,
+        "narHash": "sha256-cy6ArO4k5qTx+l5o+0mL9f5fa86tYUX3ozE1S+Txlds=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1536926ef5621b09bba54035ae2bb6d806d72ac8",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1709961763,
         "narHash": "sha256-6H95HGJHhEZtyYA3rIQpvamMKAGoa8Yh2rFV29QnuGw=",
@@ -56,7 +128,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "myNvim": "myNvim",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

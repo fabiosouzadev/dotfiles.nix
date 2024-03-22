@@ -7,8 +7,7 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
     myNvim = {
-      url = "github:fabiosouzadev/nvim";
-      flake = false;
+      url = "github:ALT-F4-LLC/thealtf4stream.nvim";
     };
 
   };
