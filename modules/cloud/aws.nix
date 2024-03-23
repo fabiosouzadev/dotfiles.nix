@@ -1,6 +1,5 @@
 {  config, pkgs, defaultUser, defaultGit, ... }:
 {
-  home-manager.users.${defaultUser} = {
     home.packages = with pkgs; [
       awscli2
     ];
@@ -15,5 +14,4 @@
        aws_zapay_baixar_imagem_api = "aws ecr get-login-password --region sa-east-1 --profile aws-zapay-stg | docker login --username AWS --password-stdin 071032557399.dkr.ecr.sa-east-1.amazonaws.com";
       };
     };
-  };
 }

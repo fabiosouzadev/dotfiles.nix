@@ -23,12 +23,12 @@
      withNodeJs = true;
      plugins = with pkgs.vimPlugins; [
         # search all the plugins using https://search.nixos.org/packages
-	vim-tmux-navigator
+	      vim-tmux-navigator
         telescope-fzf-native-nvim
       ];
       extraConfig = ''
     	set number relativenumber
-	set clipboard+=unnamedplus
+	    set clipboard+=unnamedplus
       '';
    };
  };

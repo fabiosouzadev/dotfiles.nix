@@ -1,5 +1,9 @@
-[
-  ./common.nix
-  ./aws.nix
-  ./gcp.nix
-]
+{ config, pkgs, ... }:
+
+{
+  imports = [
+    ./common.nix
+    ./aws.nix
+    ./gcp.nix
+  ];
+}

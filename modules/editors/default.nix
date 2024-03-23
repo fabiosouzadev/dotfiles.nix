@@ -1,5 +1,4 @@
 [
   ./neovim.nix
-  ./jetbrains.nix
-  ./vscodium.nix
+  #./vscode.nix
 ]

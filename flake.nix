@@ -1,27 +1,44 @@
 {
-  description = "NixOS configuration of Fabio Souza (fabiosouzadev)";
+  description = "NixOS configuration of fabiosouzadev [Refactored]";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    myNvim = {
-      url = "github:ALT-F4-LLC/thealtf4stream.nvim";
-    };
-
   };
-  outputs = { 
-    self,
-    nixpkgs,
-    home-manager, 
-    myNvim,
-    ... 
-  }@inputs: {
-    nixosConfigurations = (
-      import ./hosts { inherit nixpkgs home-manager myNvim; }
-    );
-    #darwinConfigurations = ();
-    #homeConfigurations = ();
+
+  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
+  let
+    mkDarwin = self.lib.mkDarwin {};
+    mkNixos = self.lib.mkNixos {};
+  in
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      flake = {
+
+        lib = import ./lib {inherit inputs;};
+	
+	#darwinConfigurations = {};
+
+        nixosConfigurations = {
+          nixos-zapay = mkNixos {system = "x86_64-linux";};
+          vm = mkNixos {system = "x86_64-linux";};
+        };
+      };
+      systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
+      perSystem = { config, pkgs, ... }: {
+      	devShells = {
+          default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [ just cowsay ];
+          };
+        };
+	formatter = pkgs.alejandra;
+      }; 
+
+    #packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+    
+    #packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
   };
 }

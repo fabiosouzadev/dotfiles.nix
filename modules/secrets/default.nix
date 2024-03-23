@@ -1,3 +1,7 @@
-[
-  ./pass.nix
-]
+{ config, pkgs, ... }:
+
+{
+  imports = [
+    ./pass.nix
+  ];
+}

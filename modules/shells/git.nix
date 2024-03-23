@@ -1,8 +1,6 @@
 {  config, pkgs, defaultUser, defaultGit, ... }:
 
 {
-  # basic configuration of git, please change to your own
-  home-manager.users.${defaultUser} = {
     home.packages = with pkgs; [
       lazygit
     ];
@@ -80,5 +78,4 @@
 	gitgrep = "git ls-files | rg";
       };
     };
-  };
 }

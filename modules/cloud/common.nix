@@ -1,19 +1,18 @@
 
-{  config, pkgs, defaultUser, defaultGit, ... }:
+{  config, pkgs, ... }:
 
 {
   
-  home-manager.users.${defaultUser} = {
-    home.packages = with pkgs; [
-	k3s
-        kind
-        minikube
-	k9s
-	kubeswitch # needs a valid ~/.kube/config
-	kubie
-        lens
-	k6 # load testing tool
-    ];
+  home.packages = with pkgs; [
+    k3s
+    kind
+    minikube
+    k9s
+    kubeswitch # needs a valid ~/.kube/config
+    kubie
+    lens
+    k6 # load testing tool
+  ];
 
     home.file.".kube/kubie.yaml".text = ''
 # Force kubie to use a particular shell, if unset detect shell currently in use.
@@ -244,11 +243,9 @@ kubeconfigStores:
     programs.zsh = {
       shellAliases = {
         kubectx = "kubie ctx";
-	kubens  = "kubie ns";
+	      kubens  = "kubie ns";
         kctx    = "kubie ctx";
       };
     };
-
-  };
 
 }

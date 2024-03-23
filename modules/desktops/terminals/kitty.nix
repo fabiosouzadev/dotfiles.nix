@@ -1,27 +1,26 @@
 
-{  config, pkgs, defaultUser, ... }:
+{  config, pkgs, ... }:
  
 {
-  home-manager.users.${defaultUser} = {
-    programs.kitty = {
-      enable = true;
+  programs.kitty = {
+    enable = true;
 
-      font = {
-        name = "IosevkaTerm NF";
-        package = pkgs.kitty;
-        size = 12;
-      };
+    font = {
+      name = "IosevkaTerm NF";
+      package = pkgs.kitty;
+      size = 12;
+    };
 
-      settings = {
-        scrollback_lines = 10000;
-        wheel_scroll_min_lines = 1;
-        window_padding_width = 0;
-        confirm_os_window_close = 0;
-        background_opacity = "0.85";
-	macos_option_as_alt = true; # Option key acts as Alt on macOS
-        enable_audio_bell = false;
-	shell = "${pkgs.zsh}/bin/zsh";
-      };
+    settings = {
+      scrollback_lines = 10000;
+      wheel_scroll_min_lines = 1;
+      window_padding_width = 0;
+      confirm_os_window_close = 0;
+      background_opacity = "0.85";
+      macos_option_as_alt = true; # Option key acts as Alt on macOS
+      enable_audio_bell = false;
+      shell = "${pkgs.zsh}/bin/zsh";
+    };
 
       extraConfig = ''
 ## name: Tokyo Night Moon
@@ -75,5 +74,4 @@ color17 #c53b53
       '';
 
     };
-  }; 
 }

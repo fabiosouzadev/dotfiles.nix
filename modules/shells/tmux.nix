@@ -1,4 +1,4 @@
-{ config, lib, pkgs, defaultUser, defaultGit, ... }:
+{ pkgs, config, ...}:
 let
    tmux-prefix-highlight = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "prefix-highlight";
@@ -22,8 +22,7 @@ let
   };
 in
 {
-  home-manager.users.${defaultUser} = {
-   programs.tmux = {
+  programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
     shell = "${pkgs.zsh}/bin/zsh";
@@ -362,6 +361,5 @@ run-shell ${pkgs.tmuxPlugins.vim-tmux-navigator}/share/tmux-plugins/vim-tmux-nav
       tmux-prefix-highlight
       tmuxPlugins.vim-tmux-navigator
     ];
-   }; 
-  };
+   };
 }

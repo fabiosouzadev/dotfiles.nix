@@ -1,7 +1,6 @@
 {  config, lib, pkgs, defaultUser, defaultGit, myNvim, ... }: let
   passwordStoreDir = "/home/${defaultUser}/.password-store";
-in {
- home-manager.users.${defaultUser} = {  
+in { 
   programs.password-store = {
       enable = true;
       package = pkgs.pass.withExtensions (exts: [
@@ -28,5 +27,4 @@ in {
       ];
     };
   };
- };
 }
