@@ -655,47 +655,47 @@
 
   };
 
-  #environment.etc."xdg/i3/config".text = import ../../configs/i3/i3-config.nix;
-  #environment.etc."xdg/i3/config".text = pkgs.callPackage ../../configs/i3/i3-config.nix {};
+  #environment.etc."xdg/i3/config".text = import ../home/i3/i3/i3-config.nix;
+  #environment.etc."xdg/i3/config".text = pkgs.callPackage ../home/i3/i3/i3-config.nix {};
 
   home-manager.users.${username} = {
 
     home.file."/.config/wallpapers" = {
-     source = ../../configs/wallpapers;
+     source = ../home/wallpapers;
      recursive = true;
     };
     
     home.file."/.screenlayout/i3_detect_displays.sh" = {
-     source = ../../scripts/i3_detect_displays.sh;
+     source = ../scripts/i3_detect_displays.sh;
      executable = true;  # make all scripts executable
     };
     
     home.file."/.config/i3/scripts" = {
-     source = ../../configs/i3/scripts;
+     source = ../home/i3/i3/scripts;
      recursive = true;
      executable = true;  # make all scripts executable
     };
     
     home.file."/.config/i3/scripts/displays" = {
-     source = ../../configs/i3/scripts/displays;
+     source = ../home/i3/i3/scripts/displays;
      recursive = true;
      executable = true;  # make all scripts executable
     };
 
-    home.file."/.config/picom/picom.conf".source = ../../configs/picom/picom.conf;
+    home.file."/.config/picom/picom.conf".source = ../home/i3/picom/picom.conf;
 
     home.file."/.config/rofi" = {
-     source = ../../configs/rofi;
+     source = ../home/i3/rofi;
      recursive = true;
     };
 
     home.file."/.config/dunst" = {
-     source = ../../configs/dunst;
+     source = ../home/i3/dunst;
      recursive = true;
     };
 
     home.file."/.config/polybar" = {
-     source = ../../configs/polybar;
+     source = ../home/i3/polybar;
      recursive = true;
     };
   };

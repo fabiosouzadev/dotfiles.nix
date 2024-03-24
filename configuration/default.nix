@@ -6,5 +6,10 @@
     ./system-packages.nix
     ./localization.nix
     ./keymap.nix
+    ../modules/fonts.nix
+    (import ../modules/i3.nix { inherit pkgs username; })
+    ../modules/jetbrains.nix
+    ../modules/polkit.nix
+    ../modules/vscodium.nix
   ];
 }
