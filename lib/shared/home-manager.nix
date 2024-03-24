@@ -1,5 +1,4 @@
-{ config, pkgs, username, ... }:
-
+{ username }:  {pkgs, ...}:
 {
   # TODO please change the username & home directory to your own
   home.username = username;
@@ -11,9 +10,9 @@
   };
 
   imports = [
-    (import ../../modules/secrets)
-    (import ../../modules/shells)
-    (import ../../modules/cloud)
+    (import ../../home/secrets  {inherit pkgs username;})
+    (import ../../home/shells)
+    (import ../../home/cloud)
   ];
 
   # This value determines the home Manager release that your

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
@@ -17,6 +17,6 @@
   services.blueman.enable = true;
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     bluetuith	
- ];
+  ];
 
 }

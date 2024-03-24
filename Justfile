@@ -11,11 +11,11 @@ get-config host:
   cp /etc/nixos/hardware-configuration.nix hosts/{{ host }}/hardware-configuration.nix 
 
 test host: 
-  # just get-config {{host}}
+  just get-config {{host}}
   sudo nixos-rebuild test --flake .#{{ host }} --show-trace -L -v
 
 build host: 
-  # just get-config {{host}}
+  just get-config {{host}}
   sudo nixos-rebuild switch --flake .#{{ host }} --show-trace -L -v
 
 ############################################################################

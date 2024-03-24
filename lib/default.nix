@@ -1,5 +1,6 @@
-{inputs}: 
+{ inputs, ... }:
 let
+pkgs = inputs.nixpkgs;
 defaultUsername = "fabiosouzadev";
 homeManagerShared = import ./shared/home-manager.nix;
 homeManagerNixos  = import ./nixos/home-manager.nix;
@@ -10,21 +11,23 @@ in {
   mkNixos = {
     username ? defaultUsername,
     isDesktop ? true,
-  }: {system}:
+    hasVirtualisation ? true,
+  }: {hostname, system}:
    inputs.nixpkgs.lib.nixosSystem {
      inherit system;
      modules = [
-     inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users."${username}" = {config,pkgs, ...}: {
-            imports = [
-              (homeManagerShared {inherit config pkgs username;})
-              (homeManagerNixos {inherit config pkgs isDesktop;})
-            ];
-          };
-        }
+      (import ../configuration { inherit username isDesktop hasVirtualisation; })
+      (import ../hosts/${hostname})
+      inputs.home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users."${username}" = { pkgs, ...}: {
+          imports = [
+            (homeManagerShared {inherit username;})
+            (homeManagerNixos {inherit isDesktop;})
+          ];
+        };
+      }
      ];
    };
 }

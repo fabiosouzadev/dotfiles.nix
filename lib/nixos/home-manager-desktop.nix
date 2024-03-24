@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-  home-manager-desktop = import ./home-manager-desktop.nix {inherit pkgs;}
 {
   xresources.properties = {
     "Xcursor.size" = 16;

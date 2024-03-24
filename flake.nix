@@ -18,14 +18,14 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       flake = {
 
-        lib = import ./lib {inherit inputs;};
-	
-	#darwinConfigurations = {};
+        lib = import ./lib {inherit inputs nixpkgs;};
 
         nixosConfigurations = {
-          nixos-zapay = mkNixos {system = "x86_64-linux";};
-          vm = mkNixos {system = "x86_64-linux";};
+          nix-zapay = mkNixos {hostname = "nix-zapay"; system = "x86_64-linux";};
+          vm = mkNixos {hostname = "vm"; system = "x86_64-linux";};
         };
+
+        #darwinConfigurations = {};
       };
       systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
       perSystem = { config, pkgs, ... }: {
@@ -34,7 +34,7 @@
             nativeBuildInputs = with pkgs; [ just cowsay ];
           };
         };
-	formatter = pkgs.alejandra;
+	      formatter = pkgs.alejandra;
       }; 
 
     #packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
