@@ -5,6 +5,5 @@
     ./common.nix
     ./spotify.nix
     ./terminals
-    ./editors.nix
   ];
 }
