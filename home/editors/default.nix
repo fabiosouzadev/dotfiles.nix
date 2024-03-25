@@ -1,4 +1,8 @@
-[
-  ./neovim.nix
-  #./vscode.nix
-]
+{ pkgs, ... }:
+
+{
+  imports = [
+    ./neovim.nix
+    #./vscode.nix
+  ];
+}
