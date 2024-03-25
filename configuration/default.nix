@@ -1,4 +1,4 @@
-{username, isDesktop, hasVirtualisation} : { pkgs,  ... }:
+{pkgs, username, isDesktop, hasVirtualisation, ...}:
 {
   imports = [
     (import ./user.nix {inherit pkgs username isDesktop hasVirtualisation; })

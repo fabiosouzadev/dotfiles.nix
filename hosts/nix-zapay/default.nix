@@ -7,7 +7,7 @@
       
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../../modules/hardware/nix-zapay)
+      ../../modules/hardware/nix-zapay
     ];
 
   # Bootloader.

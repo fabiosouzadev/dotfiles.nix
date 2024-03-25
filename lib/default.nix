@@ -15,19 +15,20 @@ in {
   }: {hostname, system}:
    inputs.nixpkgs.lib.nixosSystem {
      inherit system;
+     specialArgs = { inherit username isDesktop hasVirtualisation; };
      modules = [
-      (import ../configuration { inherit username isDesktop hasVirtualisation; })
-      (import ../hosts/${hostname})
-      inputs.home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users."${username}" = { pkgs, ...}: {
-          imports = [
-            (homeManagerShared {inherit username;})
-            (homeManagerNixos {inherit isDesktop;})
-          ];
-        };
-      }
+        ../configuration
+        ../hosts/${hostname}
+        inputs.home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users."${username}" = { pkgs, ...}: {
+            imports = [
+              (homeManagerShared {inherit username;})
+              (homeManagerNixos {inherit isDesktop;})
+            ];
+          };
+       }
      ];
    };
 }
