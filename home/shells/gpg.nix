@@ -1,3 +1,4 @@
+{pkgs, ... }:
 { 
     programs.gpg.enable = true;
     services.gpg-agent = {
@@ -7,5 +8,6 @@
       maxCacheTtl = 31536000;
       maxCacheTtlSsh = 31536000;
       enableSshSupport = true;
+      pinentryPackage = pkgs.pinentry-tty;
     };
 }

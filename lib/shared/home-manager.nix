@@ -4,11 +4,6 @@
   home.username = username;
   home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
 
-  xresources.properties = {
-    "Xcursor.size" = 16;
-    "Xft.dpi" = 172;
-  };
-
   imports = [
     (import ../../home/secrets  {inherit pkgs username;})
     (import ../../home/shells)
