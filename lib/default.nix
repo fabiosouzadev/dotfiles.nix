@@ -22,10 +22,11 @@ in {
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users."${username}" = { pkgs, ...}: {
+          home-manager.extraSpecialArgs = { inherit username isDesktop hasVirtualisation; };
+          home-manager.users."${username}" = {
             imports = [
-              (homeManagerShared {inherit username;})
-              (homeManagerNixos {inherit isDesktop;})
+              homeManagerShared
+              homeManagerNixos
             ];
           };
        }

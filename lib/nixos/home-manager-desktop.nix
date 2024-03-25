@@ -6,6 +6,6 @@
   };
 
   imports = [
-    (import ../../modules/virtualisation)
+    ../../modules/virtualisation
   ];
 }
