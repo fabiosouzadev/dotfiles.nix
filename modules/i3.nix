@@ -676,11 +676,11 @@
      executable = true;  # make all scripts executable
     };
     
-    home.file."/.config/i3/scripts/displays" = {
-     source = ../home/i3/i3/scripts/displays;
-     recursive = true;
-     executable = true;  # make all scripts executable
-    };
+    # home.file."/.config/i3/scripts/displays" = {
+    # source = ../home/i3/i3/scripts/displays;
+    # recursive = true;
+    # executable = true;  # make all scripts executable
+    # };
 
     home.file."/.config/picom/picom.conf".source = ../home/i3/picom/picom.conf;
 
