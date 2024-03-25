@@ -19,8 +19,8 @@
     zathura
 
     #auth and passwords
-    authy
-    bitwarden
+    #authy
+    #bitwarden
 
     #players
     vlc

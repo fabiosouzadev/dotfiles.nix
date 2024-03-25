@@ -3,7 +3,7 @@
 {
   imports = [
     ./common.nix
-    ./aws.nix
-    ./gcp.nix
+    #./aws.nix
+    #./gcp.nix
   ];
 }
