@@ -20,7 +20,7 @@
 
     #auth and passwords
     #authy
-    #bitwarden
+    bitwarden
 
     #players
     vlc
