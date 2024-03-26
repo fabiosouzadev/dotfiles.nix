@@ -21,8 +21,8 @@
         lib = import ./lib {inherit inputs nixpkgs;};
 
         nixosConfigurations = {
-          nix-zapay = mkNixos {hostname = "nix-zapay"; system = "x86_64-linux";};
-          vm = mkNixos {hostname = "vm"; system = "x86_64-linux";};
+          nix-zapay = mkNixos {hostname = "nix-zapay"; system = "x86_64-linux"; isDesktop = true; hasVirtualisation = true;};
+          vm = mkNixos {hostname = "vm"; system = "x86_64-linux"; isDesktop = true; hasVirtualisation = false;};
         };
 
         #darwinConfigurations = {};

@@ -1,6 +1,5 @@
 { inputs, ... }:
 let
-pkgs = inputs.nixpkgs;
 defaultUsername = "fabiosouzadev";
 homeManagerShared = import ./shared/home-manager.nix;
 homeManagerNixos  = import ./nixos/home-manager.nix;
@@ -10,9 +9,7 @@ in {
  
   mkNixos = {
     username ? defaultUsername,
-    isDesktop ? true,
-    hasVirtualisation ? true,
-  }: {hostname, system}:
+  }: {hostname, system, isDesktop, hasVirtualisation}:
    inputs.nixpkgs.lib.nixosSystem {
      inherit system;
      specialArgs = { inherit username isDesktop hasVirtualisation; };

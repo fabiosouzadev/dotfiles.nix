@@ -1,4 +1,4 @@
-{pkgs, username, isDesktop, hasVirtualisation, ...}:
+{ lib, pkgs, username, isDesktop, hasVirtualisation, ... }:
 {
   imports = [
     ./user.nix
@@ -11,5 +11,5 @@
     ../modules/jetbrains.nix
     ../modules/polkit.nix
     ../modules/vscodium.nix
-  ];
+  ] ++ lib.optionals hasVirtualisation  [ ./virtualisation ];
 }
