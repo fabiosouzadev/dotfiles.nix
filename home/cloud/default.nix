@@ -4,6 +4,6 @@
   imports = [
     ./common.nix
     #./aws.nix
-    #./gcp.nix
+    ./gcp.nix
   ];
 }
