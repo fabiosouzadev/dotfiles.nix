@@ -8,6 +8,7 @@ defaultGit = {
 in {
   home.packages = with pkgs; [
     lazygit
+    gh #github
   ];
   programs.git = {
     enable = true;

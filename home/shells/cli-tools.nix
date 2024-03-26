@@ -2,6 +2,9 @@
 
 {
   home.packages = with pkgs; [
+      zip
+      unzip
+      p7zip
       htop
       btop
       fd
