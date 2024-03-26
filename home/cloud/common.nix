@@ -10,8 +10,8 @@
     k9s
     #kubeswitch # needs a valid ~/.kube/config
     kubie
-    #lens
-    #k6 # load testing tool
+    lens
+    k6 # load testing tool
   ];
 
     home.file.".kube/kubie.yaml".text = ''
