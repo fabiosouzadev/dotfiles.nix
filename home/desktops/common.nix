@@ -19,7 +19,6 @@
     zathura
 
     #auth and passwords
-    #authy
     bitwarden
 
     #players
