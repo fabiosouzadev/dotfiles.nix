@@ -5,9 +5,9 @@
   home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
 
   imports = [
-    (import ../../home/secrets  {inherit pkgs username;})
-    (import ../../home/shells)
-    (import ../../home/cloud)
+    ../../home/secrets
+    ../../home/tui
+    ../../home/cloud
   ];
 
   # This value determines the home Manager release that your

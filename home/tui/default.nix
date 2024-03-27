@@ -8,6 +8,6 @@
     ./starship.nix
     ./gpg.nix
     ./tmux.nix
-    ../editors/neovim.nix
+    ./neovim.nix
   ];
 }
