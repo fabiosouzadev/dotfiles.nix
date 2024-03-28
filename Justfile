@@ -10,11 +10,15 @@ default:
 get-config host:
   cp /etc/nixos/hardware-configuration.nix hosts/{{ host }}/hardware-configuration.nix 
 
-test host: 
+get-submodules:
+  git submodule update --init --recursive zapay
+  cp -r zapay/aws  ~/.aws
+
+test host:
   just get-config {{host}}
   sudo nixos-rebuild test --flake .#{{ host }} --show-trace -L -v
 
-build host: 
+build host:
   just get-config {{host}}
   sudo nixos-rebuild switch --flake .#{{ host }} --show-trace -L -v
 
