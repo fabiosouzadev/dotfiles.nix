@@ -10,7 +10,6 @@
     k9s
     #kubeswitch # needs a valid ~/.kube/config
     kubie
-    lens
     k6 # load testing tool
   ];
 
@@ -70,7 +69,7 @@
         # Make sure the namespace exists with `kubectl get namespaces` when switching
         # namespaces. If you do not have the right to list namespaces, disable this.
         # Default: true
-        validate_namespaces: true
+        validate_namespaces: false
 
         # Enable or disable the printing of the 'CONTEXT => ...' headers when running
         # `kubie exec`.
