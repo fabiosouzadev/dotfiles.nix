@@ -8,6 +8,7 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    fabiosouzadev-neovim.url = "github:fabiosouzadev/neovim-nix";
   };
 
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:

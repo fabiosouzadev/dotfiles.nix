@@ -38,6 +38,7 @@
     #downloaders
     yt-dlp
     twitch-dl
-    #transmission_4-gtk
+    transmission_4-gtk
+    qbittorrent
   ];
 }

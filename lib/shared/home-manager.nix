@@ -1,4 +1,4 @@
-{pkgs, username, ...}:
+{pkgs, inputs, username, ...}:
 {
   # TODO please change the username & home directory to your own
   home.username = username;
