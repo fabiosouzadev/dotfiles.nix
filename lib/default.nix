@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs }:
 let
 defaultUsername = "fabiosouzadev";
 homeManagerShared = import ./shared/home-manager.nix;

@@ -8,7 +8,7 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    fabiosouzadev-neovim.url = "github:fabiosouzadev/neovim-nix";
+    fabiosouzadev-nvim.url = "github:fabiosouzadev/neovim-nix";
   };
 
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
@@ -19,7 +19,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       flake = {
 
-        lib = import ./lib {inherit inputs nixpkgs;};
+        lib = import ./lib {inherit inputs;};
 
         nixosConfigurations = {
           nix-zapay = mkNixos {hostname = "nix-zapay"; system = "x86_64-linux"; isDesktop = true; hasVirtualisation = true;};
@@ -29,10 +29,10 @@
         #darwinConfigurations = {};
       };
       systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
-      perSystem = { config, pkgs, ... }: {
+      perSystem = { config, self', inputs',pkgs,system, ... }: {
       	devShells = {
           default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [ just cowsay ];
+            nativeBuildInputs = with pkgs; [ just ];
           };
         };
 	      formatter = pkgs.alejandra;
