@@ -14,6 +14,7 @@
     firefox
     chromium
     qutebrowser
+    mullvad-browser
 
     #pdf-reader
     zathura
@@ -24,7 +25,7 @@
     #players
     vlc
     mpv
-    streamlink
+    # streamlink
     streamlink-twitch-gui-bin
 
     #db
@@ -38,7 +39,8 @@
     #downloaders
     yt-dlp
     twitch-dl
-    transmission_4-gtk
+    #transmission_4-gtk
     qbittorrent
+    motrix
   ];
 }
