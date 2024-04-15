@@ -35,6 +35,13 @@ in
     # ===   Key bindings     ===
     # ==========================
 
+    # pane resizing
+    bind + resize-pane -Z       # Zoom pane
+    bind -r H resize-pane -L 5
+    bind -r J resize-pane -D 5
+    bind -r K resize-pane -U 5
+    bind -r L resize-pane -R 5
+
     # Smart pane switching with awareness of Vim splits.
     # See: https://github.com/christoomey/vim-tmux-navigator
     is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
@@ -120,14 +127,8 @@ in
     setw -g window-status-current-format "#[fg=#1f2335,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,bold] #I  #W #F #[fg=#3b4261,bg=#1f2335,nobold,nounderscore,noitalics]"
 
     # ============================
-    # ===       Plugins        ===
+    # ===    Plugins configs   ===
     # ============================
-    run-shell ${tmux-prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
-    run-shell ${pkgs.tmuxPlugins.vim-tmux-navigator}/share/tmux-plugins/vim-tmux-navigator/vim-tmux-navigator.tmux
-    run-shell ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/resurrect.tmux
-    run-shell ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
-    run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
-
     # tmux-plugins/tmux-prefix-highlight support
     set -g @prefix_highlight_show_copy_mode 'on'
     set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold' # default is 'fg=default,bg=yellow'
@@ -139,10 +140,6 @@ in
     set -g @prefix_highlight_output_prefix "#[fg=#e0af68]#[bg=#1f2335]#[fg=#1f2335]#[bg=#e0af68]"
     set -g @prefix_highlight_output_suffix ""
 
-    # ==============================================
-    # ===           Remote sessions              ===
-    # ==============================================
-
     #Session
     set -g @resurrect-save 'S'
     set -g @resurrect-restore 'R'
@@ -151,6 +148,7 @@ in
 
     set -g @continuum-restore 'on'
 
+
     # ==============================================
     # ===                 Popup                  ===
     # ==============================================  
@@ -158,6 +156,16 @@ in
     bind -r g display-popup -d '#{pane_current_path}' -w80% -h80% -E lazygit
     bind -r o display-popup -d '#{pane_current_path}' -w80% -h80% -E lazydocker
     bind -r k display-popup -d '#{pane_current_path}' -w80% -h80% -E k9s
+
+
+    # ============================
+    # ===    Plugins load     ===
+    # ============================
+    run-shell ${tmux-prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
+    run-shell ${pkgs.tmuxPlugins.vim-tmux-navigator}/share/tmux-plugins/vim-tmux-navigator/vim-tmux-navigator.tmux
+    run-shell ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/resurrect.tmux
+    run-shell ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
+    run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
 
     '';
     plugins = with pkgs; [
