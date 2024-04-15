@@ -21,6 +21,35 @@ in
     #Base index for windows and panes.
     extraConfig = 
     ''
+    ### : << eof
+    ### https://github.com/fabiosouzadev/dotfiles
+    ###
+    
+    ### INSTALLATION NOTES ####
+    # - SESSION
+    #   - New session       Prefix + Ctrl+c
+    #   - Rename session    Prefix + Ctrl+r
+
+    # - WINDOW
+    #   - New window:       Prefix + c
+    #   - Rename window:    Prefix + r
+    #   - Next window:      Prefix + n
+    #   - Previous window:  Prefix + p
+    #   - Last used window: Prefix + l
+    #   - Quick window:     Prefix + w
+    #   - Close window:     Prefix + &
+
+    # - PANES
+    #   - Vertical split:   Prefix + %
+    #   - Horizontal split: Prefix + "
+    #   - Close pane:        
+    #   - Zoom pane:       Prefix-+ or Prefix-z
+    #   - Swap pane:       Prefix + > # swap current pane with the next one
+    #   - Swap pane:       Prefix + < # swap current pane with the previous one
+    #   - H to V:          Prefix + Space # Move Tmux Pane from Vertical to Horizontal
+    #   - Move to left:    Prefix + {  
+    #   - Move to right:   Prefix + 
+
     # ==========================
     # ===  General settings  ===
     # ==========================
@@ -34,6 +63,28 @@ in
     # ==========================
     # ===   Key bindings     ===
     # ==========================
+
+    # Session
+    bind C-c new-session
+    bind C-r command-prompt -I "#{session_name}" "rename-session '%%'"
+    # bind C-f command-prompt -p find-session 'switch-client -t %%'
+
+    # Window
+    bind c new-window
+    bind r command-prompt -I "#{window_name}" "rename-window '%%'"
+    # bind -r p previous-window   # select previous window
+    bind -r n next-window       # select next window
+    bind -r l last-window       # move to last active window
+    bind Tab last-window        # move to last active window
+    bind -r C-h select-window -t :-   # Jump to window on the left
+    bind -r C-l select-window -t :+   # Jump to window on the right
+
+    # Panes
+    # bind v split-window -h -c "#{pane_current_path}"
+    # bind x split-window -v -c "#{pane_current_path}"
+    bind > swap-pane -D       # swap current pane with the next one
+    bind < swap-pane -U       # swap current pane with the previous one
+    bind '"' kill-pane
 
     # pane resizing
     bind + resize-pane -Z       # Zoom pane
