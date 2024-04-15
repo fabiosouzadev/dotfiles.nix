@@ -18,4 +18,5 @@
     LC_TIME = "pt_BR.UTF-8";
     LC_CTYPE="en_US.utf8";
   };
+  services.timesyncd.enable = true;
 }
