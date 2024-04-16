@@ -56,6 +56,7 @@ in
     #set -g default-terminal 'tmux-256color'
     set-option -ga terminal-overrides ",*256col*:Tc:RGB"
     set-option -a terminal-overrides ",alacritty:Tc:RGB"
+    set -sg escape-time 10
 
     setw -g automatic-rename on   # rename window to reflect current program
     set -g renumber-windows on    # renumber windows when a window is closed
