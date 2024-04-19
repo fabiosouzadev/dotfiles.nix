@@ -42,15 +42,17 @@ in {
     };
 
       aliases = {
-       aa = 	"!git add --all";
+       a = 	"!git add --all";
        amend = 	"!git add --all && git commit --amend --no-edit";
-       c = 	"!git add --all && git commit -sm";
+       c  = 	"!git add --all && git commit -sm";
        ci = 	"!git commit";
        co = 	"!git checkout";
+       d  = 	"!git diff";
        dc = 	"!git diff --cached";
-       di = 	"!git diff";
-       l = 	"!git log --pretty=format:'%C(blue)%hC(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'";
-       s = 	"!git status -s";
+       l  = 	"!git log --pretty=format:'%C(blue)%hC(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'";
+       pl =     "!git pull";
+       ps =     "!git push"; 
+       s  = 	"!git status -s";
        st = 	"!git status";
       };
 
