@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   # basic configuration of git, please change to your own
   programs.zsh = {
     enable = true;
@@ -7,8 +6,8 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     history = {
-      save = 100000;
-      size = 100000;
+      save = 10000000;
+      size = 10000000;
       share = true;
     };
     # initExtra = ''

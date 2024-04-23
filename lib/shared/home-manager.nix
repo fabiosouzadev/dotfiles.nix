@@ -1,5 +1,8 @@
-{pkgs, inputs, username, ...}:
 {
+  pkgs,
+  username,
+  ...
+}: {
   # TODO please change the username & home directory to your own
   home.username = username;
   home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
