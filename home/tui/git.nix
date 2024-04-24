@@ -89,12 +89,24 @@ in {
     };
     initExtra = ''
       ghpr() {
-        GH_FORCE_TTY="100%" gh pr list | \
-        fzf --ansi --preview \
-          'GH_FORCE_TTY="100%" gh pr view {1}' \
-          --preview-window down  --header-lines 3 | awk '{print $1}' \
-        | xargs gh pr checkout
+        GH_FORCE_TTY="100%" \
+        gh pr list | \
+          fzf --ansi \
+            --preview 'GH_FORCE_TTY="100%" gh pr view {1}' \
+            --preview-window down  --header-lines 3 | \
+          awk '{print $1}' | \
+          xargs gh pr checkout
+      }
 
+      ghprtx() {
+        GH_FORCE_TTY="100%"
+        gh pr list | \
+          fzf-tmux -p90%,90% --ansi \
+            --preview 'GH_FORCE_TTY="100%" gh pr view {1}' \
+            --preview-window down  --header-lines 3 \
+            --bind "ctrl-k:preview-up,ctrl-j:preview-down" | \
+          awk '{print $1}' | \
+          xargs gh pr checkout
       }
     '';
   };

@@ -50,10 +50,10 @@ in {
       # ==========================
       # ===  General settings  ===
       # ==========================
-      set-option -g status-position top
+      set -g status-position top
       #set -g default-terminal 'tmux-256color'
-      set-option -ga terminal-overrides ",*256col*:Tc:RGB"
-      set-option -a terminal-overrides ",alacritty:Tc:RGB"
+      set -ga terminal-overrides ",*256col*:Tc:RGB"
+      set -a terminal-overrides ",alacritty:Tc:RGB"
       set -sg escape-time 10
 
       setw -g automatic-rename on   # rename window to reflect current program
