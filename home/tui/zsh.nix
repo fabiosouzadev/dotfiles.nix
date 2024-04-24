@@ -10,10 +10,10 @@
       size = 10000000;
       share = true;
     };
-    # initExtra = ''
-    #  source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    # '';
-    #shellAliases = {
-    #};
+    # sessionVariables = {
+    #   GITHUB_TOKEN = "pass Github/access_token_gh";
+    # };
+    # shellAliases = {
+    # };
   };
 }
