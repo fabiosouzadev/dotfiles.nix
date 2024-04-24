@@ -21,3 +21,7 @@ test host:
 build host:
   just get-config {{host}}
   sudo nixos-rebuild switch --flake .#{{ host }} --show-trace -L -v
+
+clean-packages:
+  rm -rf ~/.cache/nix/
+  rm -f flake.lock
