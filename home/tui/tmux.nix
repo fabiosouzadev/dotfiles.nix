@@ -193,17 +193,15 @@ in {
       #Session
       set -g @resurrect-save 'S'
       set -g @resurrect-restore 'R'
+      set -g @resurrect-capture-pane-contents 'on'
 
       ## Restore Vim sessions
       set -g @resurrect-strategy-vim 'session'
       ## Restore Neovim sessions
       set -g @resurrect-strategy-nvim 'session'
 
-      set -g @resurrect-capture-pane-contents 'on'
-
       ## Restore last saved environment (automatically)
       set -g @continuum-restore 'on'
-      set -g @continuum-boot 'on'
 
 
       # ==============================================

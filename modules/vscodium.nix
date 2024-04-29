@@ -1,9 +1,5 @@
-
-{  pkgs, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    vscodium 
+    vscodium
   ];
- 
 }
