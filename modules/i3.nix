@@ -1,9 +1,10 @@
-{ pkgs
-, username
-, ...
+{
+  pkgs,
+  username,
+  ...
 }: {
   # i3 related options
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+  environment.pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
   programs.dconf.enable = true;
   services.xserver = {
     # Enable the X11 windowing system.
