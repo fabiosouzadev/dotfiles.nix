@@ -1,8 +1,4 @@
-
-{  pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     k3s
     kind
@@ -11,9 +7,10 @@
     #kubeswitch # needs a valid ~/.kube/config
     kubie
     k6 # load testing tool
+    lens
   ];
 
-    home.file.".kube/kubie.yaml".text = ''
+  home.file.".kube/kubie.yaml".text = ''
     # Force kubie to use a particular shell, if unset detect shell currently in use.
     # Possible values: bash, dash, fish, xonsh, zsh
     # Default: unset
@@ -83,7 +80,7 @@
 
     # Optional start and stop hooks
     hooks:
-        # A command hook to run when a CTX is started.  
+        # A command hook to run when a CTX is started.
         # This example re-labels your terminal window
         # Default: none
         start_ctx: >
@@ -94,44 +91,43 @@
         # Default: none
         stop_ctx: >
             echo -en "\033]1; $SHELL \007"
-  
-    '';
-    
-    home.file.".kube/switch-config.yaml".text = ''
-kind: SwitchConfig
-version: v1alpha1
-kubeconfigStores:
-- kind: filesystem
-  id: config
-  paths:
-    - "~/.kube/"
-- kind: filesystem
-  id: zapay
-  kubeconfigName: "zapay*"
-  paths:
-    - "~/.dotfiles.nix/zapay/kube/"
-# - kind: gke
-#   refreshIndexAfter: 3h
-#   config:
-#     # optionally set the account. Otherwise, the currently active gcloud account will be used.
-#     gcpAccount: fabio.souza@ciahering.com.br
-#     authentication:
-#       authenticationType: gcloud
-#   cache:
-#     kind: filesystem
-#     config:
-#       path: ~/.cache/kube/
-#     # optionally limit to certain projects in account
-#     # projectIDs:
-#     #   - hering-integracoes-b2c-dev
-    '';
-    
-    programs.zsh = {
-      shellAliases = {
-        kubectx = "kubie ctx";
-	kubens  = "kubie ns";
-        kctx    = "kubie ctx";
-      };
-    };
 
+  '';
+
+  home.file.".kube/switch-config.yaml".text = ''
+    kind: SwitchConfig
+    version: v1alpha1
+    kubeconfigStores:
+    - kind: filesystem
+      id: config
+      paths:
+        - "~/.kube/"
+    - kind: filesystem
+      id: zapay
+      kubeconfigName: "zapay*"
+      paths:
+        - "~/.dotfiles.nix/zapay/kube/"
+    # - kind: gke
+    #   refreshIndexAfter: 3h
+    #   config:
+    #     # optionally set the account. Otherwise, the currently active gcloud account will be used.
+    #     gcpAccount: fabio.souza@ciahering.com.br
+    #     authentication:
+    #       authenticationType: gcloud
+    #   cache:
+    #     kind: filesystem
+    #     config:
+    #       path: ~/.cache/kube/
+    #     # optionally limit to certain projects in account
+    #     # projectIDs:
+    #     #   - hering-integracoes-b2c-dev
+  '';
+
+  programs.zsh = {
+    shellAliases = {
+      kubectx = "kubie ctx";
+      kubens = "kubie ns";
+      kctx = "kubie ctx";
+    };
+  };
 }
