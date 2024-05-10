@@ -1,5 +1,5 @@
-{  pkgs, ... }:
- 
+{ pkgs, ... }:
+
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -40,7 +40,7 @@
     yt-dlp
     twitch-dl
     #transmission_4-gtk
-    qbittorrent
-    motrix
+    # qbittorrent
+    # motrix
   ];
 }

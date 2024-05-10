@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    awsvpnclient.url = "github:ymatsiuk/awsvpnclient";
     fabiosouzadev-nvim.url = "github:fabiosouzadev/neovim-nix";
   };
 
@@ -17,7 +18,7 @@
     flake-parts,
     ...
   }: let
-    mkDarwin = self.lib.mkDarwin {};
+    # mkDarwin = self.lib.mkDarwin {};
     mkNixos = self.lib.mkNixos {};
   in
     flake-parts.lib.mkFlake {inherit inputs;} {

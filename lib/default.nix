@@ -14,7 +14,7 @@ in {
   }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {inherit username isDesktop hasVirtualisation;};
+      specialArgs = {inherit inputs username isDesktop hasVirtualisation;};
       modules = [
         ../configuration
         ../hosts/${hostname}
