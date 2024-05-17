@@ -20,7 +20,7 @@ test host:
 
 build host:
   just get-config {{host}}
-  sudo nixos-rebuild switch --flake .#{{ host }} --show-trace -L -v
+  sudo nixos-rebuild switch --flake .#{{ host }} --show-trace
 
 clean-packages:
   rm -rf ~/.cache/nix/
