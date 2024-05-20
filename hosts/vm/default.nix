@@ -1,32 +1,34 @@
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ 
+    [
       # TODO: Hardware
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
   # Bootloader.
-  boot.loader.grub= { 
+  boot.loader = {
+    systemd-boot = {
       enable = true;
-      device = "/dev/vda";
-      useOSProber = true;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+    };
   };
 
-    # Enable networking
+  # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "vm"; # Define your hostname.
-  
+
   # Latest Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  
+
 
 
   # This value determines the NixOS release from which the default
