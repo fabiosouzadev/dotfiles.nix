@@ -42,5 +42,8 @@
     #transmission_4-gtk
     # qbittorrent
     # motrix
+
+    # tools
+    unetbootin
   ];
 }
