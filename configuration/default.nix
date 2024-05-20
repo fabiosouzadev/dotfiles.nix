@@ -12,5 +12,5 @@
     ../modules/polkit.nix
     ../modules/vscodium.nix
     # ../modules/neovim.nix
-  ] ++ lib.optionals hasVirtualisation  [ ./virtualisation ];
+  ] ++ lib.optionals hasVirtualisation [ ./virtualisation ];
 }
