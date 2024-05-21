@@ -16,7 +16,7 @@
     };
   };
 
-  #boot.loader.grub.device = "nodev";
+  boot.loader.grub.device = "nodev";
   #boot.kernelPackages = pkgs.linuxPackages_5_19;
   #boot.kernelPackages = pkgs.linuxPackages_6_7_hardened;
   boot.kernelPackages = pkgs.linuxPackages_zen;
