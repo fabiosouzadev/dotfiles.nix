@@ -7,17 +7,8 @@
   ];
 
   # Bootloader.
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    grub = {
-      device = "nodev";
-    };
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   #boot.kernelPackages = pkgs.linuxPackages_5_19;
   #boot.kernelPackages = pkgs.linuxPackages_6_7_hardened;
