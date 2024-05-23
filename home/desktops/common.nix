@@ -29,7 +29,7 @@
     streamlink-twitch-gui-bin
 
     #db
-    dbeaver
+    dbeaver-bin
     mongosh
 
     # api-tool

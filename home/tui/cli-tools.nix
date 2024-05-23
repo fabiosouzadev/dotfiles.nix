@@ -68,6 +68,7 @@
         "la" = "${pkgs.eza}/bin/eza -lah --tree";
         "ls" = "${pkgs.eza}/bin/eza -h --git --icons --color=auto --group-directories-first -s extension";
         "tree" = "${pkgs.eza}/bin/eza --tree --icons --tree";
+        "direnv-install" = "echo \"use flake\" > .envrc && ${pkgs.direnv}/bin/direnv allow";
       };
     };
   };
