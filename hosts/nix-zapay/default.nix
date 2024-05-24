@@ -7,23 +7,23 @@
   ];
 
   # Bootloader. (systemd)
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Bootloader. (grub)
-  boot.loader = {
-    systemd-boot.enable = false;
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-    };
-  };
+  # boot.loader = {
+  #   systemd-boot.enable = false;
+  #   efi = {
+  #     canTouchEfiVariables = true;
+  #     efiSysMountPoint = "/boot";
+  #   };
+  #   grub = {
+  #     enable = true;
+  #     device = "nodev";
+  #     efiSupport = true;
+  #     useOSProber = true;
+  #   };
+  # };
 
   #boot.kernelPackages = pkgs.linuxPackages_5_19;
   #boot.kernelPackages = pkgs.linuxPackages_6_7_hardened;
