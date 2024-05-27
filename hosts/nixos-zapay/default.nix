@@ -35,7 +35,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "nix-zapay"; # Define your hostname.
+  networking.hostName = "nixos-zapay"; # Define your hostname.
   networking.firewall.enable = false;
 
   services = {

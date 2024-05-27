@@ -26,8 +26,8 @@
         lib = import ./lib {inherit inputs;};
 
         nixosConfigurations = {
-          nix-zapay = mkNixos {
-            hostname = "nix-zapay";
+          nixos-zapay = mkNixos {
+            hostname = "nixos-zapay";
             system = "x86_64-linux";
             isDesktop = true;
             hasVirtualisation = true;
