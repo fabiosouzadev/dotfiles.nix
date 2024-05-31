@@ -43,5 +43,8 @@
 
     # tools
     unetbootin
+
+    #ftp client
+    filezilla
   ];
 }
