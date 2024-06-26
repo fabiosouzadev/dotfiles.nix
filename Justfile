@@ -49,3 +49,6 @@ gc:
 update-secrets:
   nix flake lock --update-input mysecrets
 
+update-nvim:
+  nix flake lock --update-input fabiosouzadev-nvim
+

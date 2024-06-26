@@ -1,16 +1,15 @@
-{
-  pkgs,
-  username,
-  ...
+{ pkgs
+, username
+, ...
 }: {
   # TODO please change the username & home directory to your own
   home.username = username;
   home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
 
   imports = [
-    ../../home/secrets
     ../../home/tui
     ../../home/cloud
+    ../../home/secrets
   ];
 
   # This value determines the home Manager release that your

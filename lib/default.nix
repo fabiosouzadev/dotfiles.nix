@@ -28,13 +28,12 @@ in
             imports = [
               homeManagerShared
               homeManagerNixos
-              inputs.sops-nix.homeManagerModules.sops
             ];
           };
           # NixOS system-wide home-manager configuration
-          # home-manager.sharedModules = [
-          #   inputs.sops-nix.homeManagerModules.sops 
-          # ];
+          home-manager.sharedModules = [
+            inputs.sops-nix.homeManagerModules.sops
+          ];
         }
       ];
     };
