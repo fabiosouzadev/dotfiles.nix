@@ -1,4 +1,5 @@
-{ ... }: {
+{ config, ... }:
+{
   # basic configuration of git, please change to your own
   programs.zsh = {
     enable = true;
@@ -10,18 +11,11 @@
       size = 10000000;
       share = true;
     };
-    initExtra = ''
-      if [[ -o interactive ]]; then
-          SRC_ACCESS_TOKEN = $(pass Sourcegraph/access_token_sg)
-          SRC_ENDPOINT = $(pass Sourcegraph/endpoint_sg)
-          OPENAI_API_KEY = $(pass OpenAI/api_key_openai)
-      fi
-    '';
-    # sessionVariables = {
-    #   # GITHUB_TOKEN = "pass Github/access_token_gh";
-    #   #SRC_ACCESS_TOKEN = "";
-    #   #SRC_ENDPOINT = "";
-    # };
+    sessionVariables = {
+      OPENAI_API_KEY = builtins.readFile config.sops.secrets."openai/api_key".path;
+      SRC_ENDPOINT = builtins.readFile config.sops.secrets."sourcegraph/endpoint".path;
+      SRC_ACCESS_TOKEN = builtins.readFile config.sops.secrets."sourcegraph/access_token".path;
+    };
     # shellAliases = {
     # };
   };

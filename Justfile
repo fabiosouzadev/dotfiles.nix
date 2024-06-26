@@ -16,11 +16,11 @@ get-submodules:
 
 test host:
   just get-config {{ host }}
-  nixos-rebuild test --flake .#{{ host }} --use-remote-sudo --show-trace --verbose
+  nixos-rebuild test --flake .#{{ host }}  --impure --use-remote-sudo --show-trace --verbose
 
 build host:
   just get-config {{host}}
-  nixos-rebuild switch --flake .#{{ host }} --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
 
 rebuild-boot host:  
   just get-config {{host}}
@@ -45,3 +45,7 @@ gc:
 # clean-packages:
 #   rm -rf ~/.cache/nix/
 #   rm -f flake.lock
+
+update-secrets:
+  nix flake lock --update-input mysecrets
+

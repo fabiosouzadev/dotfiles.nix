@@ -10,20 +10,30 @@
     };
     awsvpnclient.url = "github:ymatsiuk/awsvpnclient";
     fabiosouzadev-nvim.url = "github:fabiosouzadev/neovim-nix";
+
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mysecrets = {
+      url = "git+ssh://git@github.com/fabiosouzadev/nix-secrets.git?shallow=1";
+      flake = false;
+    };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    flake-parts,
-    ...
-  }: let
-    # mkDarwin = self.lib.mkDarwin {};
-    mkNixos = self.lib.mkNixos {};
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs @ { self
+    , nixpkgs
+    , flake-parts
+    , ...
+    }:
+    let
+      # mkDarwin = self.lib.mkDarwin {};
+      mkNixos = self.lib.mkNixos { };
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
       flake = {
-        lib = import ./lib {inherit inputs;};
+        lib = import ./lib { inherit inputs; };
 
         nixosConfigurations = {
           nixos-zapay = mkNixos {
@@ -42,22 +52,22 @@
 
         #darwinConfigurations = {};
       };
-      systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
-      perSystem = {
-        config,
-        self',
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: {
-        devShells = {
-          default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [just];
+      systems = [ "aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux" ];
+      perSystem =
+        { config
+        , self'
+        , inputs'
+        , pkgs
+        , system
+        , ...
+        }: {
+          devShells = {
+            default = pkgs.mkShell {
+              nativeBuildInputs = with pkgs; [ just ];
+            };
           };
+          formatter = pkgs.nixpkgs-fmt;
         };
-        formatter = pkgs.nixpkgs-fmt;
-      };
 
       #packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
 

@@ -25,11 +25,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1718995609,
-        "narHash": "sha256-bgUzmAs+Iio/54kNAJBmVdjwUJjbNXVcCDx32Rfs2/E=",
+        "lastModified": 1718998244,
+        "narHash": "sha256-45Y2haPWdvpe9gIe1lliIphP1nXAE8GeO9hpmAT3Gnc=",
         "owner": "fabiosouzadev",
         "repo": "neovim-nix",
-        "rev": "e8b52d6483b991c292fc2a889fa31dfcdfdf9d91",
+        "rev": "ff4048d73f87e9b48091c076eada896154609b52",
         "type": "github"
       },
       "original": {
@@ -98,17 +98,34 @@
         ]
       },
       "locked": {
-        "lastModified": 1718788307,
-        "narHash": "sha256-SqiOz0sljM0GjyQEVinPXQxaGcbOXw5OgpCWGPgh/vo=",
+        "lastModified": 1719180626,
+        "narHash": "sha256-vZAzm5KQpR6RGple1dzmSJw5kPivES2heCFM+ZWkt0I=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d7830d05421d0ced83a0f007900898bdcaf2a2ca",
+        "rev": "6b1f90a8ff92e81638ae6eb48cd62349c3e387bb",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
         "type": "github"
+      }
+    },
+    "mysecrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719380308,
+        "narHash": "sha256-/RgWtneyvd48+RWsIgDi+NiBjQgiJd3j86Jl0GYulKU=",
+        "ref": "refs/heads/main",
+        "rev": "0230898b9c40fe0354093dbb3aa61bac4268e57f",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/fabiosouzadev/nix-secrets.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/fabiosouzadev/nix-secrets.git"
       }
     },
     "nixpkgs": {
@@ -154,6 +171,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1719099622,
+        "narHash": "sha256-YzJECAxFt+U5LPYf/pCwW/e1iUd2PF21WITHY9B/BAs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5e8e3b89adbd0be63192f6e645e0a54080004924",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1712608508,
@@ -172,11 +205,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1718895438,
-        "narHash": "sha256-k3JqJrkdoYwE3fHE6xGDY676AYmyh4U2Zw+0Bwe5DLU=",
+        "lastModified": 1719075281,
+        "narHash": "sha256-CyyxvOwFf12I91PBWz43iGT1kjsf5oi6ax7CrvaMyAo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d603719ec6e294f034936c0d0dc06f689d91b6c3",
+        "rev": "a71e967ef3694799d0c418c98332f7ff4cc5f6af",
         "type": "github"
       },
       "original": {
@@ -192,7 +225,30 @@
         "fabiosouzadev-nvim": "fabiosouzadev-nvim",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3"
+        "mysecrets": "mysecrets",
+        "nixpkgs": "nixpkgs_3",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1719111739,
+        "narHash": "sha256-kr2QzRrplzlCP87ddayCZQS+dhGW98kw2zy7+jUXtF4=",
+        "owner": "mic92",
+        "repo": "sops-nix",
+        "rev": "5e2e9421e9ed2b918be0a441c4535cfa45e04811",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {

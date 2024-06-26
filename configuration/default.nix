@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, username, isDesktop, hasVirtualisation, ... }:
+{ lib, hasVirtualisation, ... }:
 {
   imports = [
     ./user.nix

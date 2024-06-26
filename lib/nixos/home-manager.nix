@@ -1,4 +1,4 @@
-{pkgs, isDesktop, ...}:
+{ pkgs, isDesktop, ... }:
 {
 
   imports = [
@@ -6,3 +6,4 @@
     ../../home/desktops
   ];
 }
+
