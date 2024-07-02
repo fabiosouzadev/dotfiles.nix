@@ -12,15 +12,15 @@
 
     desktopManager = {
       xterm.enable = false;
-      # xfce = {
-      #   enable = true;
-      #   noDesktop = true;
-      #   enableXfwm = false;
-      # }
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
     };
 
     displayManager = {
-      defaultSession = "none+i3";
+      defaultSession = "xfce+i3";
       lightdm.enable = true;
       #gdm.enable = true;
       autoLogin = {
@@ -707,4 +707,6 @@
       thunar-volman
     ];
   };
+
+  services.autorandr.enable = true;
 }
