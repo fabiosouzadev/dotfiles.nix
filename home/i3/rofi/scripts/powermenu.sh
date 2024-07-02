@@ -84,7 +84,7 @@ case $chosen in
 			elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
-				i3-msg exit
+				xfce4-session-logout
 			fi
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			exit 0
