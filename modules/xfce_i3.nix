@@ -54,4 +54,8 @@
   services.autorandr.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+
+  home-manager.users.${username} = {
+    home.file."/.config/i3/config".source = ../home/i3/i3/config;
+  };
 }
