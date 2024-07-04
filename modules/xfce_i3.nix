@@ -57,7 +57,6 @@
 
   home-manager.users.${username} = {
     home.file."/.config/i3/config".source = ../home/i3/i3/config;
-    home.file."/.config/i3blocks/config".source = ../home/i3/i3blocks/config;
     home.file."/.config/i3/scripts" = {
       source = ../home/i3/scripts;
       recursive = true;
@@ -66,6 +65,19 @@
     home.file."/.screenlayout/i3_detect_displays.sh" = {
       source = ../home/i3/scripts/displays/i3_detect_displays.sh;
       executable = true; # make all scripts executable
+    };
+
+    home.file."/.config/i3blocks/config".source = ../home/i3/i3blocks/config;
+
+    home.file."/.config/i3blocks/scripts" = {
+      source = ../home/i3/i3blocks/scripts;
+      recursive = true;
+      executable = true;
+    };
+
+    home.file."/.config/wallpapers" = {
+      source = ../home/wallpapers;
+      recursive = true;
     };
   };
 }

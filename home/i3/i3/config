@@ -20,7 +20,7 @@ set $left h
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango: JetBrainsMono Nerd Font Mono 12
-#font pango:Iosevka Nerd Font 10
+#font pango:Iosevka Nerd Font 14
 
 #####################
 # workspace layout: #
@@ -49,7 +49,7 @@ new_window pixel 1
 
 # Set inner/outer gaps
 gaps inner 6
-gaps outer 3
+gaps outer 6
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -395,21 +395,32 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # bar settings (input comes from i3blocks) #
 ############################################
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Start i3bar to display a workspace bar
+# (plus the system information i3status finds out, if available)
 bar {
-        position top
-        status_command i3blocks -c ~/.config/i3blocks/config
-        tray_padding 4
-        colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+		status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	    	position top
+#	    	i3bar_command i3bar --transparency
+# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+# reference: https://i3wm.org/docs/userguide.html#_tray_output
+		    #tray_output primary
+		tray_padding 4
+
+# When strip_workspace_numbers is set to yes,
+# any workspace that has a name of the form
+# “[n][:][NAME]” will display only the name.
+#strip_workspace_numbers yes
+##strip_workspace_name no
+
+	colors {
+	    separator          $purple
+	    background         $darkgrey
+	    statusline         $white
+#	    border 		        bg		txt		indicator
+	    focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+	    active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+	    inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+	    urgent_workspace	$urgentred	    	$urgentred	$white		$purple
 	}
 }
 
