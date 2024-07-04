@@ -59,12 +59,12 @@
     home.file."/.config/i3/config".source = ../home/i3/i3/config;
     home.file."/.config/i3blocks/config".source = ../home/i3/i3blocks/config;
     home.file."/.config/i3/scripts" = {
-      source = ../home/i3/i3/scripts;
+      source = ../home/i3/scripts;
       recursive = true;
       executable = true; # make all scripts executable
     };
     home.file."/.screenlayout/i3_detect_displays.sh" = {
-      source = ../home/i3/scripts/i3_detect_displays.sh;
+      source = ../home/i3/scripts/displays/i3_detect_displays.sh;
       executable = true; # make all scripts executable
     };
   };
