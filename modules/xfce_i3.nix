@@ -57,6 +57,7 @@
 
   home-manager.users.${username} = {
     home.file."/.config/i3/config".source = ../home/i3/i3/config;
+    home.file."/.config/i3blocks/config".source = ../home/i3/i3blocks/config;
     home.file."/.config/i3/scripts" = {
       source = ../home/i3/i3/scripts;
       recursive = true;
