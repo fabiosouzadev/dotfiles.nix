@@ -8,20 +8,20 @@
   environment.pathsToLink = ["/libexec"];
   programs.dconf.enable = true;
   services.xserver.enable = true;
+
+  services.displayManager = {
+    defaultSession = "xfce+i3";
+    autoLogin = {
+      enable = true;
+      user = username;
+    };
+  };
   services.xserver.desktopManager = {
     xterm.enable = false;
     xfce = {
       enable = true;
       noDesktop = true;
       enableXfwm = false;
-    };
-  };
-
-  services.xserver.displayManager = {
-    defaultSession = "xfce+i3";
-    autoLogin = {
-      enable = true;
-      user = username;
     };
   };
 

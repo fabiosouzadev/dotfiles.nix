@@ -1,9 +1,9 @@
 # dotfiles.nix
 
 ## System Components
-|                   |   NixOS - i3-Xorg   |   Darwin  |
+|                   |   NixOS - i3-Xorg   |Darwin(WIP)|
 |:-----------------:|:-------------------:|:---------:|
-| **DM**            | None+i3             | /         |
+| **DM**            | XFCE+i3             | /         |
 | **WM/DE**         | i3                  | Yabai     |
 | **Compositor**    | Picom (jonaburg)    | /         |
 | **Bar**           | Polybar             | /         |
