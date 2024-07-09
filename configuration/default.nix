@@ -10,9 +10,8 @@
       ./system-packages.nix
       ./localization.nix
       ./keymap.nix
+      ./xorg.nix
       ../modules/fonts.nix
-      # ../modules/i3.nix
-      ../modules/xfce_i3.nix
       ../modules/jetbrains.nix
       ../modules/polkit.nix
       ../modules/vscodium.nix
