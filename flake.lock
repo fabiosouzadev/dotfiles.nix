@@ -111,6 +111,23 @@
         "type": "github"
       }
     },
+    "mypassords": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719113575,
+        "narHash": "sha256-y9f/KmDb+p9N+8Uhb1MRgNKTDKpSc4p6++FrLulRhIw=",
+        "ref": "refs/heads/main",
+        "rev": "3a37767ac3a59f0ee0dfd2e002e601f8ddc02e48",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/fabiosouzadev/secrets.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/fabiosouzadev/secrets.git"
+      }
+    },
     "mysecrets": {
       "flake": false,
       "locked": {
@@ -225,6 +242,7 @@
         "fabiosouzadev-nvim": "fabiosouzadev-nvim",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
+        "mypassords": "mypassords",
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix"
