@@ -34,7 +34,8 @@
     pywal
     calc
     xcolor
-    #dust
+    dunst
+    papirus-icon-theme
   ];
 
   xdg.configFile = {
@@ -44,19 +45,20 @@
       recursive = true;
       executable = true; # make all scripts executable
     };
-  };
-
-  home.file = {
-    # xrandr - set primary screen
-    "/.config/wallpapers" = {
-      source = ../../wallpapers;
-      recursive = true;
-    };
-    "/.screenlayout/i3_detect_displays.sh".source = ./conf/i3_detect_displays.sh;
-    ".config/polybar" = {
+    "polybar" = {
       source = ./conf/polybar;
       recursive = true;
       executable = true;
     };
+    "wallpapers" = {
+      source = ../../wallpapers;
+      recursive = true;
+    };
+    "dunst/dunstrc".source = ./conf/dunst/dunstrc;
+  };
+
+  home.file = {
+    # xrandr - set primary screen
+    "/.screenlayout/i3_detect_displays.sh".source = ./conf/i3_detect_displays.sh;
   };
 }

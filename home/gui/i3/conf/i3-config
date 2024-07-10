@@ -429,6 +429,11 @@ exec --no-startup-id "setxkbmap -layout 'us,br' -variant 'altgr-intl,abnt2' -opt
 #
 # for custom config:
 #exec_always --no-startup-id picom --config  ~/.config/picom.conf
+#
+
+## Dunst
+exec_always --no-startup-id dunst --config ~/.config/dunst/dunstrc
+
 
 #####################################
 # Application menu handled by rofi: #

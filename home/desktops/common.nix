@@ -7,13 +7,6 @@
     telegram-desktop
     whatsapp-for-linux
 
-    #browsers
-    brave
-    firefox
-    chromium
-    qutebrowser
-    mullvad-browser
-
     #pdf-reader
     zathura
 
