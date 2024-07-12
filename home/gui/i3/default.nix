@@ -26,16 +26,19 @@
     xorg.xbacklight # control screen brightness
     xorg.xdpyinfo # get screen information
     acpi # battery information
-
     dmenu
     networkmanager_dmenu
     polybarFull # all for polybar
     rofi
+    haskellPackages.greenclip
+    picom
     pywal
     calc
     xcolor
     dunst
     papirus-icon-theme
+    viewnior
+    xdotool
   ];
 
   xdg.configFile = {
@@ -45,8 +48,14 @@
       recursive = true;
       executable = true; # make all scripts executable
     };
+    "dunst/dunstrc".source = ./conf/dunst/dunstrc;
     "polybar" = {
       source = ./conf/polybar;
+      recursive = true;
+      executable = true;
+    };
+    "rofi" = {
+      source = ./conf/rofi;
       recursive = true;
       executable = true;
     };
@@ -54,11 +63,16 @@
       source = ../../wallpapers;
       recursive = true;
     };
-    "dunst/dunstrc".source = ./conf/dunst/dunstrc;
+    "picom/picom.conf".source = ./conf/picom/picom.conf;
+    "greenclip.toml".source = ./conf/greenclip/greenclip.toml;
   };
 
   home.file = {
     # xrandr - set primary screen
     "/.screenlayout/i3_detect_displays.sh".source = ./conf/i3_detect_displays.sh;
+    ".local/share/fonts" = {
+      source = ./conf/fonts;
+      recursive = true;
+    };
   };
 }

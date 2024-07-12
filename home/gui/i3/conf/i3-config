@@ -45,8 +45,8 @@ for_window [class="^.*"] border pixel 0
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 6
+gaps inner 8
+gaps outer 8
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -428,7 +428,7 @@ exec --no-startup-id "setxkbmap -layout 'us,br' -variant 'altgr-intl,abnt2' -opt
 # start using default config
 #
 # for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+#exec_always --no-startup-id picom --config ~/.config/picom.conf
 #
 
 ## Dunst
@@ -439,25 +439,24 @@ exec_always --no-startup-id dunst --config ~/.config/dunst/dunstrc
 # Application menu handled by rofi: #
 #####################################
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
-
-#bindsym $mod+d exec ~/.config/rofi/scripts/launcher.sh
-#bindsym $mod+d exec "rofi -modi drun,run -show drun"
-
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/rofi/powermenu/type-2/powermenu.sh
 # bindsym F9 exec rofi -modi drun -show drun \
 #         -config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings for window menu ($mod+w /F10 optional disabled)
-# bindsym $mod+w exec ~/.config/rofi/scripts/window.sh
+bindsym $mod+w exec --no-startup-id ~/.config/rofi/launchers/type-1/window.sh
 
-# bindsym F10 exec rofi -show window \
-#         -config ~/.config/rofi/rofidmenu.rasi
+## rofi bindings for screenshot
+bindsym $mod+p exec flameshot
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
-# exec --no-startup-id greenclip daemon>/dev/null
-# bindsym $mod+c exec --no-startup-id ~/.config/rofi/scripts/greenclip.sh
+exec --no-startup-id greenclip daemon>/dev/null
+bindsym $mod+c exec --no-startup-id ~/.config/rofi/greenclip/type-5/greenclip.sh
 
 # keybinding in fancy rofi (automated):
 #bindsym F1 exec ~/.config/i3/scripts/keyhint-2
