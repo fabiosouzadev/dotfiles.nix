@@ -12,8 +12,7 @@
 in {
   programs.tmux = {
     enable = true;
-    # terminal = "tmux-256color";
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     keyMode = "vi";
     historyLimit = 100000;
