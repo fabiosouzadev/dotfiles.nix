@@ -25,11 +25,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1719430654,
-        "narHash": "sha256-rxKCg7Om4mPPSYQJCTuXYaR+QraO/0XS+Su/cgBnPhM=",
+        "lastModified": 1721057218,
+        "narHash": "sha256-pwnZBkdSsSLczY2ou9rcoYtzcFeDLC1vJIk9LC4eDO8=",
         "owner": "fabiosouzadev",
         "repo": "neovim-nix",
-        "rev": "911cd17667c0936150c23766f645a859b198c161",
+        "rev": "38f4d0a0b3f7771e7b5a79660968c46d03502f3e",
         "type": "github"
       },
       "original": {
