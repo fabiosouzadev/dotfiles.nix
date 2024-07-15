@@ -25,6 +25,15 @@
       url = "git+ssh://git@github.com/fabiosouzadev/secrets.git?shallow=1";
       flake = false;
     };
+
+    rofi-themes = {
+      url = "git+ssh://git@github.com/fabiosouzadev/rofi-themes.git?shallow=1";
+      flake = false;
+    };
+    polybar-themes = {
+      url = "git+ssh://git@github.com/fabiosouzadev/polybar-themes.git?shallow=1";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
