@@ -4,7 +4,6 @@
   username,
   ...
 }: let
-  passPath = builtins.toString inputs.mysecrets;
   passwordStoreDir = "/home/${username}/.password-store";
 in {
   programs.password-store = {
@@ -18,7 +17,7 @@ in {
       exts.pass-update # an easy flow for updating passwords
     ]);
     settings = {
-      PASSWORD_STORE_DIR = passPath;
+      PASSWORD_STORE_DIR = passwordStoreDir;
       PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
       PASSWORD_STORE_CLIP_TIME = "60";
       PASSWORD_STORE_GENERATED_LENGTH = "15";

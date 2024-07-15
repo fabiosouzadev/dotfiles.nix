@@ -21,11 +21,7 @@
       flake = false;
     };
 
-    mypassords = {
-      url = "git+ssh://git@github.com/fabiosouzadev/secrets.git?shallow=1";
-      flake = false;
-    };
-
+    #customizations
     rofi-themes = {
       url = "git+ssh://git@github.com/fabiosouzadev/rofi-themes.git?shallow=1";
       flake = false;
