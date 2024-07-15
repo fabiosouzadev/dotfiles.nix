@@ -1,8 +1,12 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
-}: {
+}: let
+  rofi-themes = inputs.rofi-themes;
+  polybar-themes = inputs.polybar-themes;
+in {
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -50,12 +54,12 @@
     };
     "dunst/dunstrc".source = ./conf/dunst/dunstrc;
     "polybar" = {
-      source = ./conf/polybar;
+      source = "${polybar-themes}/simple";
       recursive = true;
       executable = true;
     };
     "rofi" = {
-      source = ./conf/rofi;
+      source = "${rofi-themes}/files";
       recursive = true;
       executable = true;
     };
@@ -70,9 +74,7 @@
   home.file = {
     # xrandr - set primary screen
     "/.screenlayout/i3_detect_displays.sh".source = ./conf/i3_detect_displays.sh;
-    ".local/share/fonts" = {
-      source = ./conf/fonts;
-      recursive = true;
-    };
+    ".local/share/fonts/rofi".source = "${rofi-themes}/fonts";
+    ".local/share/fonts/polybar".source = "${polybar-themes}/fonts";
   };
 }
