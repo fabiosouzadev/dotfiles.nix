@@ -11,6 +11,7 @@
       ./localization.nix
       ./keymap.nix
       ./xorg.nix
+      ./xfce.nix
       ../modules/fonts.nix
       ../modules/jetbrains.nix
       ../modules/polkit.nix
