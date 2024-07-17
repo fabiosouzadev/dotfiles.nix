@@ -32,7 +32,7 @@ in {
           home-manager.sharedModules = [
             inputs.sops-nix.homeManagerModules.sops
           ];
-          home-manager.backupFileExtension = "hm-backup";
+          home-manager.backupFileExtension = "backup";
         }
       ];
     };
