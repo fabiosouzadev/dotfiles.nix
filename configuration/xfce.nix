@@ -25,12 +25,13 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = username;
 
-  environment.systemPackages = with pkgs.xfce; [
-    ristretto
-    xfce4-volumed-pulse
-    xfce4-screenshooter
-    xfce4-clipman-plugin
-    xfce4-pulseaudio-plugin
+  environment.systemPackages = with pkgs; [
+    xarchiver
+    xfce.ristretto
+    xfce.xfce4-volumed-pulse
+    xfce.xfce4-screenshooter
+    xfce.xfce4-clipman-plugin
+    xfce.xfce4-pulseaudio-plugin
   ];
 
   programs.thunar = {
