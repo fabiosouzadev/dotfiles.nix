@@ -30,6 +30,9 @@
       url = "git+ssh://git@github.com/fabiosouzadev/polybar-themes.git?shallow=1";
       flake = false;
     };
+
+    #Spotify
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = inputs @ {

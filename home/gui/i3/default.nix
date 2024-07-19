@@ -43,6 +43,7 @@ in {
     papirus-icon-theme
     viewnior
     xdotool
+    cinnamon.pix
   ];
 
   xdg.configFile = {

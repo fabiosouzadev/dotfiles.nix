@@ -2,6 +2,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./networking.nix
     ../../modules/hardware/nix-zapay
     ../../modules/awsvpnclient.nix
   ];
@@ -33,11 +34,6 @@
   #boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.kernelModules = ["rtl8821ce" "btintel"];
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.hostName = "nixos-zapay"; # Define your hostname.
-  networking.firewall.enable = false;
-
   services = {
     # for SSD/NVME
     fstrim.enable = true;
@@ -48,10 +44,6 @@
   #  linuxKernel.packages.linux_6_1.rtl8821ce
   #   linuxKernel.packages.linux_6_7.rtl8821ce
   #];
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

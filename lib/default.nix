@@ -13,7 +13,7 @@ in {
   }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {inherit inputs username isDesktop hasVirtualisation;};
+      specialArgs = {inherit inputs username hostname isDesktop hasVirtualisation;};
       modules = [
         ../configuration
         ../hosts/${hostname}
