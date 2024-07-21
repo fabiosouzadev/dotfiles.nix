@@ -27,11 +27,9 @@
 
   environment.systemPackages = with pkgs; [
     xarchiver
+    alsa-utils
     xfce.ristretto
-    xfce.xfce4-volumed-pulse
     xfce.xfce4-screenshooter
-    xfce.xfce4-clipman-plugin
-    xfce.xfce4-pulseaudio-plugin
   ];
 
   programs.thunar = {

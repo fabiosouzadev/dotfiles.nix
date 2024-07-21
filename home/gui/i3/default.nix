@@ -27,9 +27,8 @@ in {
     feh # set wallpaper
     dex # autostart applications
     xbindkeys # bind keys to commands
-    xorg.xbacklight # control screen brightness
-    xorg.xdpyinfo # get screen information
     acpi # battery information
+    sysstat # get system information
     dmenu
     networkmanager_dmenu
     polybarFull # all for polybar

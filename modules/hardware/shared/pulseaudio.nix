@@ -14,7 +14,6 @@
   };
 
   nixpkgs.config.pulseaudio = true;
-  # sound.enable = true;
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     pavucontrol
     playerctl
