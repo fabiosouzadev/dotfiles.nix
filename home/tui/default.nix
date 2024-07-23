@@ -1,13 +1,12 @@
-{ config, pkgs, inputs, system,  ... }:
-
-{
+{...}: {
   imports = [
     ./cli-tools.nix
     ./git.nix
     ./zsh.nix
     ./starship.nix
     ./gpg.nix
-    ./tmux.nix
+    ./tmux
     ./neovim.nix
+    ./yazi
   ];
 }

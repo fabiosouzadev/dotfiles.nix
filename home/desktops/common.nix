@@ -7,6 +7,10 @@
     telegram-desktop
     whatsapp-for-linux
 
+    #produtivide
+    todoist # command line todo list https://github.com/sachaos/todoist
+    todoist-electron
+
     #pdf-reader
     zathura
 
