@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   username,
   ...
 }: {
@@ -46,4 +47,5 @@
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
   nixpkgs.config.pulseaudio = true;
+  services.gnome.gnome-keyring.enable = lib.mkForce false;
 }
