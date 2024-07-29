@@ -17,6 +17,8 @@
       ../modules/polkit.nix
       ../modules/vscodium.nix
       # ../modules/neovim.nix
+      # ./dns.nix
+      ./quad9-dns.nix
     ]
     ++ lib.optionals hasVirtualisation [./virtualisation];
 }
