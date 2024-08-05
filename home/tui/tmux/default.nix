@@ -24,26 +24,26 @@
           set -g @catppuccin_window_current_text "#W"
           set -g @catppuccin_window_right_separator "█ "
 
-          set -g @catppuccin_status_modules_right "directory session user host"
+          set -g @catppuccin_status_modules_right "session user host"
           set -g @catppuccin_directory_text "#{pane_current_path}"
         '';
       }
-      # {
-      #   plugin = resurrect;
-      #   extraConfig = ''
-      #     set -g @resurrect-strategy-vim 'session'
-      #     set -g @resurrect-strategy-nvim 'session'
-      #     set -g @resurrect-capture-pane-contents 'on'
-      #   '';
-      # }
-      # {
-      #   plugin = continuum;
-      #   extraConfig = ''
-      #     set -g @continuum-restore 'on'
-      #     set -g @continuum-boot 'on'
-      #     set -g @continuum-save-interval '10'
-      #   '';
-      # }
+      {
+        plugin = resurrect;
+        extraConfig = ''
+          # set -g @resurrect-strategy-vim 'session'
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
+      }
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-boot 'on'
+          set -g @continuum-save-interval '10'
+        '';
+      }
     ];
   };
 }

@@ -10,6 +10,8 @@
     #produtivide
     todoist # command line todo list https://github.com/sachaos/todoist
     todoist-electron
+    libreoffice
+    hunspellDicts.pt-br #Hunspell dictionary for Portuguese (Brazil) from LibreOffice
 
     #pdf-reader
     zathura
