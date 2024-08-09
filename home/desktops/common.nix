@@ -12,6 +12,7 @@
     todoist-electron
     libreoffice
     hunspellDicts.pt-br #Hunspell dictionary for Portuguese (Brazil) from LibreOffice
+    obsidian
 
     #pdf-reader
     zathura
