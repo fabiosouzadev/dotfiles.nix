@@ -114,10 +114,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1719429656,
-        "narHash": "sha256-Ipx04TDHrFx9RmWGIAkd8DRPLBjDBRRVZuI4XzMs9Qs=",
+        "lastModified": 1723357860,
+        "narHash": "sha256-KJT2k9NIt/m+7/cICCCa6CCdrC6j5wSdXgDsircVeZs=",
         "ref": "refs/heads/main",
-        "rev": "9b256ae5662bdae6589e9e38bcade485a6a18382",
+        "rev": "25fe0e323c1bfeaa6779f0405f23fdda320c5a79",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/fabiosouzadev/nix-secrets.git"

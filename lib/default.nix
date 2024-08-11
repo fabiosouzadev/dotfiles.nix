@@ -29,9 +29,9 @@ in {
             ];
           };
           # NixOS system-wide home-manager configuration
-          home-manager.sharedModules = [
-            inputs.sops-nix.homeManagerModules.sops
-          ];
+          # home-manager.sharedModules = [
+          #   inputs.sops-nix.homeManagerModules.sops
+          # ];
           home-manager.backupFileExtension = "backup";
         }
       ];

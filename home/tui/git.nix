@@ -1,16 +1,15 @@
-{ pkgs
-, username
-, config
-, ...
-}:
-let
+{
+  pkgs,
+  username,
+  config,
+  ...
+}: let
   defaultGit = {
     extraConfig.github.user = username;
     userEmail = "fabiovanderlei.developer@gmail.com";
     userName = "Fabio Souza";
   };
-in
-{
+in {
   home.packages = with pkgs; [
     lazygit
     gh #github
@@ -82,7 +81,7 @@ in
       "mergetool \"nvim\"".cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
     };
 
-    ignores = [ ".direnv" ".DS_Store" ];
+    ignores = [".direnv" ".DS_Store"];
   };
 
   programs.zsh = {
@@ -110,10 +109,9 @@ in
           awk '{print $1}' | \
           xargs gh pr checkout
       }
+      if [[ -o interactive ]]; then
+          export GITHUB_TOKEN=$(cat /run/secrets/github/api_key)
+      fi
     '';
-
-#    sessionVariables = {
-#      GH_TOKEN = builtins.readFile config.sops.secrets."github/api_key".path;
-#    };
   };
 }

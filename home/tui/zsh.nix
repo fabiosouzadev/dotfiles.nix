@@ -10,12 +10,12 @@
       size = 10000000;
       share = true;
     };
-    sessionVariables = {
-      OPENAI_API_KEY = builtins.readFile config.sops.secrets."openai/api_key".path;
-      SRC_ENDPOINT = builtins.readFile config.sops.secrets."sourcegraph/endpoint".path;
-      SRC_ACCESS_TOKEN = builtins.readFile config.sops.secrets."sourcegraph/access_token".path;
-    };
-    # shellAliases = {
-    # };
+    initExtra = ''
+      if [[ -o interactive ]]; then
+          export OPENAI_API_KEY=$(cat /run/secrets/openai/api_key)
+          export SRC_ENDPOINT=$(cat /run/secrets/sourcegraph/endpoint)
+          export SRC_ACCESS_TOKEN=$(cat /run/secrets/sourcegraph/access_token)
+      fi
+    '';
   };
 }

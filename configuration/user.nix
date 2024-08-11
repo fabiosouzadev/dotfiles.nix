@@ -1,9 +1,15 @@
-{pkgs, username, isDesktop, hasVirtualisation, ...}:
-
 {
+  pkgs,
+  config,
+  username,
+  isDesktop,
+  hasVirtualisation,
+  ...
+}: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
+    hashedPasswordFile = config.sops.secrets.user-password.path;
     description = "Fabio Souza";
     extraGroups = ["networkmanager" "wheel" "audio" "bluetooth" "docker"];
     home = "/home/${username}";
@@ -13,5 +19,6 @@
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [pkgs.zsh];
 }
+
