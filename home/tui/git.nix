@@ -112,8 +112,8 @@ in
       }
     '';
 
-    sessionVariables = {
-      GH_TOKEN = builtins.readFile config.sops.secrets."github/api_key".path;
-    };
+#    sessionVariables = {
+#      GH_TOKEN = builtins.readFile config.sops.secrets."github/api_key".path;
+#    };
   };
 }

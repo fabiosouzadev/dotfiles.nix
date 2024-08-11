@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   # basic configuration of git, please change to your own
   programs.zsh = {
     enable = true;
