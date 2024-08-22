@@ -16,12 +16,12 @@
           "https://raw.githubusercontent.com/Quad9DNS/dnscrypt-settings/main/dnscrypt/quad9-resolvers.md"
         ];
         cache_file = "/var/lib/dnscrypt-proxy2/quad9-resolvers.md";
-        minisign_key = "RWQBphd2+f6eiAqBsvDZEBXBGHQBJfeG6G+wJPPKxCZMoEQYpmoysKUN";
+        minisign_key = "RWTp2E4t64BrL651lEiDLNon+DqzPG4jhZ97pfdNkcq1VDdocLKvl5FW";
         refresh_delay = 72;
         prefix = "quad9-";
       };
 
-      server_names = ["quad9-dns-doh"];
+      server_names = ["quad9-dns-new"];
     };
   };
   services.resolved.enable = false;

@@ -2,6 +2,7 @@
   inputs,
   config,
   username,
+  pkgs,
   ...
 }: let
   secretspath = builtins.toString inputs.mysecrets;
@@ -37,20 +38,12 @@ in {
       "github/api_key" = {
         owner = config.users.users.${username}.name;
       };
-      "aws-zapay/user" = {};
-      "aws-zapay/access_key_id" = {};
-      "aws-zapay/secret_access_key" = {};
-      "aws-zapay/session_token" = {};
-    };
-    templates."aws/credentials" = {
-      content = ''
-        [${config.sops.placeholder."aws-zapay/user"}]
-        aws_access_key_id=${config.sops.placeholder."aws-zapay/access_key_id"}
-        aws_secret_access_key=${config.sops.placeholder."aws-zapay/secret_access_key"}
-        aws_session_token=${config.sops.placeholder."aws-zapay/session_token"}
-      '';
-      path = "${homepath}/.aws/credentials";
-      owner = config.users.users.${username}.name;
+      "syncthing/SM-A715F" = {
+        owner = config.users.users.${username}.name;
+      };
     };
   };
+  environment.systemPackages = with pkgs; [
+    sops
+  ];
 }

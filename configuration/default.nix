@@ -16,8 +16,10 @@
       ../modules/jetbrains.nix
       ../modules/polkit.nix
       ../modules/vscodium.nix
-      # ./quad9-dns.nix
+      ./quad9-dns.nix
       ./sops.nix
+      ./zapay.nix
+      ./syncting.nix
     ]
     ++ lib.optionals hasVirtualisation [./virtualisation];
 }

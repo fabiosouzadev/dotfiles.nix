@@ -49,5 +49,11 @@
     flameshot
     scrot
     maim
+
+    #vpn
+    openvpn
+    openvpn3
+    # networkmanager-openvpn
+    # gnome.networkmanager-openvpn
   ];
 }
