@@ -17,8 +17,8 @@
       ../modules/polkit.nix
       ../modules/vscodium.nix
       ./quad9-dns.nix
-      ./sops.nix
-      ./zapay.nix
+      ./secrets/sops.nix
+      ./secrets/zapay.nix
       ./syncting.nix
     ]
     ++ lib.optionals hasVirtualisation [./virtualisation];

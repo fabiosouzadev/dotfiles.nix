@@ -14,7 +14,8 @@ in {
       user = username;
       dataDir = "${dataDir}";
       configDir = "${configDir}";
-      openDefaultPorts = true;
+      overrideFolders = false;
+      overrideDevices = false;
       settings = {
         devices = {
           "SM-A715F" = {
