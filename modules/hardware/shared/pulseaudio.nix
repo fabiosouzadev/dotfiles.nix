@@ -14,6 +14,9 @@
   };
 
   nixpkgs.config.pulseaudio = true;
+  services.pipewire = {
+    enable = false;
+  };
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     pavucontrol
     playerctl
