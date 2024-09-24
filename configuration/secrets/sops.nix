@@ -41,6 +41,12 @@ in {
       "syncthing/SM-A715F" = {
         owner = config.users.users.${username}.name;
       };
+      "anthropic/api_key" = {
+        owner = config.users.users.${username}.name;
+      };
+      "gemini/api_key" = {
+        owner = config.users.users.${username}.name;
+      };
     };
   };
   environment.systemPackages = with pkgs; [
