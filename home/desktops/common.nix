@@ -55,5 +55,9 @@
     openvpn3
     # networkmanager-openvpn
     # gnome.networkmanager-openvpn
+
+    # ides
+    code-cursor
+    zed-editor
   ];
 }
