@@ -47,6 +47,9 @@ in {
       "gemini/api_key" = {
         owner = config.users.users.${username}.name;
       };
+      "groq/api_key" = {
+        owner = config.users.users.${username}.name;
+      };
     };
   };
   environment.systemPackages = with pkgs; [
