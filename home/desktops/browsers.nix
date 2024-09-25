@@ -7,13 +7,10 @@
     chromium
     qutebrowser
     mullvad-browser
-    floorp
     librewolf
-    ladybird
     vivaldi
     opera
     midori
     microsoft-edge-dev
   ];
 }
-
