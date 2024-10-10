@@ -19,11 +19,24 @@
     pkgs-python36 = import inputs.nixpkgs-python36 {inherit system;};
   in {
     devShells.x86_64-linux.python36 = pkgs.mkShell {
-      nativeBuildInputs = with pkgs-python36; let
-        devpython =
-          python36.withPackages
-          (packages: with packages; [pre-commit postgresql virtualenv pip setuptools wheel]);
-      in [devpython];
+      buildInputs = with pkgs-python36; let
+        devpython = python36.withPackages (packages:
+          with packages; [
+            python
+            pip
+            setuptools
+            wheel
+            pre-commit
+            virtualenv
+            psycopg2
+          ]);
+      in [devpython curl gcc openssl libressl postgresql_10 gnutls libffi libxml2 libxslt zlib];
+      shellInitHook = ''
+        virtualenv venv &&. venv/bin/activate
+      '';
+      shellHook = ''
+        pip install -r requirements.txt
+      '';
     };
     devShells.x86_64-linux.python38 = pkgs.mkShell {
       nativeBuildInputs = with pkgs; let

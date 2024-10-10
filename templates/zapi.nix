@@ -1,46 +1,55 @@
-{pkgs ? import <nixpkgs> {}}: let
-  nix-pre-commit-hooks = import (builtins.fetchTarball "https://github.com/cachix/git-hooks.nix/tarball/master");
+# use:
+# `nix develop .#python36 -c $SHELL`
+{
+  description = "Python Flake Shells";
 
-  pyPackages = with pkgs.python3Packages; [
-    python
-    venvShellHook
-    pip
-    psycopg2
-    setuptools
-    pycurl
-    lxml
-    cffi
-    pillow
-    isort
-    wheel
-    poetry-core
-    pre-commit-hooks
-  ];
-in
-  pkgs.mkShell {
-    venvDir = "./.venv";
-    buildInputs = [
-      pyPackages
-      pkgs.cowsay
-      pkgs.postgresql
-      pkgs.openssl
-      pkgs.curl
-      pkgs.libxml2
-      pkgs.libxslt
-      pkgs.zlib
-      pkgs.pre-commit
-      pkgs.isort
-      pkgs.poetry
-      pkgs.git
-      pkgs.wget
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-24.05";
+    # This bad boy is the last one to support 3.6
+    nixpkgs-python36.url = "nixpkgs/nixos-21.05";
+  };
+
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs-python36 = import inputs.nixpkgs-python36 {inherit system;};
+    pyPackages = with pkgs-python36; [
+      (
+        python36.withPackages (
+          pkgspy:
+            with pkgspy; [
+              python
+              venvShellHook
+              pip
+              setuptools
+              wheel
+              pre-commit
+              virtualenv
+              psycopg2
+            ]
+        )
+      )
     ];
-
-    postVenvCreation = ''
-      unset SOURCE_DATE_EPOCH
-      pip install -r requirements.txt
-    '';
-
-    postShellHook = ''
-      unset SOURCE_DATE_EPOCH
-    '';
-  }
+  in {
+    devShells.x86_64-linux.python36 = pkgs-python36.mkShell {
+      buildInputs = with pkgs-python36; [
+        pyPackages
+        curl
+        gcc
+        openssl
+        postgresql
+        libffi
+        libxml2
+        libxslt
+        zlib
+      ];
+      shellHook = ''
+        virtualenv venv &&. venv/bin/activate
+        pip install -r requirements.txt
+      '';
+    };
+  };
+}
