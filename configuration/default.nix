@@ -19,7 +19,6 @@
       # ./quad9-dns.nix
       ./secrets/sops.nix
       ./secrets/zapay.nix
-      ./python.nix
     ]
     ++ lib.optionals hasVirtualisation [./virtualisation];
 }
