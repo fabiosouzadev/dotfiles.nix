@@ -41,6 +41,7 @@
 
     # tools
     unetbootin
+    speedtest-cli
 
     #ftp client
     filezilla
@@ -56,7 +57,7 @@
     # networkmanager-openvpn
     # gnome.networkmanager-openvpn
 
-    # ides
+    # IDE`s
     code-cursor
     zed-editor
   ];

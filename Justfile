@@ -8,7 +8,7 @@ default:
 ###########################################################################
 
 get-config host:
-  cp /etc/nixos/hardware-configuration.nix hosts/{{ host }}/hardware-configuration.nix 
+  nixos-generate-config --dir ./hosts/{{ host }} 
 
 get-submodules:
   git submodule update --init --recursive zapay
