@@ -30,6 +30,7 @@
       url = "git+ssh://git@github.com/fabiosouzadev/polybar-themes.git?shallow=1";
       flake = false;
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = inputs @ {
