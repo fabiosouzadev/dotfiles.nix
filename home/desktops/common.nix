@@ -51,12 +51,6 @@
     scrot
     maim
 
-    #vpn
-    openvpn
-    openvpn3
-    # networkmanager-openvpn
-    # gnome.networkmanager-openvpn
-
     # IDE`s
     code-cursor
     zed-editor

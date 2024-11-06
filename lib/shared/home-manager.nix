@@ -11,6 +11,7 @@
     ../../home/tui
     ../../home/cloud
     ../../home/secrets
+    ../../home/editors
   ];
 
   # This value determines the home Manager release that your
