@@ -13,6 +13,6 @@
     vivaldi
     opera
     midori
-    microsoft-edge-dev
+    microsoft-edge
   ];
 }
