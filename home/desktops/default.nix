@@ -2,7 +2,7 @@
   imports = [
     ./common.nix
     ../gui
-    ./browsers.nix
+    ./browsers
     ./spotify.nix
     ./terminals
   ];
