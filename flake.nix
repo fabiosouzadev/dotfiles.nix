@@ -31,6 +31,7 @@
       flake = false;
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = inputs @ {
