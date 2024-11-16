@@ -22,6 +22,10 @@ build host:
   just get-config {{host}}
   nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
 
+build-and-update host:
+  just get-config {{host}}
+  nixos-rebuild switch --recreate-lock-file --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
+
 rebuild-boot host:  
   just get-config {{host}}
   nixos-rebuild --install-bootloader boot --flake .#{{ host }} --use-remote-sudo --show-trace --verbose
@@ -34,6 +38,10 @@ up:
 upp:
   nix flake lock --update-input $(i)
 
+
+up-home
+  nix flake lock home-manager
+  
 clean:
   # remove all generations older than 7 days
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
