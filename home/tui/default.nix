@@ -6,7 +6,7 @@
     ./starship.nix
     ./gpg.nix
     ./tmux
-    ./neovim.nix
+    # ./neovim.nix
     ./yazi
   ];
 }

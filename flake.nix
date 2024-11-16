@@ -10,6 +10,8 @@
     };
     awsvpnclient.url = "github:ymatsiuk/awsvpnclient";
     fabiosouzadev-nvim.url = "github:fabiosouzadev/neovim-nix";
+    # fabiosouzadev-nvim-refactor2.url = "github:fabiosouzadev/neovim-nix?ref=refactor2";
+    neovim-flake.url = "github:fabiosouzadev/neovim-flake.nix";
 
     # Secrets
     sops-nix = {
@@ -38,14 +40,28 @@
     self,
     nixpkgs,
     flake-parts,
+    neovim-flake,
     ...
   }: let
     # mkDarwin = self.lib.mkDarwin {};
     mkNixos = self.lib.mkNixos {};
+    pkgsOverride = inputs: {
+      nixpkgs = {
+        config.allowUnfree = true;
+        overlays = [
+          neovim-flake.overlays.default
+        ];
+      };
+    };
   in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+    flake-parts.lib.mkFlake {
+      inherit inputs;
+    } {
       flake = {
-        lib = import ./lib {inherit inputs;};
+        lib = import ./lib {
+          inherit inputs;
+          inherit pkgsOverride;
+        };
 
         nixosConfigurations = {
           nixos-zapay = mkNixos {

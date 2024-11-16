@@ -1,4 +1,7 @@
-{inputs}: let
+{
+  inputs,
+  pkgsOverride,
+}: let
   defaultUsername = "fabiosouzadev";
   homeManagerShared = import ./shared/home-manager.nix;
   homeManagerNixos = import ./nixos/home-manager.nix;
@@ -12,9 +15,11 @@ in {
     hasVirtualisation,
   }:
     inputs.nixpkgs.lib.nixosSystem {
-      inherit system;
+      # inherit system;
       specialArgs = {inherit inputs username hostname isDesktop hasVirtualisation;};
+      # overlays = [inputs.neovim-flake.overlays.default];
       modules = [
+        pkgsOverride
         ../configuration
         ../hosts/${hostname}
         inputs.home-manager.nixosModules.home-manager
@@ -29,9 +34,9 @@ in {
             ];
           };
           # NixOS system-wide home-manager configuration
-          # home-manager.sharedModules = [
-          #   inputs.sops-nix.homeManagerModules.sops
-          # ];
+          home-manager.sharedModules = [
+            inputs.sops-nix.homeManagerModules.sops
+          ];
           home-manager.backupFileExtension = "backup";
         }
       ];

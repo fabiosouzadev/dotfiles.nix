@@ -18,6 +18,7 @@
       # ./quad9-dns.nix
       ./secrets/sops.nix
       ./secrets/zapay.nix
+      ./neovim.nix
     ]
     ++ lib.optionals hasVirtualisation [./virtualisation];
 }
