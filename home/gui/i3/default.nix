@@ -6,6 +6,7 @@
 }: let
   rofi-themes = inputs.rofi-themes;
   polybar-themes = inputs.polybar-themes;
+  my-wallpapers = inputs.wallpapers;
 in {
   xsession = {
     enable = true;
@@ -42,6 +43,7 @@ in {
     papirus-icon-theme
     viewnior
     xdotool
+    cinnamon.pix
   ];
 
   xdg.configFile = {
@@ -63,7 +65,7 @@ in {
       executable = true;
     };
     "wallpapers" = {
-      source = ../../wallpapers;
+      source = "${my-wallpapers}";
       recursive = true;
     };
     "picom/picom.conf".source = ./conf/picom/picom.conf;

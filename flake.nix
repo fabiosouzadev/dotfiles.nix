@@ -32,6 +32,11 @@
       url = "github:fabiosouzadev/polybar-themes";
       flake = false;
     };
+    wallpapers = {
+      url = "github:fabiosouzadev/wallpapers";
+      flake = false;
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
