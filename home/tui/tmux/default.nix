@@ -7,7 +7,7 @@
     keyMode = "vi";
     historyLimit = 100000;
     #Base index for windows and panes.
-    extraConfig = builtins.readFile ./tokyo-night.toml;
+    extraConfig = builtins.readFile ./tmux.conf;
 
     #Configs for plugins
     #https://haseebmajid.dev/posts/2023-07-10-setting-up-tmux-with-nix-home-manager/

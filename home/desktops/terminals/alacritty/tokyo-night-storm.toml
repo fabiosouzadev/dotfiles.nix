@@ -15,9 +15,9 @@ cyan = "#449dab"
 green = "#9ece6a"
 magenta = "#ad8ee6"
 red = "#f7768e"
-white = "#787c99"
+white = "#9699a8"
 yellow = "#e0af68"
 
 [colors.primary]
-background = "#1a1b26"
+background = "#24283b"
 foreground = "#a9b1d6"
