@@ -1138,6 +1138,7 @@
         "polybar-themes": "polybar-themes",
         "rofi-themes": "rofi-themes",
         "sops-nix": "sops-nix",
+        "wallpapers": "wallpapers",
         "wezterm": "wezterm"
       }
     },
@@ -1284,6 +1285,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732196906,
+        "narHash": "sha256-GywvBeFl636v1veSPPrfPnVbzLp9uf0zDHV6ARVAgZM=",
+        "owner": "fabiosouzadev",
+        "repo": "wallpapers",
+        "rev": "5e25b341f12713a24d2735690e6b41e65931d743",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fabiosouzadev",
+        "repo": "wallpapers",
         "type": "github"
       }
     },
