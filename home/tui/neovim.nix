@@ -8,6 +8,6 @@ in {
   programs.neovim = inputs.fabiosouzadev-nvim.lib.mkHomeManager {inherit system;};
   # programs.neovim = {
   #   enable = true;
-  #   package = pkgs.nvim-pkg;
+  #   package = inputs.neovim-flake.packages.${system}.default;
   # };
 }

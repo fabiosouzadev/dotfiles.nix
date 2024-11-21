@@ -53,6 +53,6 @@
 
     # IDE`s
     code-cursor
-    zed-editor
+    # zed-editor
   ];
 }

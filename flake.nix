@@ -25,11 +25,11 @@
 
     #customizations
     rofi-themes = {
-      url = "git+ssh://git@github.com/fabiosouzadev/rofi-themes.git?shallow=1";
+      url = "github:fabiosouzadev/rofi-themes";
       flake = false;
     };
     polybar-themes = {
-      url = "git+ssh://git@github.com/fabiosouzadev/polybar-themes.git?shallow=1";
+      url = "github:fabiosouzadev/polybar-themes";
       flake = false;
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";

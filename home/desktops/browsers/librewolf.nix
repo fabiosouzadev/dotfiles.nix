@@ -7,6 +7,8 @@
       "browser.urlbar.suggest.searches" = true;
       "browser.toolbars.bookmarks.visibility" = "always";
       "identity.fxaccounts.enabled" = true;
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.cookies" = false;
     };
   };
 }

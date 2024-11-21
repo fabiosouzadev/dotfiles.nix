@@ -38,10 +38,15 @@ up:
 upp:
   nix flake lock --update-input $(i)
 
-
-up-home
+up-home:
   nix flake lock home-manager
-  
+
+update-secrets:
+  nix flake lock --update-input mysecrets
+
+update-nvim:
+  nix flake lock --update-input neovim-flake
+
 clean:
   # remove all generations older than 7 days
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
@@ -54,9 +59,4 @@ gc:
 #   rm -rf ~/.cache/nix/
 #   rm -f flake.lock
 
-update-secrets:
-  nix flake lock --update-input mysecrets
-
-update-nvim:
-  nix flake lock --update-input fabiosouzadev-nvim
 

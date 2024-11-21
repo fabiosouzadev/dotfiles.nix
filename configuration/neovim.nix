@@ -1,5 +1,11 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    nvim-pkg
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  system = pkgs.system;
+in {
+  environment.systemPackages = [
+    inputs.neovim-flake.packages.${system}.default
   ];
 }

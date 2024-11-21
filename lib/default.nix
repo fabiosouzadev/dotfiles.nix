@@ -15,11 +15,11 @@ in {
     hasVirtualisation,
   }:
     inputs.nixpkgs.lib.nixosSystem {
-      # inherit system;
+      inherit system;
       specialArgs = {inherit inputs username hostname isDesktop hasVirtualisation;};
       # overlays = [inputs.neovim-flake.overlays.default];
       modules = [
-        pkgsOverride
+        # pkgsOverride
         ../configuration
         ../hosts/${hostname}
         inputs.home-manager.nixosModules.home-manager
