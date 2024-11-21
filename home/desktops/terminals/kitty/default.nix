@@ -6,6 +6,6 @@
       enableFishIntegration = true;
       enableZshIntegration = true;
     };
-    extraConfig = lib.strings.concatStringsSep "\n" [(builtins.readFile ./kitty.conf) (builtins.readFile ./catppuccin-mocha.conf)];
+    extraConfig = lib.strings.concatStringsSep "\n" [(builtins.readFile ./kitty.conf) (builtins.readFile ./rose-pine-moon.conf)];
   };
 }
