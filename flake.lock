@@ -658,11 +658,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1732331233,
-        "narHash": "sha256-l7nV6FYiiSkLYfS/L164v9OFRlVlsjmwMDIV6txidec=",
+        "lastModified": 1732623956,
+        "narHash": "sha256-AQW/k463sHqI6ZbSnIpOUWj8BxvvXlr8i0+ga3vx3ro=",
         "owner": "fabiosouzadev",
         "repo": "neovim-flake.nix",
-        "rev": "2e58e294025d731520df1ddbd143c6e5daea6805",
+        "rev": "83eb00824cb2cf1c35e1445c555bac1b35ede682",
         "type": "github"
       },
       "original": {
