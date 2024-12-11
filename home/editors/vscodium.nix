@@ -6,10 +6,10 @@
       catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
       vscodevim.vim
-      sonarsource.sonarlint-vscode
+      # sonarsource.sonarlint-vscode
     ];
-    userSettings = {
-      "terminal.integrated.fontFamily" = "Hack";
-    };
+    # userSettings = {
+    #   "terminal.integrated.fontFamily" = "Hack";
+    # };
   };
 }
