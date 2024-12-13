@@ -24,7 +24,8 @@ build host:
 
 build-and-update host:
   just get-config {{host}}
-  nixos-rebuild switch --recreate-lock-file --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
+  just up
+  nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
 
 rebuild-boot host:  
   just get-config {{host}}

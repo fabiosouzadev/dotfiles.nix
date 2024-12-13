@@ -8,7 +8,6 @@
     unzip
     p7zip
     htop
-    btop
     fd
     devbox
     distrobox
@@ -20,18 +19,18 @@
   programs = {
     bat = {
       enable = true;
-      config = {theme = "catppuccin";};
+      config = {theme = "Catppuccin Mocha";};
       themes = {
-        catppuccin = {
+        "Catppuccin Mocha" = {
           src =
             pkgs.fetchFromGitHub
             {
               owner = "catppuccin";
               repo = "bat";
-              rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-              sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+              rev = "d2bbee4f7e7d5bac63c054e4d8eca57954b31471";
+              sha256 = "sha256-x1yqPCWuoBSx/cI94eA+AWwhiSA42cLNUOFJl7qjhmw=";
             };
-          file = "Catppuccin-macchiato.tmTheme";
+          file = "themes/Catppuccin Mocha.tmTheme";
         };
       };
     };
@@ -71,6 +70,13 @@
         "ls" = "${pkgs.eza}/bin/eza -h --git --icons --color=auto --group-directories-first -s extension";
         "tree" = "${pkgs.eza}/bin/eza --tree --icons --tree";
         "direnv-install" = "echo \"use flake\" > .envrc && ${pkgs.direnv}/bin/direnv allow";
+      };
+    };
+
+    btop = {
+      enable = true;
+      settings = {
+        vim_keys = true;
       };
     };
   };
