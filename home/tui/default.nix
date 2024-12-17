@@ -8,5 +8,6 @@
     ./tmux
     # ./neovim.nix
     ./yazi
+    ./ssh.nix
   ];
 }
