@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.gpg.enable = true;
+  # programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
@@ -12,5 +12,6 @@
     # pinentryPackage = pkgs.pinentry-curses;
     # pinentryPackage = pkgs.pinentry-gtk2;
     sshKeys = ["FBB635DEEB7F34838A309D34366402035F3025A8"];
+    enableScDaemon = false;
   };
 }
