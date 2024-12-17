@@ -2,10 +2,10 @@
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
-    defaultCacheTtl = 31536000; # cache keys forever don't get asked for password
-    defaultCacheTtlSsh = 31536000; # cache keys forever don't get asked for password
-    maxCacheTtl = 31536000;
-    maxCacheTtlSsh = 31536000;
+    defaultCacheTtl = 34560000; # cache keys forever don't get asked for password
+    defaultCacheTtlSsh = 34560000; # cache keys forever don't get asked for password
+    maxCacheTtl = 34560000;
+    maxCacheTtlSsh = 34560000;
     enableSshSupport = true;
     pinentryPackage = pkgs.pinentry-tty;
     # pinentryPackage = pkgs.pinentry-curses;
