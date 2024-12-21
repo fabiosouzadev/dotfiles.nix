@@ -11,7 +11,7 @@
     # pinentryPackage = pkgs.pinentry-tty;
     pinentryPackage = pkgs.pinentry-curses;
     # pinentryPackage = pkgs.pinentry-gtk2;
-    sshKeys = ["FBB635DEEB7F34838A309D34366402035F3025A8"];
+    sshKeys = ["848863D8ACD853D7263609E1720DB3F5C051FFB8"];
     enableScDaemon = false;
   };
 }
