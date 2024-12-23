@@ -6,6 +6,6 @@
     ./kernel.nix
     ./networking.nix
     ../../modules/hardware/nix-zapay
-    ../../modules/awsvpnclient.nix
+    # ../../modules/awsvpnclient.nix
   ];
 }

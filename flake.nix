@@ -8,7 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    awsvpnclient.url = "github:ymatsiuk/awsvpnclient";
     fabiosouzadev-nvim.url = "github:fabiosouzadev/neovim-nix";
     # fabiosouzadev-nvim-refactor2.url = "github:fabiosouzadev/neovim-nix?ref=refactor2";
     neovim-flake.url = "github:fabiosouzadev/neovim-flake.nix";
