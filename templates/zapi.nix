@@ -4,7 +4,7 @@
   description = "Python Flake Shells";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     # This bad boy is the last one to support 3.6
     nixpkgs-python36.url = "nixpkgs/nixos-21.05";
   };
