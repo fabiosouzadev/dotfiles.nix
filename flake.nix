@@ -43,6 +43,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     wezterm.url = "github:wez/wezterm?dir=nix";
+
+    aws-vpn-client = {
+      url = "github:Polarizedions/aws-vpn-client-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {

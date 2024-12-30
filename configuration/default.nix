@@ -11,7 +11,8 @@
       ./localization.nix
       ./keymap.nix
       ./xorg.nix
-      ./xfce.nix
+      # ./xfce.nix
+      ./gnome.nix
       ../modules/fonts.nix
       ../modules/jetbrains.nix
       ../modules/polkit.nix
@@ -19,6 +20,7 @@
       ./secrets/sops.nix
       ./secrets/zapay.nix
       ./neovim.nix
+      ./aws-vpn.nix
     ]
     ++ lib.optionals hasVirtualisation [./virtualisation];
 }
