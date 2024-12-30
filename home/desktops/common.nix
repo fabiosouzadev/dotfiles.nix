@@ -54,5 +54,8 @@
     # IDE`s
     code-cursor
     # zed-editor
+
+    # disk
+    gparted
   ];
 }
