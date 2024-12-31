@@ -85,6 +85,12 @@
             isDesktop = true;
             hasVirtualisation = false;
           };
+          nixos = mkNixos {
+            hostname = "nixos";
+            system = "x86_64-linux";
+            isDesktop = true;
+            hasVirtualisation = false;
+          };
         };
 
         #darwinConfigurations = {};

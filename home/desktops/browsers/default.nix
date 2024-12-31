@@ -12,7 +12,7 @@
     mullvad-browser
     vivaldi
     opera
-    midori
+    # midori
     microsoft-edge
   ];
 }
