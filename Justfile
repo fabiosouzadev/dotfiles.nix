@@ -61,3 +61,12 @@ gc:
 #   rm -f flake.lock
 
 
+############################################################################
+#
+#  Home-manager Commands
+#
+###########################################################################
+
+home-manager user:
+  home-manager switch --flake .#{{ user }} --impure --show-trace --verbose
+
