@@ -16,7 +16,7 @@ in {
         home = {
           username = username;
           homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
-          stateVersion = "25.05";
+          stateVersion = "24.11";
         };
 
         # Let home Manager install and manage itself.
