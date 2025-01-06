@@ -18,7 +18,7 @@ in {
           homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
           stateVersion = "24.11";
         };
-
+        nix.settings.experimental-features = ["nix-command" "flakes"];
         # Let home Manager install and manage itself.
         programs.home-manager.enable = true;
       }

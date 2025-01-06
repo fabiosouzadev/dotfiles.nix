@@ -5,3 +5,5 @@
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
+
+echo 'experimental-features = nix-command flakes' | tee ~/.config/nix/nix.conf
