@@ -7,7 +7,8 @@
   nixgl,
   username,
 }: let
-  pkgs = nixpkgs.packages.x86_64-linux;
+  system = "x86_64-linux";
+  pkgs = nixpkgs.legacyPackages.${system};
 in {
   mkHomeConfigurations = home-manager.lib.homeManagerConfiguration {
     extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
