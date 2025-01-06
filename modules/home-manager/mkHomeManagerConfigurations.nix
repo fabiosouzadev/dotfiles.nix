@@ -10,7 +10,7 @@
   system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
 in {
-  mkHomeConfigurations = home-manager.lib.homeManagerConfiguration {
+  mkHomeManagerConfiguration = home-manager.lib.homeManagerConfiguration {
     extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
     modules = [
       ./desktops/terminals
