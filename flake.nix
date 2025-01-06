@@ -41,7 +41,7 @@
     nixgl,
   }: let
     username = "fabiosouzadev";
-    mkHomeConfigurations = import ./modules/home-manager/mkHomeConfigurations;
+    mkHomeConfigurations = import ./modules/home-manager/mkHomeConfigurations.nix;
   in {
     nixosConfigurations = {};
     darwinConfigurations = {};

@@ -6,4 +6,6 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 nix-shell '<home-manager>' -A install
 
+
+if [ -d $HOME/.config/nix/ ] || mkdir -p ~/.config/nix
 echo 'experimental-features = nix-command flakes' | tee ~/.config/nix/nix.conf

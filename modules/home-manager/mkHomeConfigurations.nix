@@ -12,6 +12,7 @@ in {
   mkHomeConfigurations = home-manager.lib.homeManagerConfiguration {
     extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
     modules = [
+      ./desktops/terminals
       {
         home = {
           username = username;
