@@ -83,10 +83,6 @@
               username = username;
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
               stateVersion = "24.11";
-              # Other local things
-              packages = [
-                nixgl.auto.nixGLDefault
-              ];
             };
             nix = {
               settings = {
