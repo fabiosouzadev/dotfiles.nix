@@ -29,6 +29,25 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #customizations
+    rofi-themes = {
+      url = "github:fabiosouzadev/rofi-themes";
+      flake = false;
+    };
+    polybar-themes = {
+      url = "github:fabiosouzadev/polybar-themes";
+      flake = false;
+    };
+    wallpapers = {
+      url = "github:fabiosouzadev/wallpapers";
+      flake = false;
+    };
+
+    catppuccin-delta = {
+      url = "github:catppuccin/delta";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -39,18 +58,25 @@
     home-manager,
     nur,
     nixgl,
+    rofi-themes,
+    polybar-themes,
+    wallpapers,
+    catppuccin-delta,
   }: let
     username = "fabiosouzadev";
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       overlays = [nixgl.overlay];
     };
-    mkHomeManagerConfiguration = inputs: nur: nixgl: username:
+    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
+        extraSpecialArgs = {inherit inputs pkgs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
+          ./modules/home-manager/gui
+          ./modules/home-manager/editors
+          ./modules/home-manager/tui
           {
             home = {
               username = username;
@@ -80,7 +106,7 @@
         # inherit (nixpkgs) lib;
         inherit inputs nur nixgl username;
       };
-      rhino = mkHomeManagerConfiguration inputs nur nixgl username;
+      rhino = mkHomeManagerConfiguration inputs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta username;
     };
 
     packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;

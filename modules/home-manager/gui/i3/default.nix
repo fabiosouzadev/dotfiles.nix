@@ -1,13 +1,11 @@
 {
   lib,
   pkgs,
-  inputs,
+  rofi-themes,
+  polybar-themes,
+  wallpapers,
   ...
-}: let
-  rofi-themes = inputs.rofi-themes;
-  polybar-themes = inputs.polybar-themes;
-  my-wallpapers = inputs.wallpapers;
-in {
+}: {
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -64,7 +62,7 @@ in {
       executable = true;
     };
     "wallpapers" = {
-      source = "${my-wallpapers}";
+      source = "${wallpapers}";
       recursive = true;
     };
     "picom/picom.conf".source = ./conf/picom/picom.conf;
