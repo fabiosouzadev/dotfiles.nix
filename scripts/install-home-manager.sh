@@ -7,7 +7,8 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 
-if [ -d $HOME/.config/nix/ ] || mkdir -p ~/.config/nix
-echo 'experimental-features = nix-command flakes' | tee ~/.config/nix/nix.conf
-if [ -d $HOME/.config/nixpkgs/ ] || mkdir -p ~/.config/nixpkgs
-echo '{ allowUnfree = true; }' | tee ~/.config/nixpkgs/config.nix
+if [ -d $HOME/.config/nix/ ] || mkdir -p $HOME/.config/nix
+echo 'experimental-features = nix-command flakes' | tee $HOME/.config/nix/nix.conf
+
+if [ -d $HOME/.config/nixpkgs/ ] || mkdir -p $HOME/.config/nix
+echo '{ allowUnfree = true; }' | tee $HOME/.config/nixpkgs/config.nix
