@@ -41,8 +41,10 @@
     nixgl,
   }: let
     username = "fabiosouzadev";
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      overlays = [nixgl.overlay];
+    };
     mkHomeManagerConfiguration = inputs: nur: nixgl: username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
