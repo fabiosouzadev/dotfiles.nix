@@ -50,14 +50,14 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
         modules = [
-          ./modules/home-manager/desktops/terminals
+          ./modules/home-manager/desktops
           {
             home = {
               username = username;
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
               stateVersion = "24.11";
               packages = [
-                (import nixgl {inherit pkgs;}).nixGLIntel # OpenGL for GUI apps
+                nixgl.nixGLIntel
               ];
             };
             nix = {
