@@ -50,7 +50,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
         modules = [
-          ./modules/home-manager/desktops/browsers
+          ./modules/home-manager/desktops
           {
             home = {
               username = username;

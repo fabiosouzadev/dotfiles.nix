@@ -1,7 +1,7 @@
 {
   imports = [
     ./common.nix
-    ../gui
+    #../gui
     ./browsers
     ./spotify.nix
     ./terminals
