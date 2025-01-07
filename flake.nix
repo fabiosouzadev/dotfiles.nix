@@ -56,6 +56,9 @@
               username = username;
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
               stateVersion = "24.11";
+              packages = [
+                (import nixgl {inherit pkgs;}).nixGLIntel # OpenGL for GUI apps
+              ];
             };
             nix = {
               settings = {
