@@ -12,6 +12,7 @@ in {
     username,
   }:
     home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
       extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
       modules = [
         ./desktops/terminals
