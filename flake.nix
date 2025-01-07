@@ -59,7 +59,7 @@
               settings = {
                 auto-optimise-store = true;
               };
-              package = pkgs.nixFlakes;
+              package = pkgs.nixVersions.stable;
               registry.nixpkgs.flake = inputs.nixpkgs;
               settings.experimental-features = ["nix-command" "flakes"];
             };
