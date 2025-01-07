@@ -5,12 +5,7 @@
   system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
 in {
-  mkHomeManagerConfiguration = {
-    inputs,
-    nur,
-    nixgl,
-    username,
-  }:
+  mkHomeManagerConfiguration = inputs: nur: nixgl: username:
     home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
