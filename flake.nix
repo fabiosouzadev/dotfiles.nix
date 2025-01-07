@@ -41,10 +41,26 @@
     nixgl,
   }: let
     username = "fabiosouzadev";
-    mkHomeManagerConfiguration = import ./modules/home-manager/mkHomeManagerConfigurations.nix {
-      inherit nixpkgs;
-      inherit home-manager;
-    };
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    mkHomeManagerConfiguration = inputs: nur: nixgl: username:
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs pkgs nur nixgl;};
+        modules = [
+          ./desktops/terminals
+          {
+            home = {
+              username = username;
+              homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
+              stateVersion = "24.11";
+            };
+            nix.settings.experimental-features = ["nix-command" "flakes"];
+            # Let home Manager install and manage itself.
+            programs.home-manager.enable = true;
+          }
+        ];
+      };
   in {
     nixosConfigurations = {};
     darwinConfigurations = {};
