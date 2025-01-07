@@ -55,8 +55,8 @@
         inherit inputs nur nixgl username;
       };
       rhino = mkHomeManagerConfiguration {
-        inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager nur nixgl username;
+        # inherit (nixpkgs) lib;
+        inherit inputs nur nixgl username;
       };
     };
 
