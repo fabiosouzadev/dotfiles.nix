@@ -4,5 +4,6 @@
     ./browsers
     ./spotify.nix
     ./terminals
+    ./fonts.nix
   ];
 }
