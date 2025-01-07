@@ -54,10 +54,7 @@
         # inherit (nixpkgs) lib;
         inherit inputs nur nixgl username;
       };
-      rhino = mkHomeManagerConfiguration {
-        # inherit (nixpkgs) lib;
-        inherit inputs nur nixgl username;
-      };
+      rhino = mkHomeManagerConfiguration inputs nur nixgl username;
     };
 
     packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
