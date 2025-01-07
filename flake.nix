@@ -66,7 +66,7 @@
     username = "fabiosouzadev";
     pkgs = import nixpkgs {
       system = "x86_64-linux";
-      overlays = [nixgl.overlay];
+      overlays = [nixgl.overlay.default];
       config.allowUnfree = true;
     };
     mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
@@ -82,6 +82,9 @@
             home = {
               username = username;
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
+              packages = [
+                pkgs.nixgl.auto.nixGLDefault
+              ];
               stateVersion = "24.11";
             };
             nix = {
