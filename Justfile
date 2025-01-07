@@ -68,5 +68,5 @@ gc:
 ###########################################################################
 
 home-manager user:
-  home-manager switch --flake .#{{ user }} --impure --show-trace --verbose
+  home-manager switch --flake -b backup .#{{ user }} --impure --show-trace --verbose
 
