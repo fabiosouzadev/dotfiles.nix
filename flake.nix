@@ -41,15 +41,18 @@
     nixgl,
   }: let
     username = "fabiosouzadev";
-    mkHomeManagerConfiguration = import ./modules/home-manager/mkHomeManagerConfigurations.nix;
+    mkHomeManagerConfiguration = import ./modules/home-manager/mkHomeManagerConfigurations.nix {
+      inherit nixpkgs;
+      inherit home-manager;
+    };
   in {
     nixosConfigurations = {};
     darwinConfigurations = {};
 
     homeConfigurations = {
       ubuntu = mkHomeManagerConfiguration {
-        inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager nur nixgl username;
+        # inherit (nixpkgs) lib;
+        inherit inputs nur nixgl username;
       };
       rhino = mkHomeManagerConfiguration {
         inherit (nixpkgs) lib;
