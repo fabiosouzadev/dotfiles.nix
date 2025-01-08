@@ -68,25 +68,25 @@
     catppuccin-delta,
   }: let
     username = "fabiosouzadev";
-
-    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username: let
-      pkgs = import nixpkgs {
-        overlays = [
-          nixgl.overlay
-          neovim-flake.overlays.default
-        ];
-
-        config.allowUnfree = true;
-      };
-    in
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs pkgs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        extraSpecialArgs = {inherit inputs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
           ./modules/home-manager/editors
           ./modules/home-manager/tui
+          {
+            nixpkgs.overlays = [
+              nixgl.overlay
+              neovim-flake.overlays.default
+            ];
+          }
           {
             home = {
               username = username;
