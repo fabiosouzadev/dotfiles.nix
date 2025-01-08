@@ -70,7 +70,7 @@
     username = "fabiosouzadev";
     pkgs = import nixpkgs {
       system = "x86_64-linux";
-      overlays = [nixgl.overlay];
+      overlays = [nixgl.overlay neovim-flake.overlays.default];
       config.allowUnfree = true;
     };
     mkHomeManagerConfiguration = inputs: nur: nixgl: neovim-flake: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
