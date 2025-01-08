@@ -70,7 +70,7 @@
     username = "fabiosouzadev";
 
     mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username: let
-      pkgs = nixpkgs.override {
+      pkgs = import nixpkgs {
         overlays = [
           nixgl.overlay
           neovim-flake.overlays.default
