@@ -30,6 +30,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # My neovim
+    neovim-flake.url = "github:fabiosouzadev/neovim-flake.nix";
+
     #customizations
     rofi-themes = {
       url = "github:fabiosouzadev/rofi-themes";
@@ -58,6 +61,7 @@
     home-manager,
     nur,
     nixgl,
+    neovim-flake,
     rofi-themes,
     polybar-themes,
     wallpapers,
@@ -69,10 +73,10 @@
       overlays = [nixgl.overlay];
       config.allowUnfree = true;
     };
-    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
+    mkHomeManagerConfiguration = inputs: nur: nixgl: neovim-flake: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs pkgs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        extraSpecialArgs = {inherit inputs pkgs nur nixgl neovim-flake rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
