@@ -80,6 +80,7 @@
       };
     in
       home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
         extraSpecialArgs = {inherit inputs pkgs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
