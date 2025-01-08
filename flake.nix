@@ -81,7 +81,7 @@
     mkHomeManagerConfiguration = inputs: nur: nixgl: neovim-flake: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        extraSpecialArgs = {inherit inputs nur nixgl neovim-flake rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
@@ -91,9 +91,6 @@
             home = {
               username = username;
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
-              packages = [
-                neovim-flake.packages.${pkgs.system}.default
-              ];
               stateVersion = "24.11";
             };
             nix = {

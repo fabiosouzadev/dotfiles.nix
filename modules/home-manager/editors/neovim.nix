@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    nvim-pkg
+{
+  pkgs,
+  neovim-flake,
+  ...
+}: {
+  home.packages = [
+    neovim-flake.packages.${pkgs.system}.default
   ];
 }
