@@ -78,7 +78,7 @@
         nixgl.overlay
       ];
     };
-    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
+    mkHomeManagerConfiguration = inputs: nur: nixgl: neovim-flake: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
@@ -91,6 +91,9 @@
             home = {
               username = username;
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
+              packages = [
+                neovim-flake.packages.${pkgs.system}.default
+              ];
               stateVersion = "24.11";
             };
             nix = {
@@ -116,7 +119,7 @@
         # inherit (nixpkgs) lib;
         inherit inputs nur nixgl username;
       };
-      rhino = mkHomeManagerConfiguration inputs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta username;
+      rhino = mkHomeManagerConfiguration inputs nur nixgl neovim-flake rofi-themes polybar-themes wallpapers catppuccin-delta username;
     };
 
     packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
