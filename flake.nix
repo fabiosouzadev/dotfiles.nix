@@ -69,17 +69,18 @@
   }: let
     username = "fabiosouzadev";
 
-    mkHomeManagerConfiguration = inputs: pkgs: nur: nixgl: neovim-flake: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.override {
-          overlays = [
-            nixgl.overlay
-            neovim-flake.overlays.default
-          ];
+    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username: let
+      pkgs = nixpkgs.override {
+        overlays = [
+          nixgl.overlay
+          neovim-flake.overlays.default
+        ];
 
-          config.allowUnfree = true;
-        };
-        extraSpecialArgs = {inherit inputs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        config.allowUnfree = true;
+      };
+    in
+      home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = {inherit inputs pkgs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
