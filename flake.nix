@@ -31,7 +31,10 @@
     };
 
     # My neovim
-    neovim-flake.url = "github:fabiosouzadev/neovim-flake.nix";
+    neovim-flake = {
+      url = "github:fabiosouzadev/neovim-flake.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #customizations
     rofi-themes = {
@@ -68,7 +71,7 @@
     catppuccin-delta,
   }: let
     username = "fabiosouzadev";
-    pkgsOverride = import nixpkgs {
+    pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
       overlays = [
@@ -76,8 +79,9 @@
         neovim-flake.overlays.default
       ];
     };
-    mkHomeManagerConfiguration = inputs: pkgs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
+    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
         extraSpecialArgs = {inherit inputs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
@@ -113,7 +117,7 @@
         # inherit (nixpkgs) lib;
         inherit inputs nur nixgl username;
       };
-      rhino = mkHomeManagerConfiguration inputs pkgsOverride nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta username;
+      rhino = mkHomeManagerConfiguration inputs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta username;
     };
 
     packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
