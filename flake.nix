@@ -68,15 +68,18 @@
     catppuccin-delta,
   }: let
     username = "fabiosouzadev";
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      overlays = [nixgl.overlay neovim-flake.overlays.default];
+
+    pkgsOverride = import nixpkgs {
       config.allowUnfree = true;
+      overlays = [
+        nixgl.overlay
+        neovim-flake.overlays.default
+      ];
     };
     mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs pkgs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        inherit pkgsOverride;
+        extraSpecialArgs = {inherit inputs pkgsOverride nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
@@ -85,17 +88,14 @@
           {
             home = {
               username = username;
-              homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
-              packages = [
-                pkgs.nixgl.auto.nixGLDefault
-              ];
+              homeDirectory = pkgsOverride.lib.mkDefault "/home/${username}/";
               stateVersion = "24.11";
             };
             nix = {
               settings = {
                 auto-optimise-store = true;
               };
-              package = pkgs.nixVersions.stable;
+              package = pkgsOverride.nixVersions.stable;
               registry.nixpkgs.flake = inputs.nixpkgs;
               settings.experimental-features = ["nix-command" "flakes"];
             };
