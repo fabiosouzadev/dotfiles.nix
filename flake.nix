@@ -76,7 +76,6 @@
       config.allowUnfree = true;
       overlays = [
         nixgl.overlay
-        neovim-flake.overlays.default
       ];
     };
     mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
