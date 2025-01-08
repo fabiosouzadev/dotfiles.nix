@@ -69,17 +69,17 @@
   }: let
     username = "fabiosouzadev";
 
-    pkgs = import nixpkgs {
-      config.allowUnfree = true;
-      overlays = [
-        nixgl.overlay
-        neovim-flake.overlays.default
-      ];
-    };
-    mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
+    mkHomeManagerConfiguration = inputs: pkgs: nur: nixgl: neovim-flake: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs pkgs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        pkgs = nixpkgs.override {
+          overlays = [
+            nixgl.overlay
+            neovim-flake.overlays.default
+          ];
+
+          config.allowUnfree = true;
+        };
+        extraSpecialArgs = {inherit inputs nur rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
