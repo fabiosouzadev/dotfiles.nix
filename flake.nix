@@ -69,7 +69,7 @@
   }: let
     username = "fabiosouzadev";
 
-    pkgsOverride = import nixpkgs {
+    pkgs = import nixpkgs {
       config.allowUnfree = true;
       overlays = [
         nixgl.overlay
@@ -78,8 +78,8 @@
     };
     mkHomeManagerConfiguration = inputs: nur: nixgl: rofi-themes: polybar-themes: wallpapers: catppuccin-delta: username:
       home-manager.lib.homeManagerConfiguration {
-        inherit pkgsOverride;
-        extraSpecialArgs = {inherit inputs pkgsOverride nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs pkgs nur nixgl rofi-themes polybar-themes wallpapers catppuccin-delta;};
         modules = [
           ./modules/home-manager/desktops
           ./modules/home-manager/gui
@@ -88,14 +88,14 @@
           {
             home = {
               username = username;
-              homeDirectory = pkgsOverride.lib.mkDefault "/home/${username}/";
+              homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
               stateVersion = "24.11";
             };
             nix = {
               settings = {
                 auto-optimise-store = true;
               };
-              package = pkgsOverride.nixVersions.stable;
+              package = pkgs.nixVersions.stable;
               registry.nixpkgs.flake = inputs.nixpkgs;
               settings.experimental-features = ["nix-command" "flakes"];
             };
