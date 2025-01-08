@@ -1,8 +1,8 @@
 {...}: {
   imports = [
-    # ./neovim.nix
     # ./vscode.nix
+    ./neovim.nix
     ./vscodium.nix
-    ./jetbrains.nix
+    # ./jetbrains.nix
   ];
 }
