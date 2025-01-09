@@ -100,7 +100,7 @@
               #installScripts = [ "mesa" "nvidiaPrime" ];
             };
             home.packages = with pkgs; [
-              nixgl.nixGLIntel
+              (import nixgl {inherit pkgs;}).nixGLIntel # OpenGL for GUI apps
               (config.lib.nixGL.wrap pkgs.wezterm)
               (config.lib.nixGL.wrap pkgs.kitty)
             ];
