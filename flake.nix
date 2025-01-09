@@ -93,6 +93,20 @@
               homeDirectory = pkgs.lib.mkDefault "/home/${username}/";
               stateVersion = "24.11";
             };
+            nixGL = {
+              packages = nixgl.packages; # you must set this or everything will be a noop
+              defaultWrapper = "mesa"; # choose from options
+              offloadWrapper = "mesaPrime";
+              #installScripts = [ "mesa" "nvidiaPrime" ];
+            };
+            home.packages = with pkgs; [
+              nixgl.nixGLIntel
+              (config.lib.nixGL.wrap pkgs.wezterm)
+              (config.lib.nixGL.wrap pkgs.kitty)
+            ];
+            # ENABLE THIS ON NON NIXOS SYSTEMS
+            targets.genericLinux.enable = true;
+
             nix = {
               settings = {
                 auto-optimise-store = true;
