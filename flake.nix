@@ -99,10 +99,10 @@
               offloadWrapper = "mesaPrime";
               #installScripts = [ "mesa" "nvidiaPrime" ];
             };
-            home.packages = with pkgs; [
+            home.packages = [
               (import nixgl {inherit pkgs;}).nixGLIntel # OpenGL for GUI apps
-              (config.lib.nixGL.wrap pkgs.wezterm)
-              (config.lib.nixGL.wrap pkgs.kitty)
+              # (config.lib.nixGL.wrap pkgs.wezterm)
+              # (config.lib.nixGL.wrap pkgs.kitty)
             ];
             # ENABLE THIS ON NON NIXOS SYSTEMS
             targets.genericLinux.enable = true;
