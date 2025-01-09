@@ -3,7 +3,6 @@
   programs.zsh = {
     enable = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    environment.pathsToLink = ["/share/zsh"];
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
