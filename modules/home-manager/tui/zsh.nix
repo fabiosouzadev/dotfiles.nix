@@ -1,11 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
-  users.users.${username} = {
-    shell = pkgs.zsh;
-  };
+{...}: {
   # basic configuration of git, please change to your own
   programs.zsh = {
     enable = true;
