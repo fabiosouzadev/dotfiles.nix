@@ -1,8 +1,7 @@
-{pkgs, ...}: {
+{...}: {
   # basic configuration of git, please change to your own
   programs.zsh = {
     enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
