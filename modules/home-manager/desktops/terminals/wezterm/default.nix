@@ -1,11 +1,11 @@
 {
-  inputs,
+  config,
   pkgs,
   ...
 }: {
   programs.wezterm = {
     enable = true;
-    # package = inputs.wezterm.packages.${pkgs.system}.default;
+    package = config.lib.nixGL.wrap pkgs.wezterm;
     enableZshIntegration = true;
     enableBashIntegration = true;
     extraConfig = builtins.readFile ./wezterm.lua;

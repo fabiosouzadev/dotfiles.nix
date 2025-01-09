@@ -1,7 +1,12 @@
 # NOTE: Alacritty - a cross-platform, GPU-accelerated terminal emulator
-{...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
+    package = config.lib.nixGL.wrap pkgs.alacritty;
     # custom settings
     settings = {
       env.TERM = "xterm-256color";
