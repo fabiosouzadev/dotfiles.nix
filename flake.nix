@@ -107,6 +107,10 @@
             # ENABLE THIS ON NON NIXOS SYSTEMS
             targets.genericLinux.enable = true;
 
+            home.sessionVariables = {
+              EDITOR = "nvim";
+            };
+
             nix = {
               settings = {
                 auto-optimise-store = true;
