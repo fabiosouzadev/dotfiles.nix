@@ -20,7 +20,7 @@
   #XFCE4 Desktop Environment + i3 window manager
   services.xserver.windowManager.i3.enable = true;
   services.xserver.displayManager.defaultSession = "xfce+i3";
-  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.enable = lib.mkDefault true;
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{lib,pkgs, ...}: {
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
@@ -15,7 +15,7 @@
 
   nixpkgs.config.pulseaudio = true;
   services.pipewire = {
-    enable = false;
+    enable = lib.mkForce false;
   };
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     pavucontrol
