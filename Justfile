@@ -8,7 +8,7 @@ default:
 ###########################################################################
 
 get-config host:
-  nixos-generate-config --dir ./hosts/{{ host }} 
+  sudo nixos-generate-config --dir ./hosts/{{ host }} 
 
 get-submodules:
   git submodule update --init --recursive zapay

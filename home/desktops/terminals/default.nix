@@ -3,5 +3,6 @@
     ./alacritty
     ./kitty
     ./wezterm
+    ./ghostty
   ];
 }
