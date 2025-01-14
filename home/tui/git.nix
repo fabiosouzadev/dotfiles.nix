@@ -37,6 +37,17 @@ in {
         features = "catppuccin-mocha";
       };
     };
+    extraConfig = {
+      color.ui = true;
+      commit.gpgsign = true;
+      core.editor = "nvim";
+      diff.colorMoved = "zebra";
+      fetch.prune = true;
+      init.defaultBranch = "main";
+      merge.conflictstyle = "zdiff3";
+      push.autoSetupRemote = true;
+      rebase.autoStash = true;
+    };
   };
 
   programs.zsh = {
