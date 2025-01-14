@@ -16,20 +16,20 @@ get-submodules:
 
 test host:
   just get-config {{ host }}
-  nixos-rebuild test --flake .#{{ host }}  --impure --use-remote-sudo --show-trace --verbose
+  nixos-rebuild test --flake .#{{ host }}  --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 build host:
   just get-config {{host}}
-  nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 build-and-update host:
   just get-config {{host}}
   just up
-  nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
-rebuild-boot host:  
+rebuild-boot host:
   just get-config {{host}}
-  nixos-rebuild --install-bootloader boot --flake .#{{ host }} --use-remote-sudo --show-trace --verbose
+  nixos-rebuild --install-bootloader boot --flake .#{{ host }} --use-remote-sudo --show-trace --print-build-logs --verbose
 
 up:
   nix flake update
