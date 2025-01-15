@@ -57,5 +57,6 @@
 
     # disk
     gparted
+   # spotify
   ];
 }

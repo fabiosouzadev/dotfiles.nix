@@ -66,8 +66,9 @@
     wallpapers,
     catppuccin-delta,
     ...
-  }: let
-    vars = {
+  }: {
+    darwinConfigurations = {};
+    nixosConfigurations = let
       username = "fabiosouzadev";
       hostname = "nixos-zapay";
       browser = "brave";
@@ -75,22 +76,21 @@
       de = "xfce";
       shell = "zsh";
       editor = "nvim";
-    };
-  in {
-    darwinConfigurations = {};
-    nixosConfigurations = {
+      stateVersion = "25.05";
+    in {
       test = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs vars;};
+        specialArgs = {inherit inputs username hostname shell stateVersion;};
         modules = [
           ./hosts/dell-inspirion-3520
+          ./modules/shared/fonts.nix
           ./modules/shared/nixpkgs.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs vars;};
-            home-manager.users."${vars.username}" = {
+            home-manager.extraSpecialArgs = {inherit inputs username hostname stateVersion;};
+            home-manager.users."${username}" = {
               imports = [
                 ./modules/shared/home-manager.nix
               ];
@@ -105,9 +105,18 @@
         ];
       };
     };
-    homeConfigurations = {
+    homeConfigurations = let
+      username = "fabiosouzadev";
+      hostname = "nixos-zapay";
+      browser = "brave";
+      terminal = "wezterm";
+      de = "xfce";
+      shell = "zsh";
+      editor = "nvim";
+      stateVersion = "25.05";
+    in {
       ubuntu = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = {inherit inputs nixpkgs vars;};
+        extraSpecialArgs = {inherit inputs nixpkgs username hostname stateVersion;};
         modules = [
           ./modules/shared/home-manager.nix
           ./modules/shared/nixpkgs.nix
