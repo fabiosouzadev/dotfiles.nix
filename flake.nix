@@ -54,21 +54,63 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixos-hardware,
     home-manager,
-  }: {
+    darwin,
+    nur,
+    sops-nix,
+    mysecrets,
+    neovim-flake,
+    rofi-themes,
+    polybar-themes,
+    wallpapers,
+    catppuccin-delta,
+    ...
+  }: let
+    vars = {
+      username = "fabiosouzadev";
+      hostname = "nixos-zapay";
+      browser = "brave";
+      terminal = "wezterm";
+      de = "xfce";
+      shell = "zsh";
+      editor = "nvim";
+    };
+  in {
     darwinConfigurations = {};
     nixosConfigurations = {
       test = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs vars;};
+        modules = [
+          ./hosts/dell-inspirion-3520
+          ./modules/shared/nixpkgs.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit inputs vars;};
+            home-manager.users."${vars.username}" = {
+              imports = [
+                ./modules/shared/home-manager.nix
+              ];
+            };
+            # NixOS system-wide home-manager configuration
+            home-manager.sharedModules = [
+              inputs.sops-nix.homeManagerModules.sops
+            ];
+            home-manager.backupFileExtension = "backup";
+          }
+          (import ./overlays)
+        ];
       };
     };
     homeConfigurations = {
       ubuntu = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {inherit inputs nixpkgs vars;};
         modules = [
-          ./modules/home-manager.nix
+          ./modules/shared/home-manager.nix
+          ./modules/shared/nixpkgs.nix
         ];
       };
     };

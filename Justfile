@@ -15,11 +15,11 @@ get-submodules:
   cp -r zapay/aws  ~/.aws
 
 test host:
-  just get-config {{ host }}
+  #just get-config {{ host }}
   nixos-rebuild test --flake .#{{ host }}  --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 build host:
-  just get-config {{host}}
+  #just get-config {{host}}
   nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 build-and-update host:
