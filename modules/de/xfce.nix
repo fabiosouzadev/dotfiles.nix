@@ -8,23 +8,32 @@
   #  NixOS's Configuration for Xfce4 Desktop Environment
   ####################################################################
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services = {
+    xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
+      # Enable the Xfce4 Desktop Environment.
+      desktopManager = {
+        xterm.enable = false;
+        xfce.enable = true;
+        xfce.noDesktop = true;
+        xfce.enableXfwm = false;
+      };
+      displayManager.lightdm.enable = lib.mkDefault true;
+    };
 
-  # Enable the Xfce4 Desktop Environment.
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.desktopManager.xfce.noDesktop = true;
-  services.xserver.desktopManager.xfce.enableXfwm = false;
+    displayManager = {
+      #XFCE4 Desktop Environment + i3 window manager
+      #services.xserver.windowManager.i3.enable = true;
+      defaultSession = "xfce";
 
-  #XFCE4 Desktop Environment + i3 window manager
-  #services.xserver.windowManager.i3.enable = true;
-  services.xserver.displayManager.defaultSession = "xfce";
-  services.xserver.displayManager.lightdm.enable = lib.mkDefault true;
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = vars.username;
+      # Enable automatic login for the user.
+      autoLogin = {
+        enable = true;
+        user = vars.username;
+      };
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     xarchiver
