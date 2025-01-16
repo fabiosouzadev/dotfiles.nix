@@ -14,6 +14,8 @@
     ./hardware-configuration.nix
     ../../modules/hardware/dell-inspirion-3520
     ../../modules/shared/kernel.nix
+    ../../modules/shared/localization.nix
+    ../../modules/shared/keymap.nix
     ../../modules/shared/user.nix
   ];
 

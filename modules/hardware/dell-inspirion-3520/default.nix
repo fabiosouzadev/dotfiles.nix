@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ../shared/laptop.nix
     ../shared/bluetooth.nix
