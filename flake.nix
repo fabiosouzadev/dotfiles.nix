@@ -85,6 +85,8 @@
           ./hosts/dell-inspirion-3520
           ./modules/shared/fonts.nix
           ./modules/shared/nixpkgs.nix
+          ./modules/secrets/sops.nix
+          ./modules/secrets/zapay.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
