@@ -1,6 +1,6 @@
 {
   imports = [
-    ./xfce.nix
+    # ./xfce.nix
     ./gnome.nix
   ];
 }

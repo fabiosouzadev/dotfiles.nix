@@ -4,7 +4,10 @@
   vars,
   ...
 }:
-lib.mkIf (vars.de == "gnome") {
+/*
+lib.mkIf (vars.de == "gnome")
+*/
+{
   ####################################################################
   #  NixOS's Configuration for Gnome Desktop Environment
   ####################################################################
@@ -12,7 +15,8 @@ lib.mkIf (vars.de == "gnome") {
   services = {
     xserver = {
       # Enable the X11 windowing system.
-      enable = lib.mkIf (vars.de == "gnome") true;
+      # enable = lib.mkIf (vars.de == "gnome") true;
+      enable = true;
       # Enable the Xfce4 Desktop Environment.
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
@@ -22,7 +26,7 @@ lib.mkIf (vars.de == "gnome") {
       # #XFCE4 Desktop Environment + i3 window manager
       # #services.xserver.windowManager.i3.enable = true;
       # defaultSession =
-      #   if (vars.de == "i3")
+      #   if (vars.wm == "i3")
       #   then "xfce+i3"
       #   else "xfce";
 
@@ -38,7 +42,7 @@ lib.mkIf (vars.de == "gnome") {
       gnome-photos
       gnome-tour
     ])
-    ++ (with pkgs.gnome; [
+    ++ (with pkgs; [
       cheese # webcam tool
       gnome-music
       gedit # text editor
@@ -55,7 +59,7 @@ lib.mkIf (vars.de == "gnome") {
     ]);
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
-    gnome.gnome-tweaks
+    gnome-tweaks
   ];
 
   programs.dconf.enable = true;
