@@ -17,7 +17,7 @@
     ../../modules/terminal/tui
     ../../modules/de/i3
     ../../modules/cloud
-    ../../modules/secrets
+    ../../modules/shared/common.nix
   ];
 
   # This value determines the home Manager release that your

@@ -89,6 +89,7 @@
           ./modules/secrets/zapay.nix
           ./modules/shared/xfce.nix
           ./modules/shared/xorg.nix
+           ./modules/shared/neovim.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
