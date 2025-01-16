@@ -26,6 +26,6 @@ in {
     enable = true;
 
     defaultApplications = defaultApplications;
-    association.added = defaultApplications;
+    associations.added = defaultApplications;
   };
 }

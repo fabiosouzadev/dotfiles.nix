@@ -17,6 +17,7 @@
     ../../modules/wm/i3
     ../../modules/cloud
     ../../modules/shared/common.nix
+    ../../modules/shared/xdg.nix
   ];
 
   # This value determines the home Manager release that your

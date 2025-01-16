@@ -17,5 +17,12 @@
     shell = pkgs.${vars.shell};
   };
   programs.zsh.enable = true;
-  environment.shells = [pkgs.${vars.shell}];
+  environment = {
+    shells = [pkgs.${vars.shell}];
+    variables = {
+      TERMINAL = "${vars.terminal}";
+      EDITOR = "${vars.editor}";
+      VISUAL = "${vars.editor}";
+    };
+  };
 }

@@ -75,6 +75,7 @@
         browser = "brave";
         terminal = "wezterm";
         de = "xfce";
+        wm = "i3";
         shell = "zsh";
         editor = "nvim";
         stateVersion = "25.05";
