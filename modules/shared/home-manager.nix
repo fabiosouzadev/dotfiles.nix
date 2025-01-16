@@ -1,12 +1,11 @@
 {
   pkgs,
-  username,
-  stateVersion,
+  vars,
   ...
 }: {
   # TODO please change the username & home directory to your own
-  home.username = username;
-  home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
+  home.username = vars.username;
+  home.homeDirectory = pkgs.lib.mkDefault "/home/${vars.username}";
 
   imports = [
     ../../modules/browsers
@@ -28,7 +27,7 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = stateVersion;
+  home.stateVersion = vars.stateVersion;
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;

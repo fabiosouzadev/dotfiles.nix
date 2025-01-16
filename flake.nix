@@ -69,18 +69,20 @@
   }: {
     darwinConfigurations = {};
     nixosConfigurations = let
-      username = "fabiosouzadev";
-      hostname = "nixos-zapay";
-      browser = "brave";
-      terminal = "wezterm";
-      de = "xfce";
-      shell = "zsh";
-      editor = "nvim";
-      stateVersion = "25.05";
+      vars = {
+        username = "fabiosouzadev";
+        hostname = "nixos-zapay";
+        browser = "brave";
+        terminal = "wezterm";
+        de = "xfce";
+        shell = "zsh";
+        editor = "nvim";
+        stateVersion = "25.05";
+      };
     in {
       work = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs username hostname shell stateVersion;};
+        specialArgs = {inherit inputs vars;};
         modules = [
           ./hosts/dell-inspirion-3520
           ./modules/shared/fonts.nix
@@ -94,8 +96,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs username hostname stateVersion;};
-            home-manager.users."${username}" = {
+            home-manager.extraSpecialArgs = {inherit inputs vars;};
+            home-manager.users."${vars.username}" = {
               imports = [
                 ./modules/shared/home-manager.nix
               ];
@@ -111,17 +113,19 @@
       };
     };
     homeConfigurations = let
-      username = "fabiosouzadev";
-      hostname = "nixos-zapay";
-      browser = "brave";
-      terminal = "wezterm";
-      de = "xfce";
-      shell = "zsh";
-      editor = "nvim";
-      stateVersion = "25.05";
+      vars = {
+        username = "fabiosouzadev";
+        hostname = "nixos-zapay";
+        browser = "brave";
+        terminal = "wezterm";
+        de = "xfce";
+        shell = "zsh";
+        editor = "nvim";
+        stateVersion = "25.05";
+      };
     in {
       ubuntu = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = {inherit inputs nixpkgs username hostname stateVersion;};
+        extraSpecialArgs = {inherit inputs vars;};
         modules = [
           ./modules/shared/home-manager.nix
           ./modules/shared/nixpkgs.nix

@@ -1,12 +1,12 @@
 {
-  inputs,
   config,
-  username,
+  inputs,
   pkgs,
+  vars,
   ...
 }: let
   secretspath = builtins.toString inputs.mysecrets;
-  homepath = config.users.users.${username}.home;
+  homepath = config.users.users.${vars.username}.home;
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -27,28 +27,28 @@ in {
         neededForUsers = true;
       };
       "openai/api_key" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "sourcegraph/endpoint" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "sourcegraph/access_token" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "github/api_key" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "syncthing/SM-A715F" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "anthropic/api_key" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "gemini/api_key" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
       "groq/api_key" = {
-        owner = config.users.users.${username}.name;
+        owner = config.users.users.${vars.username}.name;
       };
     };
   };

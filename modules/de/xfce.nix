@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  username,
+  vars,
   ...
 }: {
   ####################################################################
@@ -24,7 +24,7 @@
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = username;
+  services.xserver.displayManager.autoLogin.user = vars.username;
 
   environment.systemPackages = with pkgs; [
     xarchiver

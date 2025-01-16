@@ -1,22 +1,21 @@
 {
   pkgs,
   config,
-  username,
-  shell,
+  vars,
   ...
 }: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
+  users.users.${vars.username} = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.user-password.path;
     description = "Fabio Souza";
     extraGroups = ["networkmanager" "wheel" "audio" "bluetooth" "docker"];
-    home = "/home/${username}";
+    home = "/home/${vars.username}";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZfQfANchWqcYPZiZtMQ7UByj/pReoe3HjYCpTkq4JT fabiovanderlei.developer@gmail.com"
     ];
-    shell = pkgs.${shell};
+    shell = pkgs.${vars.shell};
   };
   programs.zsh.enable = true;
-  environment.shells = [pkgs.${shell}];
+  environment.shells = [pkgs.${vars.shell}];
 }

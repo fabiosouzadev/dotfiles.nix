@@ -5,8 +5,7 @@
   config,
   lib,
   pkgs,
-  hostname,
-  stateVersion,
+  vars,
   ...
 }: {
   imports = [
@@ -24,7 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
-  networking.hostName = hostname; # Define your hostname.
+  networking.hostName = vars.hostname; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -130,7 +129,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "${stateVersion}"; # Did you read the comment?
+  system.stateVersion = vars.stateVersion; # Did you read the comment?
 
   # Let home Manager install and manage itself.
   # programs.home-manager.enable = true;

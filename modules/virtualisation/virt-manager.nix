@@ -1,6 +1,8 @@
-{  pkgs, username, ... }:
-
 {
+  pkgs,
+  vars,
+  ...
+}: {
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -11,19 +13,19 @@
       runAsRoot = true;
     };
   };
-   users.groups = {
-    libvirtd.members = [ "root" "${username}" ];
-    kvm.members = [ "root" "${username}" ];
+  users.groups = {
+    libvirtd.members = ["root" "${vars.username}"];
+    kvm.members = ["root" "${vars.username}"];
   };
- 
+
   environment = {
     systemPackages = with pkgs; [
       libvirt
       bridge-utils
       dnsmasq
-      virt-manager    # VM Interface
-      virt-viewer     # Remote VM
-      qemu            # Virtualizer
+      virt-manager # VM Interface
+      virt-viewer # Remote VM
+      qemu # Virtualizer
       qemu_kvm
       OVMF # UEFI Firmware
       gvfs # Shared Directory
@@ -35,8 +37,8 @@
   home-manager.users.${username} = {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
-         autoconnect = ["qemu:///system"];
-         uris = ["qemu:///system"];
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
       };
     };
   };
