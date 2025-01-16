@@ -17,7 +17,7 @@ lib.mkIf (vars.de == "xfce") {
       desktopManager = {
         xterm.enable = false;
         xfce.enable = true;
-        xfce.noDesktop = true;
+        xfce.noDesktop = lib.mkIf (vars.de == "i3") false;
         xfce.enableXfwm = false;
       };
       displayManager.lightdm.enable = lib.mkDefault true;
@@ -26,7 +26,7 @@ lib.mkIf (vars.de == "xfce") {
     displayManager = {
       #XFCE4 Desktop Environment + i3 window manager
       #services.xserver.windowManager.i3.enable = true;
-      defaultSession = "xfce";
+      defaultSession = lib.mkIf (vars.de == "i3") "xfce+i3" "xfce";
 
       # Enable automatic login for the user.
       autoLogin = {
