@@ -78,7 +78,7 @@
       editor = "nvim";
       stateVersion = "25.05";
     in {
-      test = nixpkgs.lib.nixosSystem {
+      work = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs username hostname shell stateVersion;};
         modules = [
