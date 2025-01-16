@@ -76,6 +76,8 @@
         terminal = "wezterm";
         de = "xfce";
         wm = "i3";
+        # de = "gnome";
+        # wm = "";
         shell = "zsh";
         editor = "nvim";
         stateVersion = "25.05";
@@ -119,7 +121,6 @@
         hostname = "nixos-zapay";
         browser = "brave";
         terminal = "wezterm";
-        de = "xfce";
         shell = "zsh";
         editor = "nvim";
         stateVersion = "25.05";
