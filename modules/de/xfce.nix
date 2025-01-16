@@ -18,8 +18,8 @@
   services.xserver.desktopManager.xfce.enableXfwm = false;
 
   #XFCE4 Desktop Environment + i3 window manager
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.displayManager.defaultSession = "xfce+i3";
+  #services.xserver.windowManager.i3.enable = true;
+  services.xserver.displayManager.defaultSession = "xfce";
   services.xserver.displayManager.lightdm.enable = lib.mkDefault true;
 
   # Enable automatic login for the user.
@@ -28,7 +28,7 @@
 
   environment.systemPackages = with pkgs; [
     xarchiver
-    alsa-utils
+    # alsa-utils
     xfce.ristretto
     xfce.xfce4-screenshooter
   ];
@@ -46,6 +46,7 @@
   programs.file-roller.enable = true;
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
-  nixpkgs.config.pulseaudio = true;
-  services.gnome.gnome-keyring.enable = lib.mkForce false;
+  # nixpkgs.config.pulseaudio = true;
+  #services.gnome.gnome-keyring.enable = lib.mkForce false;
+  #security.pam.services.gdm.enableGnomeKeyring = true;
 }

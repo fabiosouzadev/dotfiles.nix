@@ -87,9 +87,9 @@
           ./modules/shared/nixpkgs.nix
           ./modules/secrets/sops.nix
           ./modules/secrets/zapay.nix
-          ./modules/shared/xfce.nix
+          ./modules/de/xfce.nix
           ./modules/shared/xorg.nix
-           ./modules/shared/neovim.nix
+          ./modules/shared/neovim.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

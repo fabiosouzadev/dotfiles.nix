@@ -15,7 +15,7 @@
     ../../modules/terminal/shells
     ../../modules/terminal/cli
     ../../modules/terminal/tui
-    ../../modules/de/i3
+    ../../modules/wm/i3
     ../../modules/cloud
     ../../modules/shared/common.nix
   ];
