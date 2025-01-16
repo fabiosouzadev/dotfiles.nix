@@ -9,10 +9,15 @@
   home.homeDirectory = pkgs.lib.mkDefault "/home/${username}";
 
   imports = [
-    # ../../home/tui
-    # ../../home/cloud
-    # ../../home/secrets
-    # ../../home/editors
+    ../../modules/browsers
+    ../../modules/editors
+    ../../modules/terminal/emulators
+    ../../modules/terminal/shells
+    ../../modules/terminal/cli
+    ../../modules/terminal/tui
+    ../../modules/de/i3
+    ../../modules/cloud
+    ../../modules/secrets
   ];
 
   # This value determines the home Manager release that your
