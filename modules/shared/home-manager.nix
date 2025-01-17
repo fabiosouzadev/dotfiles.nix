@@ -21,7 +21,7 @@
       ../../modules/shared/common.nix
       ../../modules/shared/xdg.nix
     ]
-    ++ (lib.optionals (vars.de == "xfce") ../../modules/wm/i3);
+    ++ (lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") ../../modules/wm/i3);
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

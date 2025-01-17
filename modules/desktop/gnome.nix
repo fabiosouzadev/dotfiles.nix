@@ -30,7 +30,7 @@
         # enable = lib.mkIf (vars.de == "gnome") true;
         enable = true;
         # Enable the Xfce4 Desktop Environment.
-        desktopManager.gnome.enable = lib.mkIf (vars.de == "gnome") true;
+        desktopManager.gnome.enable = true;
         displayManager.gdm.enable = true;
       };
 

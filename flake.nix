@@ -74,9 +74,9 @@
         hostname = "nixos-zapay";
         browser = "brave";
         terminal = "wezterm";
-        # de = "xfce";
-        # wm = "i3";
-        de = "gnome";
+        # desktop = "xfce";
+        # wm = "i3";op
+        desktop = "gnome";
         wm = "";
         shell = "zsh";
         editor = "nvim";
@@ -87,13 +87,13 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs vars;};
         modules = [
-          {config.${vars.de}.enable = true;}
+          {config.${vars.desktop}.enable = true;}
           ./hosts/dell-inspirion-3520
           ./modules/shared/fonts.nix
           ./modules/shared/nixpkgs.nix
           ./modules/secrets/sops.nix
           ./modules/secrets/zapay.nix
-          ./modules/de
+          ./modules/desktop
           ./modules/shared/xorg.nix
           ./modules/shared/neovim.nix
           home-manager.nixosModules.home-manager
