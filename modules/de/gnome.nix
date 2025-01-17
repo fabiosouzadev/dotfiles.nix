@@ -15,10 +15,11 @@
 }: {
   options = {
     gnome = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-      };
+      # enable = lib.mkOption {
+      #   type = lib.types.bool;
+      #   default = false;
+      # };
+      enable = lib.mkEnableOption "Gnome enable";
     };
   };
 

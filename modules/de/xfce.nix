@@ -7,10 +7,11 @@
 }: {
   options = {
     xfce = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-      };
+      # enable = lib.mkOption {
+      #   type = lib.types.bool;
+      #   default = false;
+      # };
+      enable = lib.mkEnableOption "enable xfce";
     };
   };
   config = lib.mkIf (config.xfce.enable) {

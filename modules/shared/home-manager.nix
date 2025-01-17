@@ -1,4 +1,6 @@
 {
+  config,
+  lib,
   pkgs,
   vars,
   ...
@@ -7,18 +9,19 @@
   home.username = vars.username;
   home.homeDirectory = pkgs.lib.mkDefault "/home/${vars.username}";
 
-  imports = [
-    ../../modules/browsers
-    ../../modules/editors
-    ../../modules/terminal/emulators
-    ../../modules/terminal/shells
-    ../../modules/terminal/cli
-    ../../modules/terminal/tui
-    # ../../modules/wm/i3
-    ../../modules/cloud
-    ../../modules/shared/common.nix
-    ../../modules/shared/xdg.nix
-  ];
+  imports =
+    [
+      ../../modules/browsers
+      ../../modules/editors
+      ../../modules/terminal/emulators
+      ../../modules/terminal/shells
+      ../../modules/terminal/cli
+      ../../modules/terminal/tui
+      ../../modules/cloud
+      ../../modules/shared/common.nix
+      ../../modules/shared/xdg.nix
+    ]
+    ++ (lib.optionals (vars.de == "xfce") ../../modules/wm/i3);
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
