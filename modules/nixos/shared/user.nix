@@ -16,8 +16,9 @@
     ];
     shell = pkgs.${vars.shell};
   };
-  programs.zsh.enable = true;
+  programs.${vars.shell}.enable = true;
   environment = {
+    pathsToLink = ["/share/zsh"];
     shells = [pkgs.${vars.shell}];
     variables = {
       TERMINAL = "${vars.terminal}";

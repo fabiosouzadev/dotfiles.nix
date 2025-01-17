@@ -89,13 +89,13 @@
         modules = [
           {config.${vars.desktop}.enable = true;}
           ./hosts/dell-inspirion-3520
-          ./modules/shared/fonts.nix
-          ./modules/shared/nixpkgs.nix
-          ./modules/secrets/sops.nix
-          ./modules/secrets/zapay.nix
-          ./modules/desktop
-          ./modules/shared/xorg.nix
-          ./modules/shared/neovim.nix
+          ./modules/nixos/shared/fonts.nix
+          ./modules/nixos/shared/nixpkgs.nix
+          ./modules/nixos/shared/xorg.nix
+          #./modules/nixos/shared/neovim.nix
+          ./modules/nixos/secrets/sops.nix
+          ./modules/nixos/secrets/zapay.nix
+          ./modules/nixos/desktop
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -103,7 +103,7 @@
             home-manager.extraSpecialArgs = {inherit inputs vars;};
             home-manager.users."${vars.username}" = {
               imports = [
-                ./modules/shared/home-manager.nix
+                ./modules/home/shared/home-manager.nix
               ];
             };
             # NixOS system-wide home-manager configuration

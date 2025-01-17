@@ -11,11 +11,11 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/hardware/dell-inspirion-3520
-    ../../modules/shared/kernel.nix
-    ../../modules/shared/localization.nix
-    ../../modules/shared/keymap.nix
-    ../../modules/shared/user.nix
+    ../../modules/nixos/hardware/dell-inspirion-3520
+    ../../modules/nixos/shared/kernel.nix
+    ../../modules/nixos/shared/localization.nix
+    ../../modules/nixos/shared/keymap.nix
+    ../../modules/nixos/shared/user.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

@@ -1,8 +1,10 @@
 # ./overlays/default.nix
 {
   config,
-  pkgs,
   lib,
+  inputs,
+  pkgs,
+  system,
   ...
 }: {
   nixpkgs.overlays = [
@@ -39,5 +41,9 @@
     # The content of ./overlays/overlay3/default.nix is the same as above:
     # `(final: prev: { xxx = prev.xxx.override { ... }; })`
     # (import ./overlay3)
+
+    (final: prev: {
+      neovim = inputs.neovim-flake.packages.${system}.default;
+    })
   ];
 }

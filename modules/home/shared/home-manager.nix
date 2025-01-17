@@ -11,17 +11,17 @@
 
   imports =
     [
-      ../../modules/browsers
-      ../../modules/editors
-      ../../modules/terminal/emulators
-      ../../modules/terminal/shells
-      ../../modules/terminal/cli
-      ../../modules/terminal/tui
-      ../../modules/cloud
-      ../../modules/shared/common.nix
-      ../../modules/shared/xdg.nix
+      ./common.nix
+      ./xdg.nix
+      ../browsers
+      ../editors
+      ../terminal/emulators
+      ../terminal/shells
+      ../terminal/cli
+      ../terminal/tui
+      ../cloud
     ]
-    ++ (lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../../modules/wm/i3]);
+    ++ (lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../wm/i3]);
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
