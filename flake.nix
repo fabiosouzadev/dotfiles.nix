@@ -74,10 +74,10 @@
         hostname = "nixos-zapay";
         browser = "brave";
         terminal = "wezterm";
-        # desktop = "xfce";
-        # wm = "i3";op
-        desktop = "gnome";
-        wm = "";
+        desktop = "xfce";
+        wm = "i3";
+        # desktop = "gnome";
+        # wm = "";
         shell = "zsh";
         editor = "nvim";
         stateVersion = "25.05";
