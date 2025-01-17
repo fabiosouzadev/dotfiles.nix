@@ -45,6 +45,9 @@
       # (import ./overlay3)
 
       inputs.neovim-flake.overlays.default
+      # (final: prev: {
+      #   neovim = inputs.neovim-flake.overlays.default;
+      # })
     ];
   };
 }

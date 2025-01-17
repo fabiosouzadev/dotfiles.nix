@@ -29,7 +29,10 @@
       flake = false;
     };
     ## My inputs ##
-    neovim-flake.url = "github:fabiosouzadev/neovim-flake.nix";
+    neovim-flake = {
+      url = "github:fabiosouzadev/neovim-flake.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #customizations
     rofi-themes = {
@@ -90,7 +93,7 @@
         modules = [
           {config.${vars.desktop}.enable = true;}
           ./hosts/dell-inspirion-3520
-          ./modules/nixos/shared/neovim.nix
+          ./modules/nixos/shared/system-packages.nix
           ./modules/nixos/shared/fonts.nix
           ./modules/nixos/shared/nixpkgs.nix
           ./modules/nixos/shared/xorg.nix
