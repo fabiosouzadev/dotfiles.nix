@@ -54,6 +54,7 @@
     # IDE`s
     code-cursor
     # zed-editor
+    #neovim
 
     # disk
     gparted

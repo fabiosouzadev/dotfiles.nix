@@ -42,8 +42,6 @@
     # `(final: prev: { xxx = prev.xxx.override { ... }; })`
     # (import ./overlay3)
 
-    (final: prev: {
-      neovim = inputs.neovim-flake.packages.${system}.default;
-    })
+    inputs.neovim-flake.overlays.default
   ];
 }

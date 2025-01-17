@@ -69,6 +69,7 @@
   }: {
     darwinConfigurations = {};
     nixosConfigurations = let
+      system = "x86_64-linux";
       vars = {
         username = "fabiosouzadev";
         hostname = "nixos-zapay";
@@ -84,15 +85,16 @@
       };
     in {
       work = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs vars;};
+        inherit system;
+        specialArgs = {inherit inputs system vars;};
         modules = [
+            (import ./overlays)
           {config.${vars.desktop}.enable = true;}
           ./hosts/dell-inspirion-3520
+          ./modules/nixos/shared/neovim.nix
           ./modules/nixos/shared/fonts.nix
           ./modules/nixos/shared/nixpkgs.nix
           ./modules/nixos/shared/xorg.nix
-          #./modules/nixos/shared/neovim.nix
           ./modules/nixos/secrets/sops.nix
           ./modules/nixos/secrets/zapay.nix
           ./modules/nixos/desktop
@@ -100,7 +102,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs vars;};
+            home-manager.extraSpecialArgs = {inherit inputs system vars;};
             home-manager.users."${vars.username}" = {
               imports = [
                 ./modules/home/shared/home-manager.nix
@@ -112,7 +114,6 @@
             ];
             home-manager.backupFileExtension = "backup";
           }
-          (import ./overlays)
         ];
       };
     };
