@@ -74,10 +74,10 @@
         hostname = "nixos-zapay";
         browser = "brave";
         terminal = "wezterm";
-        de = "xfce";
-        wm = "i3";
-        # de = "gnome";
-        # wm = "";
+        # de = "xfce";
+        # wm = "i3";
+        de = "gnome";
+        wm = "";
         shell = "zsh";
         editor = "nvim";
         stateVersion = "25.05";
@@ -87,6 +87,7 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs vars;};
         modules = [
+          {config.gnome.enable = true;}
           ./hosts/dell-inspirion-3520
           ./modules/shared/fonts.nix
           ./modules/shared/nixpkgs.nix
