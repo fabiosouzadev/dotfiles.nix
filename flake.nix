@@ -87,7 +87,7 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs vars;};
         modules = [
-          {config.gnome.enable = true;}
+          {config.${vars.de}.enable = true;}
           ./hosts/dell-inspirion-3520
           ./modules/shared/fonts.nix
           ./modules/shared/nixpkgs.nix
