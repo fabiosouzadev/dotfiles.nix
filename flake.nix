@@ -88,7 +88,6 @@
         inherit system;
         specialArgs = {inherit inputs system vars;};
         modules = [
-            (import ./overlays)
           {config.${vars.desktop}.enable = true;}
           ./hosts/dell-inspirion-3520
           ./modules/nixos/shared/neovim.nix
@@ -114,6 +113,7 @@
             ];
             home-manager.backupFileExtension = "backup";
           }
+          (import ./overlays)
         ];
       };
     };
