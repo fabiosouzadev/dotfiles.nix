@@ -56,9 +56,8 @@
     maim
 
     # IDE`s
-    code-cursor
+    # code-cursor
     # zed-editor
-    #neovim
 
     # disk
     gparted
