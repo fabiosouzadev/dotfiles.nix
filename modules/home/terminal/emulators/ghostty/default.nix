@@ -9,6 +9,8 @@
       title = " ";
       window-decoration = "false";
       gtk-adwaita = "false";
+      gtk-titlebar = "false";
+      mouse-hide-while-typing = "true";
     };
   };
 }
