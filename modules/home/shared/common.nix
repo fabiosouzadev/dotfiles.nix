@@ -37,6 +37,8 @@
     # api-tool
     postman
     insomnia
+    ngrok
+    pgrok #ngrok alternative
 
     #downloaders
     yt-dlp
@@ -62,5 +64,17 @@
     # disk
     gparted
     spotify
+
+    # uncompress
+    zip
+    unzip
+    p7zip
+
+    htop
+    devbox
+    distrobox
+
+    #monitoring
+    wakatime
   ];
 }

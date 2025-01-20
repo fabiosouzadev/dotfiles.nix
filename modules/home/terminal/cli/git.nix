@@ -5,7 +5,6 @@
   ...
 }: let
   defaultGit = {
-    extraConfig.github.user = username;
     userEmail = "fabiovanderlei.developer@gmail.com";
     userName = "Fabio Souza";
   };
