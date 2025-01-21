@@ -11,8 +11,8 @@
 | **Launcher**      | Rofi                | /         |
 | **GTK Theme**     | /                   | /         |
 | **Notifications** | Dunst               | /         |
-| **Terminal**      | Alacritty           | Alacritty |
-| **Used by host**  | VM & Probook        | Macbook   |
+| **Terminal**      | Ghostty             | Ghostty   |
+| **Used by host**  | Work (Zapay) + VM   | Macbook   |
 
 
 Components relevant to all hosts:
@@ -28,7 +28,7 @@ Components relevant to all hosts:
 ```sh
 #sudo nixos-rebuild switch --flake <path>#<host>
 
-sudo nixos-rebuild switch --flake .#notezapay
+sudo nixos-rebuild switch --flake .#work
 # or
 sudo nixos-rebuild switch --flake .#vm
 ```
