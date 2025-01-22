@@ -34,7 +34,7 @@
     ];
   };
 
-  home-manager.users.${username} = {
+  home-manager.users.${vars.username} = {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];

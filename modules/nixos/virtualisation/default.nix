@@ -1,8 +1,4 @@
 {
-  pkgs,
-  username,
-  ...
-}: {
   imports = [
     ./containerd.nix
     ./podman.nix
