@@ -11,7 +11,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/nixos/hardware/dell-inspirion-3520
-      ../../modules/nixos/shared/kernel.nix
+      ../../modules/nixos/shared/kernel-rtl8821ce.nix
       ../../modules/nixos/shared/localization.nix
       ../../modules/nixos/shared/keymap.nix
       ../../modules/nixos/shared/user.nix
