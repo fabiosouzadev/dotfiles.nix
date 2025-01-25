@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  system,
+  ...
+}: {
   # Packages that should be installed to the user profile.
   imports = [
     ./librewolf.nix
@@ -9,10 +14,11 @@
     firefox
     chromium
     qutebrowser
-    mullvad-browser
-    vivaldi
+    # mullvad-browser
+    # vivaldi
     opera
     # midori
-    microsoft-edge
+    # microsoft-edge
+    inputs.zen-browser.packages."${system}".specific
   ];
 }

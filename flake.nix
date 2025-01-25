@@ -16,8 +16,12 @@
     # NUR Community Packages
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
       # Requires "nur.nixosModules.nur" to be added to the host modules
     };
+
+    #zen-browser
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
 
     ## My secrets ##
     sops-nix = {
