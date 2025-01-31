@@ -23,12 +23,12 @@ build host:
   nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 build-and-update host:
-  just get-config {{host}}
+  # just get-config {{host}}
   just up
   nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 rebuild-boot host:
-  just get-config {{host}}
+  # just get-config {{host}}
   nixos-rebuild --install-bootloader boot --flake .#{{ host }} --use-remote-sudo --show-trace --print-build-logs --verbose
 
 up:

@@ -292,21 +292,38 @@
         "awesome-neovim-plugins": "awesome-neovim-plugins",
         "flake-utils": "flake-utils_2",
         "gen-luarc": "gen-luarc",
+        "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1738351861,
-        "narHash": "sha256-EIMagZB/xAE3lC8DSwtPhF0Y7qonHcv0u0OUdKiiqW0=",
+        "lastModified": 1738355343,
+        "narHash": "sha256-NQ4HvPG+471iboCdefepU4DnRXY+ZGodZU2SreaUpXM=",
         "owner": "fabiosouzadev",
         "repo": "neovim-flake.nix",
-        "rev": "2beb4d2286e3dd1c3832949f3d2b093313f91f95",
+        "rev": "95b19c6162e6212cf735ffd4d361dfa43f26cd54",
         "type": "github"
       },
       "original": {
         "owner": "fabiosouzadev",
         "repo": "neovim-flake.nix",
+        "type": "github"
+      }
+    },
+    "nightfox-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735500747,
+        "narHash": "sha256-bVRI77ikBRECJ9Y6UVgZVO+SH46LBU3MtZUDgAYqXBc=",
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "rev": "595ffb8f291fc4a9bef3201a28b7c0379a41cdee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
         "type": "github"
       }
     },
