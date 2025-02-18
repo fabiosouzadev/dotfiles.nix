@@ -7,9 +7,12 @@
   home.packages = with pkgs; [
     #chat
     slack
-    discord
-    telegram-desktop
-    whatsapp-for-linux
+    ferdium
+    # discord
+    # telegram-desktop
+    # whatsapp-for-linux
+    rambox
+    # beeper
 
     #produtivide
     todoist # command line todo list https://github.com/sachaos/todoist
@@ -43,7 +46,7 @@
     #downloaders
     yt-dlp
     twitch-dl
-    qbittorrent
+    # qbittorrent
 
     # tools
     unetbootin
