@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # MacOS Package Management
-    darwin = {
+    nix-darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -63,7 +63,7 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
-    darwin,
+    nix-darwin,
     nur,
     sops-nix,
     mysecrets,
@@ -74,7 +74,43 @@
     catppuccin-delta,
     ...
   }: {
-    darwinConfigurations = {};
+    darwinConfigurations = let
+      system = "aarch64-darwin";
+      vars = {
+        username = "fabiosouzadev";
+        hostname = "nix-macos";
+        browser = "brave";
+        terminal = "ghostty";
+        wm = "aerospace";
+        shell = "zsh";
+        editor = "nvim";
+        stateVersion = "25.05";
+      };
+    in {
+      macos = nix-darwin.lib.darwinSystem {
+        inherit system;
+        specialArgs = {inherit inputs system vars;};
+        modules = [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit inputs system vars;};
+            home-manager.users."${vars.username}" = {
+              imports = [
+                ./modules/home/shared/home-manager.nix
+              ];
+            };
+            # NixOS system-wide home-manager configuration
+            home-manager.sharedModules = [
+              inputs.sops-nix.homeManagerModules.sops
+            ];
+            home-manager.backupFileExtension = "backup";
+          }
+          (import ./overlays)
+        ];
+      };
+    };
     nixosConfigurations = let
       system = "x86_64-linux";
       vars = {
