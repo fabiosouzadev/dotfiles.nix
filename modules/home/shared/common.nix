@@ -6,12 +6,12 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     #chat
-    slack
-    ferdium
+    # slack
+    # ferdium
     # discord
     # telegram-desktop
     # whatsapp-for-linux
-    rambox
+    # rambox
     # beeper
 
     #produtivide
