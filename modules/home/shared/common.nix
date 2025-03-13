@@ -7,7 +7,7 @@
   home.packages = with pkgs; [
     #chat
     # slack
-    # ferdium
+    ferdium
     # discord
     # telegram-desktop
     # whatsapp-for-linux

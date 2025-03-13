@@ -153,13 +153,14 @@
               # TODO please change the username & home directory to your own
               home.username = vars.username;
               home.homeDirectory = nixpkgs.lib.mkDefault "/home/${vars.username}";
-              imports = [
-                ./modules/home/shared/home-manager.nix
-                ./modules/home/shared/common.nix
-                ./modules/home/browsers
-                ./modules/home/shared/xdg.nix
-              ]
-              ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../wm/i3]);
+              imports =
+                [
+                  ./modules/home/shared/home-manager.nix
+                  ./modules/home/shared/common.nix
+                  ./modules/home/browsers
+                  ./modules/home/shared/xdg.nix
+                ]
+                ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [./modules/home/wm/i3]);
             };
             # NixOS system-wide home-manager configuration
             home-manager.sharedModules = [
