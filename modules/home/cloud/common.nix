@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    k3s
+    # k3s
     kind
     minikube
     k9s

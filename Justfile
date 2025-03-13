@@ -19,15 +19,14 @@ test host:
   nixos-rebuild test --flake .#{{ host }}  --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 test-mac host:
-  darwin-rebuild test --flake .#{{ host }}  --impure --use-remote-sudo --show-trace --print-build-logs --verbose
-
+  nix run nix-darwin -- test --flake .#{{ host }} --impure --show-trace --print-build-logs --verbose
 
 build host:
   #just get-config {{host}}
   nixos-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
 
 build-macos host:
-  darwin-rebuild switch --flake .#{{ host }} --impure --use-remote-sudo --show-trace --print-build-logs --verbose
+  nix run nix-darwin -- switch --flake .#{{ host }} --impure --show-trace --print-build-logs --verbose
 
 build-and-update host:
   # just get-config {{host}}

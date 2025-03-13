@@ -19,7 +19,7 @@
   programs.${vars.shell}.enable = true;
   environment = {
     pathsToLink = ["/share/zsh"];
-    shells = [pkgs.${vars.shell}];
+    shells = with pkgs; [${vars.shell}];
     variables = {
       TERMINAL = "${vars.terminal}";
       EDITOR = "${vars.editor}";

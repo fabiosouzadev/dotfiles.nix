@@ -10,7 +10,7 @@
     };
     # MacOS Package Management
     nix-darwin = {
-      url = "github:lnl7/nix-darwin/master";
+      url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # NUR Community Packages
@@ -75,15 +75,17 @@
     ...
   }: {
     darwinConfigurations = let
-      system = "aarch64-darwin";
+      system = "x86_64-darwin";
       vars = {
         username = "fabiosouzadev";
         hostname = "nix-macos";
         browser = "brave";
         terminal = "ghostty";
+        desktop = "";
         wm = "aerospace";
         shell = "zsh";
         editor = "nvim";
+        systemStateVersion = 4;
         stateVersion = "25.05";
       };
     in {
@@ -91,6 +93,7 @@
         inherit system;
         specialArgs = {inherit inputs system vars;};
         modules = [
+          ./modules/darwin
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -99,6 +102,7 @@
             home-manager.users."${vars.username}" = {
               imports = [
                 ./modules/home/shared/home-manager.nix
+                ./modules/home/wm/aerospace
               ];
             };
             # NixOS system-wide home-manager configuration
@@ -146,9 +150,16 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs system vars;};
             home-manager.users."${vars.username}" = {
+              # TODO please change the username & home directory to your own
+              home.username = vars.username;
+              home.homeDirectory = nixpkgs.lib.mkDefault "/home/${vars.username}";
               imports = [
                 ./modules/home/shared/home-manager.nix
-              ];
+                ./modules/home/shared/common.nix
+                ./modules/home/browsers
+                ./modules/home/shared/xdg.nix
+              ]
+              ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../wm/i3]);
             };
             # NixOS system-wide home-manager configuration
             home-manager.sharedModules = [
