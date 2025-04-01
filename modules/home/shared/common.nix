@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     #chat
@@ -19,6 +15,9 @@
     todoist-electron
     libreoffice
     hunspellDicts.pt-br #Hunspell dictionary for Portuguese (Brazil) from LibreOffice
+
+    #backup
+    ## Crie o vault [KoofrSync] > Remote Save> https://app.koofr.net/dav/Koofr > user email > pass
     obsidian
 
     #pdf-reader
