@@ -4,15 +4,15 @@
     #chat
     # slack
     ferdium
-    # discord
+    discord
     # telegram-desktop
     # whatsapp-for-linux
     # rambox
     # beeper
 
     #produtivide
-    todoist # command line todo list https://github.com/sachaos/todoist
-    todoist-electron
+    #todoist # command line todo list https://github.com/sachaos/todoist
+    #todoist-electron
     libreoffice
     hunspellDicts.pt-br #Hunspell dictionary for Portuguese (Brazil) from LibreOffice
 
@@ -48,7 +48,7 @@
     # qbittorrent
 
     # tools
-    unetbootin
+    #unetbootin
     speedtest-cli
 
     #ftp client
@@ -60,7 +60,7 @@
     maim
 
     # IDE`s
-    # code-cursor
+    code-cursor
     # zed-editor
 
     # disk
