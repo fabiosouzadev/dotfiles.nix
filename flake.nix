@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # MacOS Package Management
-    nix-darwin = {
+    darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -63,7 +63,7 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
-    nix-darwin,
+    darwin,
     nur,
     sops-nix,
     mysecrets,
@@ -74,104 +74,18 @@
     catppuccin-delta,
     ...
   }: {
-    darwinConfigurations = let
-      system = "x86_64-darwin";
-      vars = {
-        username = "fabiosouzadev";
-        hostname = "nix-macos";
-        browser = "brave";
-        terminal = "ghostty";
-        desktop = "";
-        wm = "aerospace";
-        shell = "zsh";
-        editor = "nvim";
-        systemStateVersion = 4;
-        stateVersion = "25.05";
-      };
-    in {
-      macos = nix-darwin.lib.darwinSystem {
-        inherit system;
-        specialArgs = {inherit inputs system vars;};
-        modules = [
-          ./modules/darwin
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs system vars;};
-            home-manager.users."${vars.username}" = {
-              imports = [
-                ./modules/home/shared/home-manager.nix
-                ./modules/home/wm/aerospace
-              ];
-            };
-            # NixOS system-wide home-manager configuration
-            home-manager.sharedModules = [
-              inputs.sops-nix.homeManagerModules.sops
-            ];
-            home-manager.backupFileExtension = "backup";
-          }
-          (import ./overlays)
-        ];
-      };
-    };
-    nixosConfigurations = let
-      system = "x86_64-linux";
-      vars = {
-        username = "fabiosouzadev";
-        hostname = "nixos-zapay";
-        browser = "brave";
-        terminal = "wezterm";
-        desktop = "xfce";
-        wm = "i3";
-        # desktop = "gnome";
-        # wm = "";
-        shell = "zsh";
-        editor = "nvim";
-        stateVersion = "25.05";
-      };
-    in {
-      work = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs system vars;};
-        modules = [
-          {config.${vars.desktop}.enable = true;}
-          ./hosts/dell-inspirion-3520
-          ./modules/nixos/shared/system-packages.nix
-          ./modules/nixos/shared/fonts.nix
-          ./modules/nixos/shared/nixpkgs.nix
-          ./modules/nixos/shared/xorg.nix
-          ./modules/nixos/secrets/sops.nix
-          ./modules/nixos/secrets/zapay.nix
-          ./modules/nixos/desktop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs system vars;};
-            home-manager.users."${vars.username}" = {
-              # TODO please change the username & home directory to your own
-              home.username = vars.username;
-              home.homeDirectory = nixpkgs.lib.mkDefault "/home/${vars.username}";
-              imports =
-                [
-                  ./modules/home/shared/home-manager.nix
-                  ./modules/home/shared/common.nix
-                  ./modules/home/browsers
-                  ./modules/home/shared/xdg.nix
-                ]
-                ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [./modules/home/wm/i3]);
-            };
-            # NixOS system-wide home-manager configuration
-            home-manager.sharedModules = [
-              inputs.sops-nix.homeManagerModules.sops
-            ];
-            home-manager.backupFileExtension = "backup";
-          }
-          (import ./overlays)
-        ];
-      };
-    };
+    darwinConfigurations = (
+      import ./darwin {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager darwin;
+      }
+    );
+    nixosConfigurations = (
+      import ./nixos {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager darwin;
+      }
+    );
     homeConfigurations = let
       vars = {
         username = "fabiosouzadev";

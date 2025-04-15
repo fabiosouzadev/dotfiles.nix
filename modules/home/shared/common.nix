@@ -17,7 +17,7 @@
     hunspellDicts.pt-br #Hunspell dictionary for Portuguese (Brazil) from LibreOffice
 
     #backup
-    ## Crie o vault [KoofrSync] > Remote Save> https://app.koofr.net/dav/Koofr > user email > pass
+    ## Crie o vault com o nome [Default, Privado, Missão ] > Remote Save > https://app.koofr.net/dav/Koofr/KoofrSync > user email > pass
     obsidian
 
     #pdf-reader
