@@ -45,7 +45,7 @@
     #downloaders
     yt-dlp
     twitch-dl
-    # qbittorrent
+    qbittorrent
 
     # tools
     #unetbootin
