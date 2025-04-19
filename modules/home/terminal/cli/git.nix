@@ -46,7 +46,6 @@ in {
       merge.conflictstyle = "zdiff3";
       push.autoSetupRemote = true;
       rebase.autoStash = true;
-      credential.helper = "cache --timeout=3600";
     };
   };
 
