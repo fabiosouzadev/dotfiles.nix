@@ -11,15 +11,15 @@
           core = {
             sshCommand = "ssh -i $HOME/.ssh/instivo_ed25519";
           };
-          commit = {
-            gpgSign = true;
-          };
+          # commit = {
+          #   gpgSign = true;
+          # };
         };
         contentSuffix = "gitconfig.instivo.inc";
-        # condition = "gitdir:~/Projects/Work/Instivo/";
+        condition = "gitdir:~/Projects/Work/Instivo/";
         # Like: https://seansantry.com/development/2022/12/14/split-git-nix/
         # See: https://git-scm.com/docs/git-config#_configuration_file
-        condition = "hasconfig:remote.*.url:git@github.com:Instivo/*";
+        #   condition = "hasconfig:remote.*.url:git@github.com:Instivo/*";
       }
     ];
   };
