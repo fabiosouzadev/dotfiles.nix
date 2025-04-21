@@ -43,6 +43,7 @@ in {
           home.homeDirectory = nixpkgs.lib.mkDefault "/home/${vars.username}";
           imports =
             [
+              ../modules/home/instivo
               ../modules/home/shared/home-manager.nix
               ../modules/home/shared/common.nix
               ../modules/home/browsers

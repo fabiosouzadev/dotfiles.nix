@@ -38,7 +38,7 @@ in {
     };
     extraConfig = {
       color.ui = true;
-      commit.gpgsign = true;
+      # commit.gpgsign = true;
       core.editor = "nvim";
       diff.colorMoved = "zebra";
       fetch.prune = true;
