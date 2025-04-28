@@ -32,6 +32,7 @@ in {
       ../modules/nixos/secrets/sops.nix
       ../modules/nixos/secrets/zapay.nix
       ../modules/nixos/desktop
+      ../modules/nixos/instivo
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
