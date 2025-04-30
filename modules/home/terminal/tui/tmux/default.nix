@@ -15,17 +15,43 @@
       {
         plugin = catppuccin;
         extraConfig = ''
+          set -wg automatic-rename on   # rename window to reflect current program
+          set -g renumber-windows on    # renumber windows when a window is closed
+          # Make the status line pretty and add some modules
+          set -g status-right-length 100
+          set -g status-left-length 100
+          set -g status-left ""
+          set -g status-right ""
+
+          #Catpuccin
           set -g @catppuccin_flavour 'mocha' # latte,frappe, macchiato or mocha
 
-          set -g @catppuccin_window_default_fill "number"
-          set -g @catppuccin_window_default_text "#W"
+          ## Pane
+          ## Window
+          set -g @catppuccin_window_status_style "basic" # basic, rounded, slanted, custom, or none
 
-          set -g @catppuccin_window_current_fill "number"
-          set -g @catppuccin_window_current_text "#W"
-          set -g @catppuccin_window_right_separator "█ "
+          set -g @catppuccin_window_text " #W"
+          set -g @catppuccin_window_number "#I"
+          set -g @catppuccin_window_current_text " #W"
+          set -g @catppuccin_window_current_number "#I"
 
-          set -g @catppuccin_status_modules_right "session user host"
-          set -g @catppuccin_directory_text "#{pane_current_path}"
+          ## Status line
+          set -ag status-right "#{E:@catppuccin_status_session}"
+          set -ag status-right "#{E:@catppuccin_status_user}"
+          set -ag status-right "#{E:@catppuccin_status_host}"
+
+            #set -g @catppuccin_status_right_separator "█ "
+
+            ###
+            #set -g @catppuccin_window_default_fill "number"
+            #set -g @catppuccin_window_default_text "#W"
+
+            #set -g @catppuccin_window_current_fill "number"
+            #set -g @catppuccin_window_current_text "#W"
+            #set -g @catppuccin_window_right_separator "█ "
+
+            #set -g @catppuccin_status_modules_right "session user host"
+            #set -g @catppuccin_directory_text "#{pane_current_path}"
         '';
       }
       {
