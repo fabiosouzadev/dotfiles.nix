@@ -11,7 +11,7 @@
       };
     };
     zsh = {
-      initExtra = ''
+      initContent = ''
         source <(devbox completion zsh); compdef _devbox devbox
       '';
       shellAliases = {

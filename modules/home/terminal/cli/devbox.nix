@@ -4,7 +4,7 @@
   ];
   programs = {
     zsh = {
-      initExtra = ''
+      initContent = ''
         source <(devbox completion zsh); compdef _devbox devbox
       '';
     };

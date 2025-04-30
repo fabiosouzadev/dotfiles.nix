@@ -53,7 +53,7 @@ in {
     shellAliases = {
       gitgrep = "git ls-files | rg";
     };
-    initExtra = ''
+    initContent = ''
       gpr() {
         GH_FORCE_TTY="100%" \
         gh pr list | \

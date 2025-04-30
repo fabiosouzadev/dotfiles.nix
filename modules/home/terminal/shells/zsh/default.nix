@@ -10,7 +10,7 @@
       size = 10000000;
       share = true;
     };
-    initExtra = ''
+    initContent = ''
       if [[ -o interactive ]]; then
           export OPENAI_API_KEY=$(cat /run/secrets/openai/api_key)
           export SRC_ENDPOINT=$(cat /run/secrets/sourcegraph/endpoint)
