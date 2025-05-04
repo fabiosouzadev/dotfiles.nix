@@ -18,7 +18,7 @@ in {
 
     age = {
       sshKeyPaths = ["${homepath}/.ssh/primary_ed25519"];
-      keyFile = "${homepath}/.config/sops/age/keys.txt";
+      keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
 
@@ -48,6 +48,9 @@ in {
         owner = config.users.users.${vars.username}.name;
       };
       "groq/api_key" = {
+        owner = config.users.users.${vars.username}.name;
+      };
+      "deepseek/api_key" = {
         owner = config.users.users.${vars.username}.name;
       };
     };
