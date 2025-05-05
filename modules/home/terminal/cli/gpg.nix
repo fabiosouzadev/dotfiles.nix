@@ -3,16 +3,21 @@
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
     defaultCacheTtl = 34560000; # cache keys forever don't get asked for password
     defaultCacheTtlSsh = 34560000; # cache keys forever don't get asked for password
     maxCacheTtl = 34560000;
     maxCacheTtlSsh = 34560000;
     # enableSshSupport = true;
     pinentry = {
-      package = pkgs.pinentry-tty;
+      package = pkgs.pinentry-gtk2;
       #pinentryPackage = pkgs.pinentry-curses;
       #pinentryPackage = pkgs.pinentry-gtk2;
     };
+    # pinentryPackage = pkgs.pinentry-tty;
+    #pinentryPackage = pkgs.pinentry-curses;
+    #pinentryPackage = pkgs.pinentry-gtk2;
     sshKeys = ["848863D8ACD853D7263609E1720DB3F5C051FFB8"];
     enableScDaemon = false;
   };
