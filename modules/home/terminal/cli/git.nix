@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  username,
   ...
 }: let
   defaultGit = {
@@ -23,7 +22,7 @@ in {
     userEmail = defaultGit.userEmail;
 
     signing = {
-      key = "64781516";
+      key = "9D79F9FD64781516";
       signByDefault = true;
     };
 
