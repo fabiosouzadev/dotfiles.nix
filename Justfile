@@ -43,7 +43,7 @@ up:
 # Update specific input
 # usage: make upp i=home-manager
 upp:
-  nix flake lock --update-input $(i)
+  nix flake update $(i)
 
 up-home:
   nix flake lock home-manager
