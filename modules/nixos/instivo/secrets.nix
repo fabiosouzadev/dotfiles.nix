@@ -42,7 +42,7 @@ in {
     templates."aws/config" = {
       content = ''
         [default]
-        region=us-west-2
+        region=us-east-2
         output=json
       '';
       path = "${homepath}/.aws/config";

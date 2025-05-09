@@ -29,7 +29,7 @@ in {
       ../modules/nixos/common/fonts.nix
       ../modules/nixos/common/nixpkgs.nix
       ../modules/nixos/common/xorg.nix
-      # ../modules/nixos/common/flatpak.nix
+      ../modules/nixos/common/flatpak.nix
       ../modules/nixos/secrets/sops.nix
       ../modules/nixos/secrets/zapay.nix
       ../modules/nixos/desktop
