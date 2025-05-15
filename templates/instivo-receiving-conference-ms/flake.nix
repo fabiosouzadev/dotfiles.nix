@@ -29,6 +29,12 @@
           export PRISMA_QUERY_ENGINE_LIBRARY="${prisma-engines}/lib/libquery_engine.node"
           export PRISMA_INTROSPECTION_ENGINE_BINARY="${prisma-engines}/bin/introspection-engine"
           export PRISMA_FMT_BINARY="${prisma-engines}/bin/prisma-fmt"
+
+          mkdir -p .nix-node
+          export NODE_PATH=$PWD/.nix-node
+          export PATH=$NODE_PATH/bin:$PATH
+          npm config set prefix $NODE_PATH
+
           npm install
           prisma generate
           # prisma migrate dev
