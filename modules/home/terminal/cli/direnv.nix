@@ -5,7 +5,6 @@
       enableZshIntegration = true;
       enableFishIntegration = true;
       enableBashIntegration = true;
-      enableNushellIntegration = true;
       nix-direnv = {
         enable = true;
       };

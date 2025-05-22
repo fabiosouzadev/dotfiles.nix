@@ -10,5 +10,6 @@
     ./gpg.nix
     ./ssh.nix
     ./devbox.nix
+    ./devenv.nix
   ];
 }
