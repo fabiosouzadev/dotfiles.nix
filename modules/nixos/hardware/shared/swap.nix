@@ -1,8 +1,8 @@
 {lib, ...}: {
   swapDevices = lib.mkForce [
     {
-      devices = "/var/lib/swapfile";
-      tamanho = 20 * 1024; #20 GB
+      device = "/var/lib/swapfile";
+      size = 20 * 1024; #20 GB
     }
   ];
 
