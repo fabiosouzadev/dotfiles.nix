@@ -1,16 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  vars,
+  ...
+}: {
   # To edit use your text editor application, for example Nano
   services.ollama = {
     # package = pkgs.unstable.ollama; # If you want to use the unstable channel package for example
     enable = true;
     # acceleration = "rocm"; # Or "rocm"
     # Optional: preload models, see https://ollama.com/library
-    # loadModels = ["llama3.2:3b" "deepseek-r1:1.8b"];
-    # loadModels = ["llama3.2:3b" "deepseek-r1:8b" "qwen3:14b" "gemma3:12b"];
-    loadModels = ["codellama:7b"];
+    loadModels = ["deepseek-coder:1.3b-instruct-q4_K_M" "codellama:7b-instruct-q2_K"];
   };
 
-  ## http://127.0.0.1:11434/api
+  ## http://127.0.0.1:11435
   services.open-webui = {
     enable = true;
     port = 11435;
@@ -21,20 +24,27 @@
       OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
       OLLAMA_BASE_URL = "http://127.0.0.1:11434";
       # # Disable authentication
-      # WEBUI_AUTH = "False";
+      WEBUI_AUTH = "False";
     };
   };
+
+  # environment.systemPackages = [
+  #   (pkgs.ollama.override {
+  #     acceleration = "cuda";
+  #   })
+  # ];
+
+  # Ai for cli https://github.com/block/goose
+  # Ai for cli https://github.com/ggozad/oterm
+  environment.systemPackages = with pkgs; [
+    # ollama
+    goose-cli
+    oterm
+  ];
 
   programs.zsh = {
     interactiveShellInit = ''
       export OLLAMA_HOST=http://127.0.0.1:11434
     '';
   };
-
-  # Ai for cli https://github.com/block/goose
-  # Ai for cli https://github.com/ggozad/oterm
-  environment.systemPackages = with pkgs; [
-    goose-cli
-    oterm
-  ];
 }
