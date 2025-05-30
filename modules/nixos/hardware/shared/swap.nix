@@ -11,13 +11,13 @@
   zramSwap = {
     enable = true;
     memoryPercent = 200; # Até 200% da RAM física (32GB virtual)
-    # algorithm = "zstd"; # Melhor taxa de compressão (ou "lz4" para menos CPU)
-    algorithm = "lz4"; # Melhor taxa de compressão (ou "lz4" para menos CPU)
+    algorithm = "zstd"; # Melhor taxa de compressão (ou "lz4" para menos CPU)
+    # algorithm = "lz4"; # Melhor taxa de compressão (ou "lz4" para menos CPU)
     priority = 10; # Máxima prioridade sobre swap em disco
   };
   # 2. Kernel Tuning para carga intensa de LLMs
   boot.kernel.sysctl = {
-    "vm.swappiness" = 200; # Troca processos para ZRAM mais agressivamente
+    "vm.swappiness" = 180; # Troca processos para ZRAM mais agressivamente
     "vm.vfs_cache_pressure" = 50; # Mantém mais cache de arquivos em RAM
     "vm.dirty_ratio" = 10; # Escreve dados sujos mais cedo
     "vm.dirty_background_ratio" = 5;
@@ -31,11 +31,11 @@
     };
     serviceConfig = {
       OOMScoreAdjust = -1000; # Prioridade máxima contra OOM Killer
-      MemoryHigh = "14G"; # Limite soft de memória
-      MemoryMax = "15G"; # Limite hard (reinicia o serviço se exceder)
-      # MemorySwapMax = "0"; # Não usar swap adicional
+      MemoryHigh = "12G"; # Limite soft de memória
+      MemoryMax = "14G"; # Limite hard (reinicia o serviço se exceder)
+      MemorySwapMax = "0"; # Não usar swap adicional
       Nice = -15; # Prioridade alta de CPU
-      CPUSchedulingPolicy = "rr"; # Round-Robin para uso justo de CPU
+      # CPUSchedulingPolicy = "rr"; # Round-Robin para uso justo de CPU
       IOSchedulingClass = "realtime"; # Máxima prioridade de I/O
     };
   };
