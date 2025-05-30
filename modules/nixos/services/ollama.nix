@@ -47,7 +47,9 @@
       export OLLAMA_HOST=http://127.0.0.1:11434
     '';
     shellAliases = {
-      ol = "ollama";
+      oll = "curl http://localhost:11434";
+      opu = "ollama pull";
+      ops = "ollama ps";
     };
   };
 }
