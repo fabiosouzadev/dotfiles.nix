@@ -51,7 +51,8 @@ in {
   programs.zsh = {
     shellAliases = {
       gitgrep = "git ls-files | rg";
-      gc = "git commit -m";
+      gdd = "git add";
+      gcm = "git commit -m";
       gcl = "git clone";
       gps = "git push";
       gpl = "git pull";
