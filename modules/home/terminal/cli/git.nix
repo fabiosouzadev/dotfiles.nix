@@ -57,6 +57,8 @@ in {
       gcl = "git clone";
       gps = "git push";
       gpl = "git pull";
+      gch = "git checkout";
+      gbr = "git branch";
     };
     initContent = ''
       gpr() {

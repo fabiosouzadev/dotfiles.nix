@@ -10,6 +10,9 @@
       size = 10000000;
       share = true;
     };
+    shellAliases = {
+      jb = "just build";
+    };
     initContent = ''
       if [[ -o interactive ]]; then
           export OPENAI_API_KEY=$(cat /run/secrets/openai/api_key)
