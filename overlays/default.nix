@@ -48,6 +48,13 @@
       # (final: prev: {
       #   neovim = inputs.neovim-flake.overlays.default;
       # })
+
+      (self: super: {
+        ollama = super.ollama.overrideAttrs (old: {
+          buildInputs = old.buildInputs ++ [pkgs.intel-compute-runtime];
+          cmakeFlags = ["-DLLAMA_VULKAN=ON" "-DLLAMA_OPENCL=ON"];
+        });
+      })
     ];
   };
 }

@@ -1,9 +1,9 @@
 {lib, ...}: {
   swapDevices = lib.mkForce [
     {
-      device = "/var/lib/swapfile";
-      ## 16gb
-      size = 16 * 1024;
+      device = "/.swapfile"; # Caminho recomendado
+      size = 16 * 1024; # 16GB (igual à RAM física)
+      priority = 0; # Último recurso
     }
   ];
 
@@ -17,26 +17,16 @@
   };
   # 2. Kernel Tuning para carga intensa de LLMs
   boot.kernel.sysctl = {
-    "vm.swappiness" = 180; # Troca processos para ZRAM mais agressivamente
+    # "vm.swappiness" = 180; # Troca processos para ZRAM mais agressivamente
+    "vm.swappiness" = 10; # Baixa prioridade para swap em disco
     "vm.vfs_cache_pressure" = 50; # Mantém mais cache de arquivos em RAM
     "vm.dirty_ratio" = 10; # Escreve dados sujos mais cedo
     "vm.dirty_background_ratio" = 5;
-  };
 
-  # 3. Otimizar prioridade do Ollama
-  systemd.services.ollama = {
-    environment = {
-      OLLAMA_NUM_PARALLEL = "4"; # Paralelismo para inferência
-      OLLAMA_MAX_LOADED_MODELS = "2"; # Limitar modelos carregados
-    };
-    serviceConfig = {
-      OOMScoreAdjust = -1000; # Prioridade máxima contra OOM Killer
-      MemoryHigh = "12G"; # Limite soft de memória
-      MemoryMax = "14G"; # Limite hard (reinicia o serviço se exceder)
-      MemorySwapMax = "0"; # Não usar swap adicional
-      Nice = -15; # Prioridade alta de CPU
-      # CPUSchedulingPolicy = "rr"; # Round-Robin para uso justo de CPU
-      IOSchedulingClass = "realtime"; # Máxima prioridade de I/O
-    };
+    #for llm
+    "vm.dirty_writeback_centisecs" = 6000;
+    "vm.dirty_expire_centisecs" = 20000;
+    "vm.stat_interval" = 10;
+    "kernel.sched_migration_cost_ns" = 500000;
   };
 }

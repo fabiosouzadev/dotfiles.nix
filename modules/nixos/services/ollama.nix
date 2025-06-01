@@ -1,19 +1,58 @@
 {
+  config,
   pkgs,
-  lib,
   vars,
   ...
 }: {
-  # To edit use your text editor application, for example Nano
+  # 1. Habilitar serviço Ollama
   services.ollama = {
-    # package = pkgs.unstable.ollama; # If you want to use the unstable channel package for example
     enable = true;
-    # acceleration = "rocm"; # Or "rocm"
-    # Optional: preload models, see https://ollama.com/library
-    loadModels = ["deepseek-coder:1.3b-instruct-q4_K_M" "codellama:7b-instruct-q2_K"];
+    # loadModels = ["deepseek-coder:1.3b-instruct-q4_K_M" "deepseek-coder:6.7b-instruct-q4_K_M "];
+
+    # Sobrescrever diretório padrão
+    environmentVariables = {
+      # Otimização para GPU Intel
+      OLLAMA_NUM_GPU_LAYERS = "8"; # Camadas GPU (testado como estável para Iris Xe)
+      OLLAMA_LLM_LIBRARY = "vulkan"; # Backend para GPU Intel
+
+      # Controle de memória
+      OLLAMA_MAX_LOADED_MODELS = "1"; # Mantém apenas 1 modelo carregado
+      OLLAMA_NUM_PARALLEL = "2"; # Processamento paralelo
+
+      # Otimização de performance
+      OLLAMA_NUM_CTX = "2048"; # Contexto reduzido para economia de RA
+    };
+  };
+  ## Configuração do systemd.services
+  systemd.services.ollama = {
+    serviceConfig = {
+      # Limites de memória
+      MemoryMax = "12G";
+      MemorySwapMax = "28G";
+      OOMScoreAdjust = -500; # Proteção contra OOM Killer
+
+      # Prioridade de CPU
+      Nice = -10;
+      CPUSchedulingPolicy = "rr";
+      CPUSchedulingPriority = 5;
+
+      # GPU Intel Iris Xe
+      DeviceAllow = "/dev/dri rw";
+      Environment = "VK_ICD_FILENAMES=/run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json";
+    };
   };
 
-  ## http://127.0.0.1:11435
+  ### 3. Scripts
+  # Link simbólico persistente
+  # system.activationScripts = {
+  # };
+
+  services.udev.extraRules = ''
+    # Prioriza processos usando GPU
+    ACTION=="add", SUBSYSTEM=="drm", KERNEL=="renderD*", TAG+="systemd"
+  '';
+
+  ## Open-webui http://127.0.0.1:11435
   services.open-webui = {
     enable = true;
     port = 11435;
@@ -28,28 +67,26 @@
     };
   };
 
-  # environment.systemPackages = [
-  #   (pkgs.ollama.override {
-  #     acceleration = "cuda";
-  #   })
-  # ];
-
   # Ai for cli https://github.com/block/goose
   # Ai for cli https://github.com/ggozad/oterm
   environment.systemPackages = with pkgs; [
     # ollama
     goose-cli
-    oterm
+    # oterm
   ];
 
   programs.zsh = {
     interactiveShellInit = ''
       export OLLAMA_HOST=http://127.0.0.1:11434
     '';
+
     shellAliases = {
-      oll = "curl http://localhost:11434";
-      opu = "ollama pull";
-      ops = "ollama ps";
+      ollc = "curl http://localhost:11434";
+      ollp = "ollama pull";
+      olls = "ollama ps";
+      ollw = "docker run -d -p 3000:3000 -e OLLAMA_BASE_URL=http://host:11434 ghcr.io/open-webui/open-webui:main";
+      ollm = "ollama run";
+      ollr = "ollama rm";
     };
   };
 }

@@ -12,6 +12,7 @@
     };
     shellAliases = {
       jb = "just build";
+      jbw = "just build work";
     };
     initContent = ''
       if [[ -o interactive ]]; then
