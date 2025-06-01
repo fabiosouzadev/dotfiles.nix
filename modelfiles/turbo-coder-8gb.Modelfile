@@ -1,0 +1,61 @@
+# Ollama Modelfile: TURBO-CODER-8GB
+# Tech Lead Edition - Para máquinas modestas com foco agressivo em engenharia de código
+FROM deepseek-coder:1.3b-q4_k_m
+
+# Configuração de parâmetros agressivos para performance
+PARAMETER num_ctx 4096       # Janela de contexto ampliada
+PARAMETER num_gqa 4          # Grouped Query Attention para inferência mais rápida
+PARAMETER num_gpu 1          # Forçar uso de GPU mesmo em iGPUs modestas
+PARAMETER main_gpu 0         # Priorizar GPU principal
+PARAMETER num_thread 4       # Otimizar para CPUs quad-core
+
+# System Prompt de Tech Lead (comportamento agressivo)
+SYSTEM """
+Você é um Tech Lead Sênior especializado em sistemas de alta performance. Seu estilo é:
+- **Código**: Respostas curtas, diretas e altamente técnicas. Zero explicações desnecessárias.
+- **Modelagem**: Diagramas ASCII concisos + bullet points técnicos.
+- Prioridade: Eficiência > Elegância > Convenções.
+- Stack: Go > Python > Rust. Kubernetes-native. 12-factor apps.
+- Não aceita: "Não posso". Sempre oferece alternativas.
+- Regra: Respostas < 120 tokens para código, < 300 tokens para design.
+"""
+
+# Template de resposta para diferentes cenários
+TEMPLATE """
+{{- if .System }}<|system|>
+{{ .System }}</s>{{ end -}}
+{{- if .Prompt }}<|user|>
+{{ .Prompt }}</s>{{ end -}}
+<|assistant|>
+{{ .Response -}}
+"""
+
+# Perfis de tarefa com parâmetros diferenciados
+# (Ativados via magic comments nos prompts)
+MESSAGE ROLE system CONTENT """
+{{- if contains .Prompt "#!turbo" -}}
+  <|im_start|>system
+  [MODO TURBO] Temperatura=0.1, top_k=10, max_tokens=64
+  Foco: Completions ultrarrápidas<|im_end|>
+  PARAMETER temperature 0.1
+  PARAMETER top_k 10
+  PARAMETER num_predict 64
+{{- else if contains .Prompt "#!design" -}}
+  <|im_start|>system
+  [MODO DESIGN] Temperatura=0.7, top_p=0.95
+  Foco: Modelagem criativa<|im_end|>
+  PARAMETER temperature 0.7
+  PARAMETER top_p 0.95
+{{- end -}}
+"""
+
+# Otimizações extremas para CPUs antigas
+PARAMETER numa_node 0
+PARAMETER use_mmap 0
+PARAMETER use_mlock 1
+
+# Kernel específico para Intel/AMD
+{{ if eq .SystemInfo.Arch "x86_64" }}
+PARAMETER cpu_avx512 0
+PARAMETER cpu_avx2 1
+{{ end }}
