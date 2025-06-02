@@ -12,22 +12,22 @@
     # Sobrescrever diretório padrão
     environmentVariables = {
       # Otimização para GPU Intel
-      OLLAMA_NUM_GPU_LAYERS = "8"; # Camadas GPU (testado como estável para Iris Xe)
+      OLLAMA_NUM_GPU_LAYERS = "10"; # Camadas GPU (testado como estável para Iris Xe)
       OLLAMA_LLM_LIBRARY = "vulkan"; # Backend para GPU Intel
 
       # Controle de memória
-      OLLAMA_MAX_LOADED_MODELS = "1"; # Mantém apenas 1 modelo carregado
-      OLLAMA_NUM_PARALLEL = "2"; # Processamento paralelo
+      OLLAMA_MAX_LOADED_MODELS = "2"; # Mantém apenas 1 modelo carregado
+      OLLAMA_NUM_PARALLEL = "4"; # Processamento paralelo
 
       # Otimização de performance
-      OLLAMA_NUM_CTX = "2048"; # Contexto reduzido para economia de RA
+      # OLLAMA_NUM_CTX = "2048"; # Contexto reduzido para economia de RA
     };
   };
   ## Configuração do systemd.services
   systemd.services.ollama = {
     serviceConfig = {
       # Limites de memória
-      MemoryMax = "12G";
+      MemoryMax = "15G";
       MemorySwapMax = "28G";
       OOMScoreAdjust = -500; # Proteção contra OOM Killer
 
