@@ -91,6 +91,27 @@ in {
       gr = "git reset"; # Reset soft (mantém alterações)
       grh = "git reset --hard"; # Reset HARD (descarta TUDO)
       gclean = "git clean -fd"; # Remove arquivos untracked
+
+      ## Advanced
+      # REBASE INTERATIVO (squash/reword/edit commits)
+      gri = "git rebase -i"; # Ex: `gri HEAD~3`
+
+      # FIXUP (commits automáticos para correções)
+      gfix = "!f() { git commit -m \"fixup! $(git log -1 --format=%s)\"; }; f";
+
+      # VIEW (informações úteis)
+      gwho = "shortlog -s -n"; # Top contribuidores
+      gstat = "diff --stat HEAD"; # Estatísticas das alterações atuais
+      gwt = "worktree list"; # Lista worktrees
+
+      # GREP PODEROSO (com fzf + ripgrep)
+      ggrep = "git ls-files | rg"; # Busca em todos os arquivos versionados
+
+      # CONFLICT RESOLUTION
+      gmc = "diff --name-only --diff-filter=U"; # Lista arquivos com conflito
+
+      # Branch picker interativo (usa fzf)
+      gcop = "!git branch | fzf | xargs git checkout";
     };
     initContent = ''
       gpr() {
