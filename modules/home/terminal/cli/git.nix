@@ -57,7 +57,7 @@ in {
       gc = "git commit -v"; # Commit com diff no editor
       gcm = "git commit -m"; # Commit rápido com mensagem
       gca = "git commit --amend"; # Corrige último commit (mensagem/conteúdo)
-      gac = "!git add -A && git commit"; # Add ALL + commit (abre editor)
+      gac = "git add -A && git commit"; # Add ALL + commit (abre editor)
 
       # BRANCHES & CHECKOUT
       gco = "git checkout"; # Altera branch
