@@ -53,7 +53,7 @@ in {
       gitgrep = "git ls-files | rg";
       gdd = "git add";
       gcm = "git commit -m";
-      gco = "git commit -a -m";
+      gco = "git add . && git commit -m";
       gcl = "git clone";
       gps = "git push";
       gpl = "git pull";
