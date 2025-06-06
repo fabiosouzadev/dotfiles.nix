@@ -16,7 +16,7 @@
     qutebrowser
     # mullvad-browser
     # vivaldi
-    opera
+    # opera
     # midori
     # microsoft-edge
     inputs.zen-browser.packages."${system}".specific
