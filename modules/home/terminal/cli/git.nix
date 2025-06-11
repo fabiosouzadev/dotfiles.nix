@@ -85,7 +85,7 @@ in {
       gd = "git diff"; # Modificações não staged
       gdc = "git diff --cached"; # Modificações staged
       gds = "git diff --stat"; # Sumário de alterações
-      gstat = "git diff --stat HEAD"; # Estatísticas das alterações atuais
+      gdsh = "git diff --stat HEAD"; # Estatísticas das alterações atuais
       gref = "git reflog"; # Histórico de referências (útil para recuperar commits perdidos)
 
       # STASH
