@@ -7,6 +7,6 @@
     # package = pkgs.graphite-cursors;
     name = "BreezeX-RosePine-Linux";
     package = pkgs.rose-pine-cursor;
-    # size = 24;
+    size = 24;
   };
 }
