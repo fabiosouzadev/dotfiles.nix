@@ -57,14 +57,17 @@ in {
       gc = "git commit -v"; # Commit com diff no editor
       gcm = "git commit -m"; # Commit rápido com mensagem
       gca = "git commit --amend"; # Corrige último commit (mensagem/conteúdo)
-      gac = "git add -A && git commit"; # Add ALL + commit (abre editor)
+      gac = "git add -A && git commit -v"; # Add ALL + commit (abre editor)
+      gacm = "git add -A && git commit -m"; # Add ALL + commit (commit rapido)
 
       # BRANCHES & CHECKOUT
       gco = "git checkout"; # Altera branch
       gcb = "git checkout -b"; # Cria nova branch e muda
       gbr = "git branch"; # Lista branches
       gbd = "git branch -d"; # Deleta branch local
+      gbdr = "git push origin --delete"; # Deleta branch remota
       gbD = "git branch -D"; # Força delete branch
+      gcop = "git branch | fzf | xargs git checkout"; # Branch picker interativo (usa fzf)
 
       # SYNC & REMOTE
       gcl = "git clone";
@@ -78,40 +81,55 @@ in {
       # HISTORY & DIFF
       gl = "git log --oneline --graph --decorate -n 20"; # Histórico compacto
       glo = "git log --oneline --graph --decorate --all"; # Histórico completo
+      glp = "git log --oneline --graph --decorate --all --pretty='%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"; # Log colorido com autor e tempo relativo
       gd = "git diff"; # Modificações não staged
       gdc = "git diff --cached"; # Modificações staged
       gds = "git diff --stat"; # Sumário de alterações
+      gstat = "git diff --stat HEAD"; # Estatísticas das alterações atuais
+      gref = "git reflog"; # Histórico de referências (útil para recuperar commits perdidos)
 
       # STASH
       gst = "git stash"; # Stash padrão
       gstp = "git stash pop"; # Aplica último stash e remove
       gstl = "git stash list"; # Lista todos os stashes
+      gsts = "git stash push -m"; # Stash com mensagem descritiva
+      gsta = "git stash apply"; # Aplica stash sem remover
 
       # RESET & CLEAN
       gr = "git reset"; # Reset soft (mantém alterações)
       grh = "git reset --hard"; # Reset HARD (descarta TUDO)
+      grhc = "git reset --hard && git clean -fd"; # Reset completo + remove untracked
       gclean = "git clean -fd"; # Remove arquivos untracked
+      gprune = "git fetch --prune && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"; # Deleta branches locais já mescladas
 
-      ## Advanced
-      # REBASE INTERATIVO (squash/reword/edit commits)
-      gri = "git rebase -i"; # Ex: `gri HEAD~3`
+      # STATUS
+      gs = "git status"; # Status completo
+      gss = "git status --short"; # Status compacto
 
-      # FIXUP (commits automáticos para correções)
-      gfix = "f() { git commit -m \"fixup! $(git log -1 --format=%s)\"; }; f";
+      # MERGE
+      gm = "git merge"; # Merge simples
+      gma = "git merge --abort"; # Aborta merge em caso de conflitos
+      gmc = "git merge --continue"; # Continua após resolver conflitos
+
+      # GREP e BLAME
+      gg = "git grep"; # Busca em arquivos (rápido)
+      gbl = "git blame"; # Mostra autor por linha
+      gblc = "git blame -C"; # Blame com detecção de cópias/movimentações
+
+      ## REBASE
+      gri = "git rebase -i"; # Ex: `gri HEAD~3` # REBASE INTERATIVO (squash/reword/edit commits)
+      gup = "git fetch upstream && git rebase upstream/main"; # Sincroniza fork com upstream
+      grbmain = "git fetch origin && git rebase origin/main"; # Rebase com main remota
 
       # VIEW (informações úteis)
       gwho = "git shortlog -s -n"; # Top contribuidores
-      gstat = "git diff --stat HEAD"; # Estatísticas das alterações atuais
       gwt = "git worktree list"; # Lista worktrees
 
       # GREP PODEROSO (com fzf + ripgrep)
       ggrep = "git ls-files | rg"; # Busca em todos os arquivos versionados
 
       # CONFLICT RESOLUTION
-      gmc = "git diff --name-only --diff-filter=U"; # Lista arquivos com conflito
-
-      # Branch picker interativo (usa fzf)
-      gcop = "git branch | fzf | xargs git checkout";
+      gml = "git diff --name-only --diff-filter=U"; # Lista arquivos com conflito
     };
     initContent = ''
       gpr() {

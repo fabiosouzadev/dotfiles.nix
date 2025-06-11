@@ -46,11 +46,10 @@ in {
           home.homeDirectory = nixpkgs.lib.mkDefault "/home/${vars.username}";
           imports =
             [
-              ../modules/home/instivo
-              ../modules/home/shared/home-manager.nix
-              ../modules/home/shared/common.nix
+              ../modules/home/shared
+              ../modules/home/desktop
               ../modules/home/browsers
-              ../modules/home/shared/xdg.nix
+              ../modules/home/instivo
             ]
             ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../modules/home/wm/i3]);
         };
