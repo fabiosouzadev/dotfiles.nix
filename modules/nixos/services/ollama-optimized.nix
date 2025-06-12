@@ -85,8 +85,8 @@
       ollp = "ollama pull";
       olls = "ollama ps";
       ollw = "docker run -d -p 3000:3000 -e OLLAMA_BASE_URL=http://host:11434 ghcr.io/open-webui/open-webui:main";
-      ollm = "ollama run";
-      ollr = "ollama rm";
+      ollr = "ollama run";
+      olld = "ollama rm";
     };
   };
 }
