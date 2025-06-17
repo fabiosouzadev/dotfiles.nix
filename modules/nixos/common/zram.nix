@@ -2,7 +2,7 @@
   swapDevices = lib.mkForce [
     {
       device = "/.swapfile"; # Caminho recomendado
-      size = 16 * 1024; # 16GB (igual à RAM física)
+      size = 32 * 1024; # 16GB (igual à RAM física)
       # priority = 0; # Último recurso
     }
   ];

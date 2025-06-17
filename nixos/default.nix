@@ -16,7 +16,7 @@
     # wm = "";
     shell = "zsh";
     editor = "nvim";
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 in {
   work = nixpkgs.lib.nixosSystem {

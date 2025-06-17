@@ -4,6 +4,6 @@
     ../shared/bluetooth.nix
     ../shared/hardware-acceleration.nix
     ../shared/pulseaudio.nix
-    ../shared/zram.nix
+    ../shared/kernel-rtl8821ce.nix
   ];
 }
