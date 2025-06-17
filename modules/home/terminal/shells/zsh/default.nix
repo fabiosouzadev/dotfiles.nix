@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # basic configuration of git, please change to your own
   programs.zsh = {
     enable = true;
@@ -11,8 +11,15 @@
       share = true;
     };
     shellAliases = {
+      reload = "source ~/.zshrc";
+      n = "nvim";
+      v = "nvim";
       jb = "just build";
       jbw = "just build work";
+      rdot = "source ~/.zshrc";
+      work = "cd ~/Projects/Work/";
+      winstivo = "cd ~/Projects/Work/Instivo/";
+      personal = "cd ~/Projects/Personal/";
     };
     initContent = ''
       if [[ -o interactive ]]; then

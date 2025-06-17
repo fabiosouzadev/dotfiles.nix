@@ -3,7 +3,9 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  model = "techlead-aggresive";
+in {
   # 1. Habilitar serviço Ollama
   services.ollama = {
     enable = true;
@@ -12,7 +14,7 @@
     # Sobrescrever diretório padrão
     environmentVariables = {
       # Otimização para GPU Intel
-      OLLAMA_NUM_GPU_LAYERS = "10"; # Camadas GPU (testado como estável para Iris Xe)
+      # OLLAMA_NUM_GPU_LAYERS = "10"; # Camadas GPU (testado como estável para Iris Xe)
       OLLAMA_LLM_LIBRARY = "vulkan"; # Backend para GPU Intel
 
       # Controle de memória
@@ -27,7 +29,7 @@
   systemd.services.ollama = {
     serviceConfig = {
       # Limites de memória
-      MemoryMax = "15G";
+      MemoryMax = "13G";
       MemorySwapMax = "28G";
       OOMScoreAdjust = -500; # Proteção contra OOM Killer
 
@@ -63,7 +65,7 @@
   #     OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
   #     OLLAMA_BASE_URL = "http://127.0.0.1:11434";
   #     # # Disable authentication
-  #     WEBUI_AUTH = "False";
+  #     # WEBUI_AUTH = "False";
   #   };
   # };
 
@@ -84,9 +86,14 @@
       ollc = "curl http://localhost:11434";
       ollp = "ollama pull";
       olls = "ollama ps";
-      ollw = "docker run -d -p 3000:3000 -e OLLAMA_BASE_URL=http://host:11434 ghcr.io/open-webui/open-webui:main";
+      # ollw = "docker run -d -p 11435:8080 -v open-webui:/app/backend/data --name open-webui --add-host=host.docker.internal:host-gateway --restart always ghcr.io/open-webui/open-webui:main";
       ollr = "ollama run";
       olld = "ollama rm";
+      # Seleciona um commit e resume suas mudanças
+      ollama-commit-summary-fzf = "git log --oneline | fzf | cut -d ' ' -f 1 | xargs -I {} git show {} | ollama run ${model} \"Resuma as mudanças deste commit em bullet points focando no impacto para code review:\"";
+      ollama-diff-summary = ''
+        git diff | ollama run ${model} "Resuma estas mudanças em bullet points focando no impacto para code review:"
+      '';
     };
   };
 }

@@ -44,10 +44,10 @@
       # `(final: prev: { xxx = prev.xxx.override { ... }; })`
       # (import ./overlay3)
 
-      inputs.neovim-flake.overlays.default
-      # (final: prev: {
-      #   neovim = inputs.neovim-flake.overlays.default;
-      # })
+      # inputs.neovim-flake.overlays.default
+      (final: prev: {
+        neovim = inputs.neovim-flake.overlays.default;
+      })
 
       (self: super: {
         ollama = super.ollama.overrideAttrs (old: {

@@ -42,15 +42,18 @@ in {
       diff.colorMoved = "zebra";
       fetch.prune = true;
       init.defaultBranch = "main";
+      pull.rebase = true; # Prefira rebase ao invés de merge no pull
       merge.conflictstyle = "zdiff3";
       push.autoSetupRemote = true;
       rebase.autoStash = true;
+      # GitHub CLI como helper de credencial (opcional, mas bom)
+      credential.helper = "${pkgs.gh}/bin/gh auth git-credential";
     };
   };
 
   programs.zsh = {
     shellAliases = {
-      gitgrep = "git ls-files | rg";
+      g = "git";
       # STAGE & COMMIT
       ga = "git add"; # Stage arquivo específico
       gaa = "git add --all"; # Stage TUDO (tracked + untracked)

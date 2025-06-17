@@ -13,5 +13,10 @@
       enableZshIntegration = true;
       enableNushellIntegration = true;
     };
+    zsh = {
+      shellAliases = {
+        g = "git";
+      };
+    };
   };
 }
