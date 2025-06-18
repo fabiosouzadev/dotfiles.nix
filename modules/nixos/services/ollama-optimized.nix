@@ -18,11 +18,11 @@ in {
       OLLAMA_LLM_LIBRARY = "vulkan"; # Backend para GPU Intel
 
       # Controle de memória
-      OLLAMA_MAX_LOADED_MODELS = "2"; # Mantém apenas 1 modelo carregado
-      OLLAMA_NUM_PARALLEL = "4"; # Processamento paralelo
+      OLLAMA_MAX_LOADED_MODELS = "1"; # Mantém apenas 1 modelo carregado
+      OLLAMA_NUM_PARALLEL = "3"; # Processamento paralelo
 
       # Otimização de performance
-      # OLLAMA_NUM_CTX = "2048"; # Contexto reduzido para economia de RA
+      OLLAMA_NUM_CTX = "2048"; # Contexto reduzido para economia de RA
     };
   };
   ## Configuração do systemd.services
