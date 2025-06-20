@@ -51,6 +51,7 @@ in {
               ../modules/home/desktop
               ../modules/home/browsers
               ../modules/home/instivo
+              ../modules/home/services
             ]
             ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../modules/home/wm/i3]);
         };

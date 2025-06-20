@@ -20,6 +20,7 @@
       work = "cd ~/Projects/Work/";
       winstivo = "cd ~/Projects/Work/Instivo/";
       personal = "cd ~/Projects/Personal/";
+      dots = "cd ~/.dotfiles.nix";
     };
     initContent = ''
       if [[ -o interactive ]]; then
