@@ -79,4 +79,10 @@ in
       ".local/share/fonts/rofi".source = "${rofi-themes}/fonts";
       ".local/share/fonts/polybar".source = "${polybar-themes}/fonts";
     };
+
+    programs.zsh = {
+      shellAliases = {
+        xclass = "xprop | grep WM_CLASS";
+      };
+    };
   }
