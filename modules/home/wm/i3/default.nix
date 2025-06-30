@@ -16,7 +16,7 @@ in
         enable = true;
         package = pkgs.i3-gaps;
         config = lib.mkForce null; # ignores all home-manager's default i3 config
-        extraConfig = builtins.readFile ./conf/i3-config.conf;
+        extraConfig = builtins.readFile ./conf/i3.conf;
       };
       # Path, relative to HOME, where Home Manager should write the X session script.
       # and NixOS will use it to start xorg session when system boot up
