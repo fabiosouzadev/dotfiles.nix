@@ -3,7 +3,7 @@
   env = {
     GREET = "devenv";
     SHELL = "${pkgs.zsh}/bin/zsh";
-    MONGO_DATABASE_URL = "mongodb://mongouser:secret@localhost:27017/";
+    MONGO_DATABASE_URL = "mongodb://mongouser:secret@localhost:27017/admin";
     DATABASE_URL = "postgresql://fabiosouzadev:123@localhost:5432/receiving-conference?schema=public";
     PRISMA_MIGRATION_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/migration-engine";
     PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
