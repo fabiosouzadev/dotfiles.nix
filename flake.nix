@@ -20,9 +20,6 @@
       # Requires "nur.nixosModules.nur" to be added to the host modules
     };
 
-    #zen-browser
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
-
     ## My secrets ##
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -56,6 +53,8 @@
       url = "github:catppuccin/delta";
       flake = false;
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs @ {
@@ -72,6 +71,7 @@
     polybar-themes,
     wallpapers,
     catppuccin-delta,
+    hyprland,
     ...
   }: {
     darwinConfigurations = (

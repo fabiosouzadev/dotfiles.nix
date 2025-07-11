@@ -19,6 +19,6 @@
     # opera
     # midori
     # microsoft-edge
-    inputs.zen-browser.packages."${system}".specific
+    # inputs.zen-browser.packages."${system}".specific
   ];
 }

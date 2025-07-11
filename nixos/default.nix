@@ -10,10 +10,13 @@
     hostname = "nixos-zapay";
     browser = "brave";
     terminal = "wezterm";
-    desktop = "xfce";
-    wm = "i3";
+    # desktop = "xfce";
+    # wm = "i3";
     # desktop = "gnome";
     # wm = "";
+    # desktop = "gnome";
+    desktop = "";
+    wm = "hyprland";
     shell = "zsh";
     editor = "nvim";
     stateVersion = "25.11";
@@ -23,7 +26,6 @@ in {
     inherit system;
     specialArgs = {inherit inputs system vars;};
     modules = [
-      {config.${vars.desktop}.enable = true;}
       ./hosts/dell-inspirion-3520
       ../modules/nixos/common/system-packages.nix
       ../modules/nixos/common/fonts.nix
@@ -36,6 +38,7 @@ in {
       ../modules/nixos/desktop
       ../modules/nixos/instivo
       ../modules/nixos/services
+      # {config.${vars.desktop}.enable = true;}
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -53,7 +56,8 @@ in {
               ../modules/home/instivo
               ../modules/home/services
             ]
-            ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../modules/home/wm/i3]);
+            ++ (nixpkgs.lib.optionals (vars.desktop == "xfce" && vars.wm == "i3") [../modules/home/wm/i3])
+            ++ (nixpkgs.lib.optionals (vars.wm == "hyprland") [../modules/home/wm/hyprland]);
         };
         # NixOS system-wide home-manager configuration
         home-manager.sharedModules = [

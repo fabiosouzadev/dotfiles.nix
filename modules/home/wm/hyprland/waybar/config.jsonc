@@ -1,0 +1,47 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["workspaces", "custom/updates"],
+  "modules-center": [],
+  "modules-right": ["memory", "cpu", "pulseaudio", "clock", "playerctl"],
+
+  "custom": {
+    "updates": {
+      "exec": "checkupdates | wc -l",
+      "interval": 3600,
+      "format": " {stdout} updates",
+      "on-click": "alacritty -e sudo nixos-rebuild switch"
+    }
+  },
+
+  "workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true
+  },
+
+  "memory": {
+    "format": "{used} MiB / {total} MiB",
+    "interval": 5
+  },
+
+  "cpu": {
+    "format": "{usage}%",
+    "interval": 3
+  },
+
+  "pulseaudio": {
+    "format": "{volume}%",
+    "format-muted": "Muted"
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "playerctl": {
+    "format": "{artist} - {title}",
+    "format-paused": "Paused",
+    "format-stopped": "Stopped"
+  }
+}

@@ -31,7 +31,10 @@
         enable = true;
         # Enable the Xfce4 Desktop Environment.
         desktopManager.gnome.enable = true;
-        displayManager.gdm.enable = true;
+        displayManager.gdm = {
+          enable = true;
+          wayland = true;
+        };
       };
 
       displayManager = {
