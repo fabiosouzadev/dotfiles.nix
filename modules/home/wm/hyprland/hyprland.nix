@@ -23,6 +23,7 @@ in
         recursive = true;
         executable = true; # make all scripts executable
       };
+      "waybar/".source = ./waybar;
       # "waybar/config.jsonc".text = builtins.readFile ./waybar/config.jsonc;
       # "waybar/style.css".text = builtins.readFile ./waybar/style.css;
       "hypr/monitor.sh".text = ''
