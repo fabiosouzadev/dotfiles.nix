@@ -48,18 +48,26 @@ in
     };
     # Pacotes essenciais
     home.packages = with pkgs; [
+      # ecosystem
+      hyprpicker
+      hyprcursor
+      hyprlock
+      hypridle
+      hyprpaper
+
+      waybar
       dunst
       rofi-wayland
       flameshot
-      swww
-      waybar
       wl-clipboard
-      brightnessctl
-      hyprpaper
-      hypridle
-      xdg-utils
       cliphist
+      brightnessctl
       slurp
       grim
+      wlr-randr
+
+      nwg-displays
+      qt6.full
+      xdg-utils
     ];
   }

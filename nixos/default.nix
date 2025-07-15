@@ -10,13 +10,10 @@
     hostname = "nixos-zapay";
     browser = "brave";
     terminal = "wezterm";
-    # desktop = "xfce";
-    # wm = "i3";
-    # desktop = "gnome";
-    # wm = "";
-    # desktop = "gnome";
-    desktop = "";
-    wm = "hyprland";
+    desktop = "xfce";
+    wm = "i3";
+    # desktop = "";
+    # wm = "hyprland";
     shell = "zsh";
     editor = "nvim";
     stateVersion = "25.11";

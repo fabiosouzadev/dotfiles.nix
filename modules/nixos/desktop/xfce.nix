@@ -14,7 +14,7 @@
       enable = lib.mkEnableOption "enable xfce";
     };
   };
-  config = lib.mkIf (config.xfce.enable) {
+  config = lib.mkIf (vars.desktop == "xfce") {
     ####################################################################
     #  NixOS's Configuration for Xfce4 Desktop Environment
     ####################################################################

@@ -23,7 +23,7 @@
     };
   };
 
-  config = lib.mkIf (config.gnome.enable) {
+  config = lib.mkIf (vars.desktop == "gnome") {
     services = {
       xserver = {
         # Enable the X11 windowing system.

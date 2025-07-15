@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./espanso.nix
+    # ./espanso.nix
   ];
 }
