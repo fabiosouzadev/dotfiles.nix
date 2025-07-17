@@ -18,6 +18,7 @@ lib.mkIf (vars.wm == "hyprland") {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    withUWSM = true;
   };
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
