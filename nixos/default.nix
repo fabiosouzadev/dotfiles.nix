@@ -7,7 +7,7 @@
   system = "x86_64-linux";
   vars = {
     username = "fabiosouzadev";
-    hostname = "work";
+    hostname = "nixos-zapay";
     browser = "brave";
     terminal = "ghostty";
     desktop = "xfce";

@@ -54,7 +54,7 @@ in
         recursive = true;
         executable = true; # make all scripts executable
       };
-      "dunst/dunstrc".source = ./conf/dunst/dunstrc;
+      "dunst/dunstrc".source = ../dunst/dunstrc;
       "polybar" = {
         source = "${polybar-themes}/simple";
         recursive = true;
@@ -71,6 +71,7 @@ in
       };
       "picom/picom.conf".source = ./conf/picom/picom.conf;
       "greenclip.toml".source = ./conf/greenclip/greenclip.toml;
+      "networkmanager-dmenu/config.ini".source = ./conf/networkmanager_dmenu/config.ini;
     };
 
     home.file = {

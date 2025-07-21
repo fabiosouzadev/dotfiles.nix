@@ -5,7 +5,7 @@
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
-  "modules-right": ["tray"],
+  "modules-right": ["clock","tray"],
   // "modules-right": ["pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -28,12 +28,12 @@
   //   "on-click": "playerctl play-pause",
   //   "max-length": 50
   // },
-  // "clock": {
-  //   "timezone": "Asia/Dubai",
-  //   "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-  //   "format-alt": " {:%d/%m/%Y}",
-  //   "format": " {:%H:%M}"
-  // },
+  "clock": {
+    "timezone": "America/Sao_Paulo",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m/%Y}",
+    "format": " {:%H:%M}"
+  },
   // "backlight": {
   //   "device": "intel_backlight",
   //   "format": "{icon}",

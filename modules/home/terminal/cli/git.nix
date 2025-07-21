@@ -78,7 +78,7 @@ in {
       gpsf = "git push --force-with-lease"; # Push forçado (seguro)
       gpl = "git pull";
       gplr = "git pull --rebase"; # Pull com rebase (evita merges desnecessários)
-      gft = "git fetch";
+      # gft = "git fetch";
       gfu = "git fetch upstream"; # Para forks (GitHub workflow)
 
       # HISTORY & DIFF
