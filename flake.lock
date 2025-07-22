@@ -311,11 +311,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753180535,
-        "narHash": "sha256-KEtlzMs2O7FDvciFtjk9W4hyau013Pj9qZNK9a0PxEc=",
+        "lastModified": 1753181343,
+        "narHash": "sha256-CLQfNtUqirNVSYoW/kYbvL4PeeNasmZonaPnjO3+1YQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "847711c7ffa9944b0c5c39a8342ac8eb6a9f9abc",
+        "rev": "0cdfcdbb525b77b951c889b6131047bc374f48fe",
         "type": "github"
       },
       "original": {
@@ -772,11 +772,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753180013,
-        "narHash": "sha256-2fFqH86npWjfKPJ38vxPB3qo8gOb+oI3W2oRtCH22qk=",
+        "lastModified": 1753212799,
+        "narHash": "sha256-1YjRghJrbI6Hi6p0iW7CYR0qcJ8jwx2ElsS03ZoiHVc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ec548f29ab52ae309a08591597d5b3e17d60b550",
+        "rev": "2d9a3a1b1a6b823ffad3dde9d1e78b0fed286ad3",
         "type": "github"
       },
       "original": {
@@ -788,11 +788,11 @@
     "polybar-themes": {
       "flake": false,
       "locked": {
-        "lastModified": 1753130390,
-        "narHash": "sha256-GGmha0bgxyiRoJUH8VAf0vfi3UOzU2/QmfxmBCHrDBw=",
+        "lastModified": 1753216897,
+        "narHash": "sha256-/VEKKe/4q1An+sNbvrlJCAFKyr+WGIUQML4e5qubTQ4=",
         "owner": "fabiosouzadev",
         "repo": "polybar-themes",
-        "rev": "abfcdcf67e7bf15204d151e7eb6a82a7bd33e860",
+        "rev": "da96e9490c68671b21b433590f5f5683f54fb33e",
         "type": "github"
       },
       "original": {
