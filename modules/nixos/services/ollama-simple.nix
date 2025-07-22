@@ -34,14 +34,6 @@
   #   })
   # ];
 
-  # Ai for cli https://github.com/block/goose
-  # Ai for cli https://github.com/ggozad/oterm
-  environment.systemPackages = with pkgs; [
-    # ollama
-    goose-cli
-    # oterm
-  ];
-
   programs.zsh = {
     interactiveShellInit = ''
       export OLLAMA_HOST=http://127.0.0.1:11434

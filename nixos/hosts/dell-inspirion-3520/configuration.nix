@@ -15,7 +15,7 @@
     ../../../modules/nixos/common/keymap.nix
     ../../../modules/nixos/common/user.nix
     ../../../modules/nixos/virtualisation
-    ../../../modules/nixos/editors
+    # ../../../modules/nixos/editors
   ];
 
   # Use the systemd-boot EFI boot loader.
