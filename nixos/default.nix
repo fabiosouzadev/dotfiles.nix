@@ -7,7 +7,7 @@
   system = "x86_64-linux";
   vars = {
     username = "fabiosouzadev";
-    hostname = "nixos-zapay";
+    hostname = "dell-inspirion-3520";
     browser = "brave";
     terminal = "ghostty";
     desktop = "xfce";
@@ -19,7 +19,7 @@
     stateVersion = "25.11";
   };
 in {
-  work = nixpkgs.lib.nixosSystem {
+  dell-inspirion-3520 = nixpkgs.lib.nixosSystem {
     inherit system;
     specialArgs = {inherit inputs system vars;};
     modules = [
