@@ -35,6 +35,7 @@ in {
       ../modules/nixos/desktop
       ../modules/nixos/instivo
       ../modules/nixos/services
+      ../modules/nixos/editors
       # {config.${vars.desktop}.enable = true;}
       home-manager.nixosModules.home-manager
       {
