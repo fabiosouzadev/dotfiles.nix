@@ -3,6 +3,7 @@
     optimise.automatic = true;
 
     settings = {
+      download-buffer-size = 524288000; # 500 MiB
       auto-optimise-store = true;
       builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
