@@ -13,6 +13,7 @@ in {
   home.packages = with pkgs; [
     lazygit
     gh #github
+    # degit
   ];
   programs.git = {
     enable = true;
@@ -43,7 +44,7 @@ in {
       fetch.prune = true;
       init.defaultBranch = "main";
       pull.rebase = true; # Prefira rebase ao invés de merge no pull
-      merge.conflictstyle = "zdiff3";
+      merge.tool = "nvimdiff";
       push.autoSetupRemote = true;
       rebase.autoStash = true;
       # GitHub CLI como helper de credencial (opcional, mas bom)
@@ -78,7 +79,7 @@ in {
       gpsf = "git push --force-with-lease"; # Push forçado (seguro)
       gpl = "git pull";
       gplr = "git pull --rebase"; # Pull com rebase (evita merges desnecessários)
-      # gft = "git fetch";
+      gft = "git fetch";
       gfu = "git fetch upstream"; # Para forks (GitHub workflow)
 
       # HISTORY & DIFF

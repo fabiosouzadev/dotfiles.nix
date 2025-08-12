@@ -5,15 +5,14 @@
     SHELL = "${pkgs.zsh}/bin/zsh";
     MONGO_DATABASE_URL = "mongodb://mongouser:secret@localhost:27017/admin";
     DATABASE_URL = "postgresql://fabiosouzadev:123@localhost:5432/receiving-conference?schema=public";
-    PRISMA_MIGRATION_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/migration-engine";
-    PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
-    PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
-    PRISMA_INTROSPECTION_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/introspection-engine";
-    PRISMA_FMT_BINARY = "${pkgs.prisma-engines}/bin/prisma-fmt";
+    # PRISMA_MIGRATION_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/migration-engine";
+    # PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
+    # PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
+    # PRISMA_INTROSPECTION_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/introspection-engine";
+    # PRISMA_FMT_BINARY = "${pkgs.prisma-engines}/bin/prisma-fmt";
 
     NODE_PATH = "$DEVENV_ROOT/.nix-node";
     PATH = "$NODE_PATH/bin:$PATH";
-
     MONGO_DATA_DIR = "${toString ./.}/.devenv/mongodb-data";
   };
 
@@ -22,8 +21,8 @@
     openssl
     postgresql
     nodePackages.npm
-    nodePackages.prisma
-    mongodb-7_0
+    # nodePackages.prisma
+    # mongodb-ce
     mongosh # CLI para MongoDB
     gnumake # Para scripts de build
   ];
@@ -50,23 +49,23 @@
   };
 
   # https://devenv.sh/services/
-  services.postgres = {
-    enable = true;
-    listen_addresses = "*";
-    initialDatabases = [
-      {
-        name = "receiving-conference";
-      }
-    ];
-    # initialScript = builtins.readFile ./data/dump.sql;
-  };
+  # services.postgres = {
+  #   enable = true;
+  #   listen_addresses = "*";
+  #   initialDatabases = [
+  #     {
+  #       name = "receiving-conference";
+  #     }
+  #   ];
+  #   # initialScript = builtins.readFile ./data/dump.sql;
+  # };
   # services.adminer = {
   #   enable = true;
   #   listen = "127.0.0.1:8081";
   # };
   services.mongodb = with pkgs; {
     enable = true;
-    package = mongodb-7_0;
+    package = mongodb-ce;
     initDatabaseUsername = "mongouser";
     initDatabasePassword = "secret";
   };
@@ -76,8 +75,8 @@
     dev.exec = "npm run start:dev";
     dbreset.exec = "mongosh --eval 'db.getSiblingDB(\"nestapp\").dropDatabase()'";
     dbshell.exec = "mongosh $DATABASE_URL";
-    migrate.exec = "prisma migrate dev";
-    generate.exec = "prisma generate";
+    # migrate.exec = "prisma migrate dev";
+    # generate.exec = "prisma generate";
   };
 
   enterShell = ''

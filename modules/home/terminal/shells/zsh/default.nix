@@ -15,7 +15,7 @@
       n = "nvim";
       v = "nvim";
       jb = "just build";
-      jbw = "just build work";
+      jbw = "just build dell-inspirion-3520";
       rdot = "source ~/.zshrc";
       work = "cd ~/Projects/Work/";
       winstivo = "cd ~/Projects/Work/Instivo/";
