@@ -15,10 +15,10 @@
     chromium
     qutebrowser
     # mullvad-browser
-    # vivaldi
+    vivaldi
     # opera
     # midori
-    # microsoft-edge
+    microsoft-edge
     # inputs.zen-browser.packages."${system}".specific
   ];
 }

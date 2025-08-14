@@ -47,8 +47,13 @@
     twitch-dl
     qbittorrent
 
-    # tools
-    #unetbootin
+    # usb tools
+    unetbootin
+    isoimagewriter
+    # ventoy-full
+    usbimager
+
+    # test
     speedtest-cli
 
     #ftp client

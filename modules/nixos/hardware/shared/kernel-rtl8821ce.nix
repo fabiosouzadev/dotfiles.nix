@@ -14,17 +14,17 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    rtl8821ce
-  ];
+  # boot.extraModulePackages = with config.boot.kernelPackages; [
+  #   rtl8821ce
+  # ];
   # Carrega o módulo necessário no boot
-  boot.kernelModules = ["8821ce"];
-  boot.extraModprobeConfig = ''
-    options rtl8821ce power_save=0 ips=0
-  '';
+  # boot.kernelModules = ["8821ce"];
+  # boot.extraModprobeConfig = ''
+  #   options rtl8821ce power_save=0 ips=0
+  # '';
 
   environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_zen.rtl8821ce
+    # linuxKernel.packages.linux_zen.rtl8821ce
     iw
     wget
     wireless-regdb
