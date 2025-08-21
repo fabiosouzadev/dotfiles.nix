@@ -41,7 +41,7 @@
       flake = false;
     };
     polybar-themes = {
-      url = "github:fabiosouzadev/polybar-themes";
+      url = "git+https://github.com/fabiosouzadev/polybar-themes.git?ref=master&rev=21f88b9214a25d67e97663c9e666b509b1b85106";
       flake = false;
     };
     wallpapers = {
