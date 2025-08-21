@@ -37,7 +37,7 @@
 
     #customizations
     rofi-themes = {
-      url = "github:fabiosouzadev/rofi-themes";
+      url = "git+https://github.com/fabiosouzadev/rofi-themes.git?ref=master&rev=093c1a79f58daab358199c4246de50357e5bf462";
       flake = false;
     };
     polybar-themes = {
